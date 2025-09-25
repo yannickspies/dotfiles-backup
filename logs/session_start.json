@@ -1,0 +1,9 @@
+[
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "SessionStart",
+    "source": "startup"
+  }
+]

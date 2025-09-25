@@ -1,0 +1,42 @@
+[
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "/prime "
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "I would like to ADD these options to my neovim config init.lua. \n```\n\n-- Basic settings\nvim.opt.number = true                              -- Line numbers\nvim.opt.relativenumber = true                      -- Relative line numbers\nvim.opt.cursorline = true                          -- Highlight current line\nvim.opt.wrap = false                               -- Don't wrap lines\nvim.opt.scrolloff = 10                             -- Keep 10 lines above/below cursor \nvim.opt.sidescrolloff = 8                          -- Keep 8 columns left/right of cursor\n\n-- Indentation\nvim.opt.tabstop = 2                                -- Tab width\nvim.opt.shiftwidth = 2                             -- Indent width\nvim.opt.softtabstop = 2                            -- Soft tab stop\nvim.opt.expandtab = true                           -- Use spaces instead of tabs\nvim.opt.smartindent = true                         -- Smart auto-indenting\nvim.opt.autoindent = true                          -- Copy indent from current line\n\n-- Search settings\nvim.opt.ignorecase = true                          -- Case insensitive search\nvim.opt.smartcase = true                           -- Case sensitive if uppercase in search\nvim.opt.hlsearch = false                           -- Don't highlight search results \nvim.opt.incsearch = true                           -- Show matches as you type\n\n-- Visual settings\nvim.opt.termguicolors = true                       -- Enable 24-bit colors\nvim.opt.signcolumn = \"yes\"                         -- Always show sign column\nvim.opt.colorcolumn = \"100\"                        -- Show column at 100 characters\nvim.opt.showmatch = true                           -- Highlight matching brackets\nvim.opt.matchtime = 2                              -- How long to show matching bracket\nvim.opt.cmdheight = 1                              -- Command line height\nvim.opt.completeopt = \"menuone,noinsert,noselect\"  -- Completion options \nvim.opt.showmode = false                           -- Don't show mode in command line \nvim.opt.pumheight = 10                             -- Popup menu height \nvim.opt.pumblend = 10                              -- Popup menu transparency \nvim.opt.winblend = 0                               -- Floating window transparency \nvim.opt.conceallevel = 0                           -- Don't hide markup \nvim.opt.concealcursor = \"\"                         -- Don't hide cursor line markup \nvim.opt.lazyredraw = true                          -- Don't redraw during macros\nvim.opt.synmaxcol = 300                            -- Syntax highlighting limit \n\n-- File handling\nvim.opt.backup = false                             -- Don't create backup files\nvim.opt.writebackup = false                        -- Don't create backup before writing\nvim.opt.swapfile = false                           -- Don't create swap files\nvim.opt.undofile = true                            -- Persistent undo\nvim.opt.undodir = vim.fn.expand(\"~/.vim/undodir\")  -- Undo directory\nvim.opt.updatetime = 300                           -- Faster completion\nvim.opt.timeoutlen = 500                           -- Key timeout duration\nvim.opt.ttimeoutlen = 0                            -- Key code timeout\nvim.opt.autoread = true                            -- Auto reload files changed outside vim\nvim.opt.autowrite = false                          -- Don't auto save\n\n-- Behavior settings\nvim.opt.hidden = true                              -- Allow hidden buffers\nvim.opt.errorbells = false                         -- No error bells\nvim.opt.backspace = \"indent,eol,start\"             -- Better backspace behavior\nvim.opt.autochdir = false                          -- Don't auto change directory\nvim.opt.iskeyword:append(\"-\")                      -- Treat dash as part of word\nvim.opt.path:append(\"**\")                          -- include subdirectories in search\nvim.opt.selection = \"exclusive\"                    -- Selection behavior\nvim.opt.mouse = \"a\"                                -- Enable mouse support\nvim.opt.clipboard:append(\"unnamedplus\")            -- Use system clipboard\nvim.opt.modifiable = true                          -- Allow buffer modifications\nvim.opt.encoding = \"UTF-8\"                         -- Set encoding\n``` PLEASE add them, group similar options, remove duplicates. settings form this paste have prio "
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "Perfect, but change the indentation to 4 spaces since that has my preference "
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "I want to add\nvim.keymap.set(\"n\", \"<C-d>\", \"<C-d>zz\", { desc = \"Half page down (centered)\" })\nvim.keymap.set(\"n\", \"<C-u>\", \"<C-u>zz\", { desc = \"Half page up (centered)\" })\n\nalso when i press Y i want to yank to end of line\nand CTRL S to save buffer\n\nand \n-- Buffer navigation\nvim.keymap.set(\"n\", \"<leader>bn\", \":bnext<CR>\", { desc = \"Next buffer\" })\nvim.keymap.set(\"n\", \"<leader>bp\", \":bprevious<CR>\", { desc = \"Previous buffer\" })"
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "/commit "
+  }
+]

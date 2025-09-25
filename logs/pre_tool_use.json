@@ -1,0 +1,99 @@
+[
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "git ls-files",
+      "description": "List all tracked files in the repository"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "find . -name \"README*\" -type f 2>/dev/null | head -10",
+      "description": "Find README files in the repository"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Read",
+    "tool_input": {
+      "file_path": "/home/yannickspies/dotfiles/nvim/.config/nvim/README.md"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Read",
+    "tool_input": {
+      "file_path": "/home/yannickspies/dotfiles/nvim/.config/nvim/init.lua"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Edit",
+    "tool_input": {
+      "file_path": "/home/yannickspies/dotfiles/nvim/.config/nvim/init.lua",
+      "old_string": "-- [[ Setting options ]]\n-- See `:help vim.o`\n-- NOTE: You can change these options as you wish!\n--  For more options, you can see `:help option-list`\n\n-- Make line numbers default\nvim.o.number = true\n-- You can also add relative line numbers, to help with jumping.\n--  Experiment for yourself to see if you like it!\nvim.o.relativenumber = true\nvim.o.cursorline = true\nvim.opt.wrap = false\nvim.opt.scrolloff = 10\nvim.opt.sidescrolloff = 8\n\n-- Enable mouse mode, can be useful for resizing splits for example!\nvim.o.mouse = 'a'\n\n-- Don't show the mode, since it's already in the status line\nvim.o.showmode = false\n\n-- Sync clipboard between OS and Neovim.\n--  Schedule the setting after `UiEnter` because it can increase startup-time.\n--  Remove this option if you want your OS clipboard to remain independent.\n--  See `:help 'clipboard'`\nvim.schedule(function()\n  vim.o.clipboard = 'unnamedplus'\nend)\n\n-- Enable break indent\nvim.o.breakindent = true\n\n-- Save undo history\nvim.o.undofile = true\n\n-- Case-insensitive searching UNLESS \\C or one or more capital letters in the search term\nvim.o.ignorecase = true\nvim.o.smartcase = true\n\n-- Keep signcolumn on by default\nvim.o.signcolumn = 'yes'\n\n-- Decrease update time\nvim.o.updatetime = 250\n\n-- Decrease mapped sequence wait time\nvim.o.timeoutlen = 300\n\n-- Configure how new splits should be opened\nvim.o.splitright = true\nvim.o.splitbelow = true\n\n-- Sets how neovim will display certain whitespace characters in the editor.\n--  See `:help 'list'`\n--  and `:help 'listchars'`\n--\n--  Notice listchars is set using `vim.opt` instead of `vim.o`.\n--  It is very similar to `vim.o` but offers an interface for conveniently interacting with tables.\n--   See `:help lua-options`\n--   and `:help lua-options-guide`\nvim.o.list = true\nvim.opt.listchars = { tab = '\u00bb ', trail = '\u00b7', nbsp = '\u2423' }\n\n-- Preview substitutions live, as you type!\nvim.o.inccommand = 'split'\n\n-- Show which line your cursor is on\nvim.o.cursorline = true\n\n-- Minimal number of screen lines to keep above and below the cursor.\nvim.o.scrolloff = 10\n\n-- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),\n-- instead raise a dialog asking if you wish to save the current file(s)\n-- See `:help 'confirm'`\nvim.o.confirm = true",
+      "new_string": "-- [[ Setting options ]]\n-- See `:help vim.o`\n-- NOTE: You can change these options as you wish!\n--  For more options, you can see `:help option-list`\n\n-- Line numbers and cursor\nvim.opt.number = true                              -- Line numbers\nvim.opt.relativenumber = true                      -- Relative line numbers\nvim.opt.cursorline = true                          -- Highlight current line\nvim.opt.scrolloff = 10                             -- Keep 10 lines above/below cursor\nvim.opt.sidescrolloff = 8                          -- Keep 8 columns left/right of cursor\nvim.opt.wrap = false                               -- Don't wrap lines\n\n-- Indentation\nvim.opt.tabstop = 2                                -- Tab width\nvim.opt.shiftwidth = 2                             -- Indent width\nvim.opt.softtabstop = 2                            -- Soft tab stop\nvim.opt.expandtab = true                           -- Use spaces instead of tabs\nvim.opt.smartindent = true                         -- Smart auto-indenting\nvim.opt.autoindent = true                          -- Copy indent from current line\nvim.opt.breakindent = true                         -- Enable break indent\n\n-- Search settings\nvim.opt.ignorecase = true                          -- Case insensitive search\nvim.opt.smartcase = true                           -- Case sensitive if uppercase in search\nvim.opt.hlsearch = false                           -- Don't highlight search results\nvim.opt.incsearch = true                           -- Show matches as you type\n\n-- Visual settings\nvim.opt.termguicolors = true                       -- Enable 24-bit colors\nvim.opt.signcolumn = \"yes\"                         -- Always show sign column\nvim.opt.colorcolumn = \"100\"                        -- Show column at 100 characters\nvim.opt.showmatch = true                           -- Highlight matching brackets\nvim.opt.matchtime = 2                              -- How long to show matching bracket\nvim.opt.cmdheight = 1                              -- Command line height\nvim.opt.completeopt = \"menuone,noinsert,noselect\"  -- Completion options\nvim.opt.showmode = false                           -- Don't show mode in command line\nvim.opt.pumheight = 10                             -- Popup menu height\nvim.opt.pumblend = 10                              -- Popup menu transparency\nvim.opt.winblend = 0                               -- Floating window transparency\nvim.opt.conceallevel = 0                           -- Don't hide markup\nvim.opt.concealcursor = \"\"                         -- Don't hide cursor line markup\nvim.opt.lazyredraw = true                          -- Don't redraw during macros\nvim.opt.synmaxcol = 300                            -- Syntax highlighting limit\nvim.opt.list = true                                -- Show whitespace characters\nvim.opt.listchars = { tab = '\u00bb ', trail = '\u00b7', nbsp = '\u2423' }  -- Whitespace display\n\n-- File handling\nvim.opt.backup = false                             -- Don't create backup files\nvim.opt.writebackup = false                        -- Don't create backup before writing\nvim.opt.swapfile = false                           -- Don't create swap files\nvim.opt.undofile = true                            -- Persistent undo\nvim.opt.undodir = vim.fn.expand(\"~/.vim/undodir\")  -- Undo directory\nvim.opt.updatetime = 300                           -- Faster completion\nvim.opt.timeoutlen = 500                           -- Key timeout duration\nvim.opt.ttimeoutlen = 0                            -- Key code timeout\nvim.opt.autoread = true                            -- Auto reload files changed outside vim\nvim.opt.autowrite = false                          -- Don't auto save\n\n-- Behavior settings\nvim.opt.hidden = true                              -- Allow hidden buffers\nvim.opt.errorbells = false                         -- No error bells\nvim.opt.backspace = \"indent,eol,start\"             -- Better backspace behavior\nvim.opt.autochdir = false                          -- Don't auto change directory\nvim.opt.iskeyword:append(\"-\")                      -- Treat dash as part of word\nvim.opt.path:append(\"**\")                          -- Include subdirectories in search\nvim.opt.selection = \"exclusive\"                    -- Selection behavior\nvim.opt.mouse = \"a\"                                -- Enable mouse support\nvim.opt.clipboard:append(\"unnamedplus\")            -- Use system clipboard\nvim.opt.modifiable = true                          -- Allow buffer modifications\nvim.opt.encoding = \"UTF-8\"                         -- Set encoding\nvim.opt.confirm = true                             -- Ask to save on quit with unsaved changes\n\n-- Split behavior\nvim.opt.splitright = true                          -- Vertical splits go to the right\nvim.opt.splitbelow = true                          -- Horizontal splits go below\n\n-- Live preview features\nvim.opt.inccommand = 'split'                       -- Preview substitutions live"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Edit",
+    "tool_input": {
+      "file_path": "/home/yannickspies/dotfiles/nvim/.config/nvim/init.lua",
+      "old_string": "-- Indentation\nvim.opt.tabstop = 2                                -- Tab width\nvim.opt.shiftwidth = 2                             -- Indent width\nvim.opt.softtabstop = 2                            -- Soft tab stop\nvim.opt.expandtab = true                           -- Use spaces instead of tabs\nvim.opt.smartindent = true                         -- Smart auto-indenting\nvim.opt.autoindent = true                          -- Copy indent from current line\nvim.opt.breakindent = true                         -- Enable break indent",
+      "new_string": "-- Indentation\nvim.opt.tabstop = 4                                -- Tab width\nvim.opt.shiftwidth = 4                             -- Indent width\nvim.opt.softtabstop = 4                            -- Soft tab stop\nvim.opt.expandtab = true                           -- Use spaces instead of tabs\nvim.opt.smartindent = true                         -- Smart auto-indenting\nvim.opt.autoindent = true                          -- Copy indent from current line\nvim.opt.breakindent = true                         -- Enable break indent"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Edit",
+    "tool_input": {
+      "file_path": "/home/yannickspies/dotfiles/nvim/.config/nvim/init.lua",
+      "old_string": "-- [[ Basic Keymaps ]]\n--  See `:help vim.keymap.set()`\n\n-- Clear highlights on search when pressing <Esc> in normal mode\n--  See `:help hlsearch`\nvim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')\n\n-- Diagnostic keymaps\nvim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })\n\n-- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier\n-- for people to discover. Otherwise, you normally need to press <C-\\><C-n>, which\n-- is not what someone will guess without a bit more experience.\n--\n-- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping\n-- or just use <C-\\><C-n> to exit terminal mode\nvim.keymap.set('t', '<Esc><Esc>', '<C-\\\\><C-n>', { desc = 'Exit terminal mode' })\n\n-- TIP: Disable arrow keys in normal mode\n-- vim.keymap.set('n', '<left>', '<cmd>echo \"Use h to move!!\"<CR>')\n-- vim.keymap.set('n', '<right>', '<cmd>echo \"Use l to move!!\"<CR>')\n-- vim.keymap.set('n', '<up>', '<cmd>echo \"Use k to move!!\"<CR>')\n-- vim.keymap.set('n', '<down>', '<cmd>echo \"Use j to move!!\"<CR>')\n\n-- Keybinds to make split navigation easier.\n--  Use CTRL+<hjkl> to switch between windows\n--\n--  See `:help wincmd` for a list of all window commands\nvim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })\nvim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })\nvim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })\nvim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })",
+      "new_string": "-- [[ Basic Keymaps ]]\n--  See `:help vim.keymap.set()`\n\n-- Clear highlights on search when pressing <Esc> in normal mode\n--  See `:help hlsearch`\nvim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')\n\n-- Diagnostic keymaps\nvim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })\n\n-- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier\n-- for people to discover. Otherwise, you normally need to press <C-\\><C-n>, which\n-- is not what someone will guess without a bit more experience.\n--\n-- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping\n-- or just use <C-\\><C-n> to exit terminal mode\nvim.keymap.set('t', '<Esc><Esc>', '<C-\\\\><C-n>', { desc = 'Exit terminal mode' })\n\n-- TIP: Disable arrow keys in normal mode\n-- vim.keymap.set('n', '<left>', '<cmd>echo \"Use h to move!!\"<CR>')\n-- vim.keymap.set('n', '<right>', '<cmd>echo \"Use l to move!!\"<CR>')\n-- vim.keymap.set('n', '<up>', '<cmd>echo \"Use k to move!!\"<CR>')\n-- vim.keymap.set('n', '<down>', '<cmd>echo \"Use j to move!!\"<CR>')\n\n-- Keybinds to make split navigation easier.\n--  Use CTRL+<hjkl> to switch between windows\n--\n--  See `:help wincmd` for a list of all window commands\nvim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })\nvim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })\nvim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })\nvim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })\n\n-- Centered page navigation\nvim.keymap.set(\"n\", \"<C-d>\", \"<C-d>zz\", { desc = \"Half page down (centered)\" })\nvim.keymap.set(\"n\", \"<C-u>\", \"<C-u>zz\", { desc = \"Half page up (centered)\" })\n\n-- Yank to end of line with Y\nvim.keymap.set(\"n\", \"Y\", \"y$\", { desc = \"Yank to end of line\" })\n\n-- Save buffer with Ctrl+S\nvim.keymap.set({\"n\", \"i\", \"v\"}, \"<C-s>\", \"<cmd>w<CR>\", { desc = \"Save buffer\" })\n\n-- Buffer navigation\nvim.keymap.set(\"n\", \"<leader>bn\", \":bnext<CR>\", { desc = \"Next buffer\" })\nvim.keymap.set(\"n\", \"<leader>bp\", \":bprevious<CR>\", { desc = \"Previous buffer\" })"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "git add -A",
+      "description": "Stage all changes"
+    }
+  }
+]

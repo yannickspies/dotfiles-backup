@@ -1,19 +1,23 @@
--- Tokyonight - Colorscheme
--- https://github.com/folke/tokyonight.nvim
+-- Catppuccin - Colorscheme
+-- https://github.com/catppuccin/nvim
 
 return {
-  'folke/tokyonight.nvim',
+  'catppuccin/nvim',
+  name = 'catppuccin',
   priority = 1000, -- Make sure to load this before all the other start plugins.
   config = function()
-    ---@diagnostic disable-next-line: missing-fields
-    require('tokyonight').setup {
+    require('catppuccin').setup {
+      flavour = 'mocha', -- Set to Mocha variant (latte, frappe, macchiato, mocha)
+      transparent_background = true, -- Enable transparency to match terminal opacity
       styles = {
-        comments = { italic = false }, -- Disable italics in comments
+        comments = {}, -- No special styling for comments (removes italics)
+      },
+      background = {
+        light = 'latte',
+        dark = 'mocha',
       },
     }
-    -- Load the colorscheme here.
-    -- Like many other themes, this one has different styles, and you could load
-    -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-    vim.cmd.colorscheme 'tokyonight-night'
+    -- Load the Catppuccin colorscheme
+    vim.cmd.colorscheme 'catppuccin'
   end,
 }
