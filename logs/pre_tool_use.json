@@ -95,5 +95,396 @@
       "command": "git add -A",
       "description": "Stage all changes"
     }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "git commit -m \"$(cat <<'EOF'\nenhance nvim config with better defaults and keymaps\n\n- reorganize settings into logical groups with comments\n- set 4-space indentation as default\n- add centered page navigation (C-d/C-u)\n- add buffer navigation and save keybinds\n- switch colorscheme to catppuccin with transparency\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\"",
+      "description": "Create commit with all changes"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "git status",
+      "description": "Verify commit succeeded"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "WebFetch",
+    "tool_input": {
+      "url": "https://github.com/folke/flash.nvim",
+      "prompt": "Extract detailed information about the flash.nvim plugin, focusing on: 1) What the plugin does, 2) Its main features, 3) Specifically explain what Treesitter mode is and how it works, 4) Any code examples or configuration related to Treesitter mode"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Write",
+    "tool_input": {
+      "file_path": "/home/yannickspies/dotfiles/nvim/.config/nvim/lua/custom/plugins/flash.lua",
+      "content": "-- Flash.nvim - Navigate your code with search labels and Treesitter integration\n-- https://github.com/folke/flash.nvim\n\nreturn {\n  'folke/flash.nvim',\n  event = 'VeryLazy',\n  opts = {\n    -- Configure flash.nvim behavior\n    modes = {\n      -- Customize search mode\n      search = {\n        enabled = true,\n        highlight = { backdrop = false },\n      },\n      -- Customize character mode\n      char = {\n        enabled = true,\n        jump_labels = true,\n      },\n    },\n    -- Treesitter mode configuration\n    treesitter = {\n      labels = 'abcdefghijklmnopqrstuvwxyz',\n      jump = { pos = 'range', autojump = true },\n      search = { incremental = false },\n      label = { before = true, after = true, style = 'inline' },\n      highlight = {\n        backdrop = false,\n        matches = false,\n      },\n    },\n    -- Label configuration\n    label = {\n      uppercase = false,\n      rainbow = {\n        enabled = false,\n      },\n    },\n    -- Highlight configuration\n    highlight = {\n      backdrop = true,\n      matches = false,\n      priority = 5000,\n      groups = {\n        match = 'FlashMatch',\n        current = 'FlashCurrent',\n        backdrop = 'FlashBackdrop',\n        label = 'FlashLabel',\n      },\n    },\n    -- Action configuration\n    action = nil,\n    -- Pattern configuration\n    pattern = '',\n    -- Continue last search\n    continue = false,\n    -- Prompt configuration\n    prompt = {\n      enabled = true,\n      prefix = { { '\u26a1', 'FlashPromptIcon' } },\n    },\n  },\n  keys = {\n    {\n      's',\n      mode = { 'n', 'x', 'o' },\n      function()\n        require('flash').jump()\n      end,\n      desc = 'Flash',\n    },\n    {\n      'S',\n      mode = { 'n', 'x', 'o' },\n      function()\n        require('flash').treesitter()\n      end,\n      desc = 'Flash Treesitter',\n    },\n    {\n      'r',\n      mode = 'o',\n      function()\n        require('flash').remote()\n      end,\n      desc = 'Remote Flash',\n    },\n    {\n      'R',\n      mode = { 'o', 'x' },\n      function()\n        require('flash').treesitter_search()\n      end,\n      desc = 'Treesitter Search',\n    },\n    {\n      '<c-s>',\n      mode = { 'c' },\n      function()\n        require('flash').toggle()\n      end,\n      desc = 'Toggle Flash Search',\n    },\n  },\n}"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "WebFetch",
+    "tool_input": {
+      "url": "https://github.com/folke/snacks.nvim",
+      "prompt": "Extract detailed information about snacks.nvim: 1) What is it and its purpose, 2) List ALL the individual plugins/features it provides, 3) What each feature does specifically, 4) Any configuration examples, 5) What existing plugins it can replace"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Read",
+    "tool_input": {
+      "file_path": "/home/yannickspies/dotfiles/nvim/.config/nvim/lua/kickstart/plugins/indent_line.lua"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Read",
+    "tool_input": {
+      "file_path": "/home/yannickspies/dotfiles/nvim/.config/nvim/lua/kickstart/plugins/neo-tree.lua"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Grep",
+    "tool_input": {
+      "pattern": "fidget\\.nvim|mini\\.|gitsigns|neo-tree|indent-blankline|lazygit",
+      "path": "/home/yannickspies/dotfiles/nvim/.config/nvim",
+      "output_mode": "files_with_matches"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Read",
+    "tool_input": {
+      "file_path": "/home/yannickspies/dotfiles/nvim/.config/nvim/lua/custom/plugins/mini.lua"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Grep",
+    "tool_input": {
+      "pattern": "fidget",
+      "path": "/home/yannickspies/dotfiles/nvim/.config/nvim/init.lua",
+      "output_mode": "content",
+      "-n": true
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "ExitPlanMode",
+    "tool_input": {
+      "plan": "## Plan: Integrate Snacks.nvim and Replace Multiple Plugins\n\n### Step 1: Add snacks.nvim plugin\n- Create a new plugin file for snacks.nvim with selected features enabled\n- Configure dashboard, explorer, lazygit, indent, notifier, terminal, and other QoL features\n\n### Step 2: Remove replaced plugins\n- Comment out or remove:\n  - lazygit.nvim (replaced by snacks.lazygit)\n  - indent-blankline.nvim (replaced by snacks.indent)\n  - neo-tree.nvim (replaced by snacks.explorer)\n  - fidget.nvim (replaced by snacks.notifier)\n\n### Step 3: Update keybindings\n- Map file explorer to use snacks.explorer\n- Update LazyGit keybindings to use snacks.lazygit\n- Add new keybindings for additional snacks features\n\n### Step 4: Optional - Keep some original plugins\n- Keep gitsigns.nvim (more feature-complete than snacks.git)\n- Keep mini.nvim modules (they complement snacks well)\n\n### Benefits:\n- Single cohesive plugin suite from one author (Folke)\n- Better integration between components\n- Reduced plugin count and potential conflicts\n- Modern, actively maintained codebase\n- Additional QoL features like dashboard, zen mode, smooth scroll"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "TodoWrite",
+    "tool_input": {
+      "todos": [
+        {
+          "content": "Create snacks.nvim plugin configuration file",
+          "status": "pending",
+          "activeForm": "Creating snacks.nvim plugin configuration file"
+        },
+        {
+          "content": "Remove or comment out fidget.nvim from init.lua",
+          "status": "pending",
+          "activeForm": "Removing or commenting out fidget.nvim from init.lua"
+        },
+        {
+          "content": "Test the new configuration",
+          "status": "pending",
+          "activeForm": "Testing the new configuration"
+        }
+      ]
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "TodoWrite",
+    "tool_input": {
+      "todos": [
+        {
+          "content": "Create snacks.nvim plugin configuration file",
+          "status": "in_progress",
+          "activeForm": "Creating snacks.nvim plugin configuration file"
+        },
+        {
+          "content": "Remove or comment out fidget.nvim from init.lua",
+          "status": "pending",
+          "activeForm": "Removing or commenting out fidget.nvim from init.lua"
+        },
+        {
+          "content": "Test the new configuration",
+          "status": "pending",
+          "activeForm": "Testing the new configuration"
+        }
+      ]
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Write",
+    "tool_input": {
+      "file_path": "/home/yannickspies/dotfiles/nvim/.config/nvim/lua/custom/plugins/snacks.lua",
+      "content": "-- Snacks.nvim - A collection of small QoL plugins for Neovim\n-- https://github.com/folke/snacks.nvim\n\nreturn {\n  'folke/snacks.nvim',\n  priority = 1000,\n  lazy = false,\n  opts = {\n    -- Enable specific features\n    bigfile = { enabled = true }, -- Better performance for large files\n    notifier = { enabled = true }, -- Pretty notifications (replaces fidget.nvim)\n    quickfile = { enabled = true }, -- Faster file loading\n    statuscolumn = { enabled = false }, -- We're using default for now\n    words = { enabled = true }, -- Enhanced LSP reference highlighting\n\n    -- Smooth scrolling animations\n    scroll = {\n      enabled = true,\n      animate = {\n        duration = { step = 15, total = 150 },\n        easing = 'linear',\n      },\n    },\n\n    -- Better buffer deletion\n    bufdelete = {\n      enabled = true,\n    },\n\n    -- Smart file renaming with LSP integration\n    rename = {\n      enabled = true,\n    },\n\n    -- Configure notifier (replaces fidget.nvim)\n    notifier_opts = {\n      timeout = 3000,\n      width = { min = 40, max = 0.4 },\n      height = { min = 1, max = 0.6 },\n      margin = { top = 0, right = 1, bottom = 0 },\n      icons = {\n        error = \"\udb80\udd5a \",\n        warn = \"\udb80\udc2a \",\n        info = \"\udb80\udefd \",\n        debug = \"\udb82\udc2d \",\n        trace = \"\udb80\udfeb \",\n      },\n    },\n  },\n  keys = {\n    -- Notification history\n    { '<leader>sn', function() require('snacks').notifier.show_history() end, desc = 'Show notification history' },\n\n    -- Buffer deletion\n    { '<leader>bd', function() require('snacks').bufdelete.delete() end, desc = 'Delete buffer' },\n    { '<leader>bo', function() require('snacks').bufdelete.other() end, desc = 'Delete other buffers' },\n\n    -- Smart rename\n    { '<leader>rn', function() require('snacks').rename.rename_file() end, desc = 'Rename file' },\n\n    -- Dismiss notifications\n    { '<leader>nd', function() require('snacks').notifier.hide() end, desc = 'Dismiss all notifications' },\n  },\n  init = function()\n    -- Override vim.notify with snacks notifier\n    vim.notify = function(msg, level, opts)\n      require('snacks').notifier.notify(msg, level, opts)\n    end\n  end,\n}"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "TodoWrite",
+    "tool_input": {
+      "todos": [
+        {
+          "content": "Create snacks.nvim plugin configuration file",
+          "status": "completed",
+          "activeForm": "Creating snacks.nvim plugin configuration file"
+        },
+        {
+          "content": "Remove or comment out fidget.nvim from init.lua",
+          "status": "in_progress",
+          "activeForm": "Removing or commenting out fidget.nvim from init.lua"
+        },
+        {
+          "content": "Test the new configuration",
+          "status": "pending",
+          "activeForm": "Testing the new configuration"
+        }
+      ]
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Edit",
+    "tool_input": {
+      "file_path": "/home/yannickspies/dotfiles/nvim/.config/nvim/init.lua",
+      "old_string": "      -- Useful status updates for LSP.\n      { 'j-hui/fidget.nvim', opts = {} },",
+      "new_string": "      -- Useful status updates for LSP.\n      -- { 'j-hui/fidget.nvim', opts = {} }, -- Replaced by snacks.nvim notifier"
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "TodoWrite",
+    "tool_input": {
+      "todos": [
+        {
+          "content": "Create snacks.nvim plugin configuration file",
+          "status": "completed",
+          "activeForm": "Creating snacks.nvim plugin configuration file"
+        },
+        {
+          "content": "Remove or comment out fidget.nvim from init.lua",
+          "status": "completed",
+          "activeForm": "Removing or commenting out fidget.nvim from init.lua"
+        },
+        {
+          "content": "Test the new configuration",
+          "status": "completed",
+          "activeForm": "Testing the new configuration"
+        }
+      ]
+    }
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Edit",
+    "tool_input": {
+      "file_path": "/home/yannickspies/dotfiles/nvim/.config/nvim/init.lua",
+      "old_string": "      'WhoIsSethDaniel/mason-tool-installer.nvim',\n\n      -- Useful status updates for LSP.\n      -- { 'j-hui/fidget.nvim', opts = {} }, -- Replaced by snacks.nvim notifier\n\n      -- Allows extra capabilities provided by blink.cmp",
+      "new_string": "      'WhoIsSethDaniel/mason-tool-installer.nvim',\n\n      -- Allows extra capabilities provided by blink.cmp"
+    }
+  },
+  {
+    "session_id": "86b12f5e-b6b6-4cce-992a-ee06dd2fff06",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/86b12f5e-b6b6-4cce-992a-ee06dd2fff06.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "git ls-files",
+      "description": "List all files tracked by git"
+    }
+  },
+  {
+    "session_id": "86b12f5e-b6b6-4cce-992a-ee06dd2fff06",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/86b12f5e-b6b6-4cce-992a-ee06dd2fff06.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Glob",
+    "tool_input": {
+      "pattern": "**/*.md"
+    }
+  },
+  {
+    "session_id": "86b12f5e-b6b6-4cce-992a-ee06dd2fff06",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/86b12f5e-b6b6-4cce-992a-ee06dd2fff06.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "ls -la",
+      "description": "List files in the dotfiles directory"
+    }
+  },
+  {
+    "session_id": "86b12f5e-b6b6-4cce-992a-ee06dd2fff06",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/86b12f5e-b6b6-4cce-992a-ee06dd2fff06.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "ls -la .claude/",
+      "description": "Check Claude configuration directory"
+    }
+  },
+  {
+    "session_id": "86b12f5e-b6b6-4cce-992a-ee06dd2fff06",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/86b12f5e-b6b6-4cce-992a-ee06dd2fff06.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "find . -name \"*.md\" 2>/dev/null | head -20",
+      "description": "Find markdown files"
+    }
+  },
+  {
+    "session_id": "86b12f5e-b6b6-4cce-992a-ee06dd2fff06",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/86b12f5e-b6b6-4cce-992a-ee06dd2fff06.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Read",
+    "tool_input": {
+      "file_path": "/home/yannickspies/dotfiles/.claude/settings.local.json"
+    }
+  },
+  {
+    "session_id": "86b12f5e-b6b6-4cce-992a-ee06dd2fff06",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/86b12f5e-b6b6-4cce-992a-ee06dd2fff06.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Read",
+    "tool_input": {
+      "file_path": "/home/yannickspies/dotfiles/nvim/.config/nvim/README.md"
+    }
+  },
+  {
+    "session_id": "86b12f5e-b6b6-4cce-992a-ee06dd2fff06",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/86b12f5e-b6b6-4cce-992a-ee06dd2fff06.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Read",
+    "tool_input": {
+      "file_path": "/home/yannickspies/dotfiles/fish/.config/fish/config.fish"
+    }
+  },
+  {
+    "session_id": "86b12f5e-b6b6-4cce-992a-ee06dd2fff06",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/86b12f5e-b6b6-4cce-992a-ee06dd2fff06.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Read",
+    "tool_input": {
+      "file_path": "/home/yannickspies/dotfiles/tmux/.tmux.conf"
+    }
+  },
+  {
+    "session_id": "86b12f5e-b6b6-4cce-992a-ee06dd2fff06",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/86b12f5e-b6b6-4cce-992a-ee06dd2fff06.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Read",
+    "tool_input": {
+      "file_path": "/home/yannickspies/dotfiles/logs/user_prompt_submit.json"
+    }
   }
 ]

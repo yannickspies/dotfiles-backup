@@ -38,5 +38,45 @@
     "permission_mode": "default",
     "hook_event_name": "UserPromptSubmit",
     "prompt": "/commit "
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "Fetch `https://github.com/folke/flash.nvim`. I want to add this as a plugin. Explain to me how Treesitter mode works and what they mean by that"
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "fetch `https://github.com/folke/snacks.nvim`. There are multiple QoL plugins that belong to this collection. Analyze what plugins or functionality in our current setup can be replaced by these new(er) better looking plugins "
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "Lets go with:\n\n  4. fidget.nvim \u2192 snacks.notifier\n\n  - Your current: j-hui/fidget.nvim (LSP progress)\n  - Snacks provides a comprehensive notification system including LSP progress\n\n\n  - snacks.scroll - Smooth scrolling animations\n  - snacks.words - Enhanced LSP reference highlighting\n \n  - snacks.bufdelete - Better buffer deletion\n  - snacks.rename - Smart file renaming with LSP integration\n"
+  },
+  {
+    "session_id": "6ab0abd2-7cba-47e1-a968-18281cea25f9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/6ab0abd2-7cba-47e1-a968-18281cea25f9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "Clean up code we commented out"
+  },
+  {
+    "session_id": "86b12f5e-b6b6-4cce-992a-ee06dd2fff06",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/86b12f5e-b6b6-4cce-992a-ee06dd2fff06.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "/prime "
   }
 ]

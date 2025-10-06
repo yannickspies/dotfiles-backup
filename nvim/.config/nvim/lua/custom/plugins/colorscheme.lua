@@ -8,7 +8,7 @@ return {
   config = function()
     require('catppuccin').setup {
       flavour = 'mocha', -- Set to Mocha variant (latte, frappe, macchiato, mocha)
-      transparent_background = true, -- Enable transparency to match terminal opacity
+      -- transparent_background = true, -- Enable transparency to match terminal opacity
       styles = {
         comments = {}, -- No special styling for comments (removes italics)
       },
@@ -21,3 +21,4 @@ return {
     vim.cmd.colorscheme 'catppuccin'
   end,
 }
+

@@ -5,5 +5,12 @@
     "cwd": "/home/yannickspies/dotfiles",
     "hook_event_name": "SessionStart",
     "source": "startup"
+  },
+  {
+    "session_id": "86b12f5e-b6b6-4cce-992a-ee06dd2fff06",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/86b12f5e-b6b6-4cce-992a-ee06dd2fff06.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "SessionStart",
+    "source": "startup"
   }
 ]
