@@ -70,5 +70,53 @@
     "permission_mode": "default",
     "hook_event_name": "Stop",
     "stop_hook_active": false
+  },
+  {
+    "session_id": "86b12f5e-b6b6-4cce-992a-ee06dd2fff06",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/86b12f5e-b6b6-4cce-992a-ee06dd2fff06.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "Stop",
+    "stop_hook_active": false
+  },
+  {
+    "session_id": "5230bb9d-b00c-4809-aaa7-94380e8d815d",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/5230bb9d-b00c-4809-aaa7-94380e8d815d.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "Stop",
+    "stop_hook_active": false
+  },
+  {
+    "session_id": "5230bb9d-b00c-4809-aaa7-94380e8d815d",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/5230bb9d-b00c-4809-aaa7-94380e8d815d.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "Stop",
+    "stop_hook_active": false
+  },
+  {
+    "session_id": "5230bb9d-b00c-4809-aaa7-94380e8d815d",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/5230bb9d-b00c-4809-aaa7-94380e8d815d.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "Stop",
+    "stop_hook_active": false
+  },
+  {
+    "session_id": "f2f336df-1d56-4bde-961f-3b8d421ea625",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/f2f336df-1d56-4bde-961f-3b8d421ea625.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "Stop",
+    "stop_hook_active": false
+  },
+  {
+    "session_id": "f2f336df-1d56-4bde-961f-3b8d421ea625",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/f2f336df-1d56-4bde-961f-3b8d421ea625.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "Stop",
+    "stop_hook_active": false
   }
 ]

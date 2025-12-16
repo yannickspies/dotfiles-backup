@@ -1,0 +1,38 @@
+[
+  {
+    "session_id": "5230bb9d-b00c-4809-aaa7-94380e8d815d",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/5230bb9d-b00c-4809-aaa7-94380e8d815d.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false
+  },
+  {
+    "session_id": "5230bb9d-b00c-4809-aaa7-94380e8d815d",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/5230bb9d-b00c-4809-aaa7-94380e8d815d.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false
+  },
+  {
+    "session_id": "f2f336df-1d56-4bde-961f-3b8d421ea625",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/f2f336df-1d56-4bde-961f-3b8d421ea625.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "5d51532e",
+    "agent_transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/agent-5d51532e.jsonl"
+  },
+  {
+    "session_id": "f2f336df-1d56-4bde-961f-3b8d421ea625",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/f2f336df-1d56-4bde-961f-3b8d421ea625.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "2b960f49",
+    "agent_transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/agent-2b960f49.jsonl"
+  }
+]

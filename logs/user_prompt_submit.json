@@ -78,5 +78,61 @@
     "permission_mode": "default",
     "hook_event_name": "UserPromptSubmit",
     "prompt": "/prime "
+  },
+  {
+    "session_id": "86b12f5e-b6b6-4cce-992a-ee06dd2fff06",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/86b12f5e-b6b6-4cce-992a-ee06dd2fff06.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "\u276f stow */\nWARNING! stowing tmux would cause conflicts:\n  * existing target is not owned by stow: .tmux.conf\nAll operations aborted.\n\nFix this symlink issue, i want stow to overwrite since dotfiles dir is the source of truth "
+  },
+  {
+    "session_id": "5230bb9d-b00c-4809-aaa7-94380e8d815d",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/5230bb9d-b00c-4809-aaa7-94380e8d815d.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "/prime "
+  },
+  {
+    "session_id": "5230bb9d-b00c-4809-aaa7-94380e8d815d",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/5230bb9d-b00c-4809-aaa7-94380e8d815d.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "fetch `https://github.com/OXY2DEV/markview.nvim`, i want to add this plugin to my neovim conf"
+  },
+  {
+    "session_id": "5230bb9d-b00c-4809-aaa7-94380e8d815d",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/5230bb9d-b00c-4809-aaa7-94380e8d815d.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "/commit "
+  },
+  {
+    "session_id": "f2f336df-1d56-4bde-961f-3b8d421ea625",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/f2f336df-1d56-4bde-961f-3b8d421ea625.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "/prime "
+  },
+  {
+    "session_id": "f2f336df-1d56-4bde-961f-3b8d421ea625",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/f2f336df-1d56-4bde-961f-3b8d421ea625.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "\n   Home (H)   Install (I)   Update (U)   Sync (S)   Clean (X)   Check (C)   Log (L)   Restore (R)   Profile (P)   Debug (D)   Help (?) \n\n  Total: 29 plugins\n\n  Failed (1)\n    \u25cf LuaSnip 11.71ms \uf487 blink.cmp\n        fatal: not a git repository: ../../.git/modules/deps/jsregexp006\n        fatal: could not reset submodule index\n        You have local changes in `/home/yannickspies/.local/share/nvim/lazy/LuaSnip`:\n          * .github/data/project-dictionary.txt\n          * .github/data/project-dictionary.txt\n          * .github/workflows/luarocks.yml\n          * .github/workflows/push.yaml\n          * .github/workflows/spell.yaml\n          * .github/workflows/test.yaml\n          * .gitignore\n          * .gitmodules\n          * DOC.md\n          * Makefile\n          * deps/jsregexp\n        Please remove them to update.\n        You can also press `x` to remove the plugin and then `I` to install it again.\n        .github/data/project-dictionary.txt\n        .github/data/project-dictionary.txt\n        .github/workflows/luarocks.yml\n        .github/workflows/push.yaml\n        .github/workflows/spell.yaml\n        .github/workflows/test.yaml\n        .gitignore\n        .gitmodules\n        DOC.md\n        Makefile\n        deps/jsregexp\n        You have local changes in `/home/yannickspies/.local/share/nvim/lazy/LuaSnip`:\n          * .github/data/project-dictionary.txt\n          * .github/data/project-dictionary.txt\n          * .github/workflows/luarocks.yml\n          * .github/workflows/push.yaml\n          * .github/workflows/spell.yaml\n          * .github/workflows/test.yaml\n          * .gitignore\n          * .gitmodules\n          * DOC.md\n          * Makefile\n          * deps/jsregexp\n        Please remove them to update.\n        You can also press `x` to remove the plugin and then `I` to install it again.\n\n  Loaded (26)\n    \u25cf blink.cmp 26.35ms \uf487 nvim-lspconfig\n    \u25cf catppuccin 6.85ms \uead3 start\n    \u25cf flash.nvim 2.53ms \uea86 VeryLazy\n    \u25cf gitsigns.nvim 3.3ms \uead3 start\n    \u25cf guess-indent.nvim 1.53ms \uead3 start\n    \u25cf harpoon 30.76ms \uead3 start\n    \u25cf lazy.nvim 15.34ms \uf121 init.lua\n    \u25cf lazydev.nvim 4.54ms \uf487 blink.cmp\n    \u25cf lazygit.nvim 25.16ms \uead3 start\n    \u25cf markview.nvim 12.72ms \uead3 start\n    \u25cf mason-lspconfig.nvim 0.28ms \uf487 nvim-lspconfig\n    \u25cf mason-tool-installer.nvim 0.7ms \uf487 nvim-lspconfig\n    \u25cf mason.nvim 7.43ms \uf487 nvim-lspconfig\n    \u25cf mini.nvim 2.53ms \uead3 start\n    \u25cf neo-tree.nvim 31.11ms \uead3 start\n    \u25cf nui.nvim 0.2ms \uf487 neo-tree.nvim\n    \u25cf nvim-lspconfig 65.24ms \uead3 start\n    \u25cf nvim-treesitter 10.44ms \uf487 markview.nvim\n    \u25cf nvim-web-devicons 0.62ms \uf487 telescope.nvim\n    \u25cf plenary.nvim 0.65ms \uf487 harpoon\n    \u25cf snacks.nvim 1.64ms \uead3 start\n    \u25cf telescope-fzf-native.nvim 0.22ms \uf487 telescope.nvim\n    \u25cf telescope-ui-select.nvim 0.19ms \uf487 telescope.nvim\n    \u25cf telescope.nvim 22.8ms \udb82\udcb1 telescope.config \uf487 harpoon\n    \u25cf todo-comments.nvim 3.72ms \uea86 VimEnter\n    \u25cf which-key.nvim 1.83ms \uea86 VimEnter\n\n  Not Loaded (2)\n    \u25cb conform.nvim \uf11c <leader>f () \uebc7 ConformInfo \uea86 BufWritePre \n    \u25cb nvim-autopairs \uea86 InsertEnter \n\n\nHelp me solve this issue in trying to update NVIM."
+  },
+  {
+    "session_id": "f2f336df-1d56-4bde-961f-3b8d421ea625",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/f2f336df-1d56-4bde-961f-3b8d421ea625.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "/commit "
   }
 ]
