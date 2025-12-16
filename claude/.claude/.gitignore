@@ -1,0 +1,25 @@
+# Secrets - NEVER commit these
+.env
+.credentials.json
+
+# Runtime data
+history.jsonl
+debug/
+todos/
+projects/
+session-env/
+shell-snapshots/
+statsig/
+plugins/
+data/
+file-history/
+plans/
+
+# Logs (tracked at repo root in dotfiles/logs/)
+logs/
+
+# Machine-specific overrides
+# Note: settings.local.json is tracked as a template,
+# but each machine should customize it locally
+# Uncomment below if you don't want to track it:
+# settings.local.json
