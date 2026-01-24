@@ -26,5 +26,28 @@
     "cwd": "/home/yannickspies/dotfiles",
     "hook_event_name": "SessionStart",
     "source": "startup"
+  },
+  {
+    "session_id": "8fb8b367-4a11-4dc9-83c0-1753137304de",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/8fb8b367-4a11-4dc9-83c0-1753137304de.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "SessionStart",
+    "source": "startup",
+    "model": "claude-opus-4-5-20251101"
+  },
+  {
+    "session_id": "bb736f49-2105-4883-ae31-e8c1ad26e545",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/bb736f49-2105-4883-ae31-e8c1ad26e545.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "SessionStart",
+    "source": "startup",
+    "model": "claude-opus-4-5-20251101"
+  },
+  {
+    "session_id": "36642702-36c2-4916-ad71-e49a59ae3526",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/36642702-36c2-4916-ad71-e49a59ae3526.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "SessionStart",
+    "source": "clear"
   }
 ]

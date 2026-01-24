@@ -98,5 +98,69 @@
     "hook_event_name": "Notification",
     "message": "Claude needs your permission to use Bash",
     "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "f2f336df-1d56-4bde-961f-3b8d421ea625",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/f2f336df-1d56-4bde-961f-3b8d421ea625.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "Notification",
+    "message": "Claude Code needs your attention",
+    "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "f2f336df-1d56-4bde-961f-3b8d421ea625",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/f2f336df-1d56-4bde-961f-3b8d421ea625.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "Notification",
+    "message": "Claude Code needs your approval for the plan",
+    "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "f2f336df-1d56-4bde-961f-3b8d421ea625",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/f2f336df-1d56-4bde-961f-3b8d421ea625.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "Notification",
+    "message": "Claude needs your permission to use Bash",
+    "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "f2f336df-1d56-4bde-961f-3b8d421ea625",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/f2f336df-1d56-4bde-961f-3b8d421ea625.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "Notification",
+    "message": "Claude needs your permission to use Write",
+    "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "f2f336df-1d56-4bde-961f-3b8d421ea625",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/f2f336df-1d56-4bde-961f-3b8d421ea625.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "Notification",
+    "message": "Claude needs your permission to use Write",
+    "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "8fb8b367-4a11-4dc9-83c0-1753137304de",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/8fb8b367-4a11-4dc9-83c0-1753137304de.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input",
+    "notification_type": "idle_prompt"
+  },
+  {
+    "session_id": "bb736f49-2105-4883-ae31-e8c1ad26e545",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/bb736f49-2105-4883-ae31-e8c1ad26e545.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "Notification",
+    "message": "Claude Code needs your attention",
+    "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "bb736f49-2105-4883-ae31-e8c1ad26e545",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/bb736f49-2105-4883-ae31-e8c1ad26e545.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "Notification",
+    "message": "Claude Code needs your approval for the plan",
+    "notification_type": "permission_prompt"
   }
 ]

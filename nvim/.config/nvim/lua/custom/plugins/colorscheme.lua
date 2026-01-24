@@ -1,24 +1,24 @@
--- Catppuccin - Colorscheme
--- https://github.com/catppuccin/nvim
-
 return {
-  'catppuccin/nvim',
-  name = 'catppuccin',
-  priority = 1000, -- Make sure to load this before all the other start plugins.
-  config = function()
-    require('catppuccin').setup {
-      flavour = 'mocha', -- Set to Mocha variant (latte, frappe, macchiato, mocha)
-      -- transparent_background = true, -- Enable transparency to match terminal opacity
-      styles = {
-        comments = {}, -- No special styling for comments (removes italics)
-      },
-      background = {
-        light = 'latte',
-        dark = 'mocha',
-      },
-    }
-    -- Load the Catppuccin colorscheme
-    vim.cmd.colorscheme 'catppuccin'
+  '0xstepit/flow.nvim',
+  lazy = false,
+  priority = 1000,
+  opts = {
+    theme = {
+      style = 'dark',
+      contrast = 'default',
+      transparent = false,
+    },
+    colors = {
+      mode = 'default',
+      fluo = 'pink',
+    },
+    ui = {
+      borders = 'theme',
+      aggressive_spell = false,
+    },
+  },
+  config = function(_, opts)
+    require('flow').setup(opts)
+    vim.cmd.colorscheme 'flow'
   end,
 }
-

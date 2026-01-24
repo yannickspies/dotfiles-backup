@@ -12,10 +12,10 @@ Run the commands under the `Execute` section to gather information about the pro
 
 ## Read
 - README.md
-- ai_docs/cc_hooks_docs.md
-- ai_docs/uv-single-file-scripts.md
-- ai_docs/anthropic_custom_slash_commands.md
-- ai_docs/anthropic_docs_subagents.md
+- ~/.claude/ai_docs/cc_hooks_docs.md
+- ~/.claude/ai_docs/uv-single-file-scripts.md
+- ~/.claude/ai_docs/anthropic_custom_slash_commands.md
+- ~/.claude/ai_docs/anthropic_docs_subagents.md
 
 ## Report
 

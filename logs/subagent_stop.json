@@ -34,5 +34,45 @@
     "stop_hook_active": false,
     "agent_id": "2b960f49",
     "agent_transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/agent-2b960f49.jsonl"
+  },
+  {
+    "session_id": "f2f336df-1d56-4bde-961f-3b8d421ea625",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/f2f336df-1d56-4bde-961f-3b8d421ea625.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "cdc11c15",
+    "agent_transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/agent-cdc11c15.jsonl"
+  },
+  {
+    "session_id": "8fb8b367-4a11-4dc9-83c0-1753137304de",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/8fb8b367-4a11-4dc9-83c0-1753137304de.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "aa4d043",
+    "agent_transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/8fb8b367-4a11-4dc9-83c0-1753137304de/subagents/agent-aa4d043.jsonl"
+  },
+  {
+    "session_id": "bb736f49-2105-4883-ae31-e8c1ad26e545",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/bb736f49-2105-4883-ae31-e8c1ad26e545.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "abde66e",
+    "agent_transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/bb736f49-2105-4883-ae31-e8c1ad26e545/subagents/agent-abde66e.jsonl"
+  },
+  {
+    "session_id": "bb736f49-2105-4883-ae31-e8c1ad26e545",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/bb736f49-2105-4883-ae31-e8c1ad26e545.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a3e05e7",
+    "agent_transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/bb736f49-2105-4883-ae31-e8c1ad26e545/subagents/agent-a3e05e7.jsonl"
   }
 ]
