@@ -182,5 +182,21 @@
     "permission_mode": "acceptEdits",
     "hook_event_name": "UserPromptSubmit",
     "prompt": "/commit "
+  },
+  {
+    "session_id": "36642702-36c2-4916-ad71-e49a59ae3526",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/36642702-36c2-4916-ad71-e49a59ae3526.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "What is interesting is that in nvim, the color scheme is not transparent. i thought this color scheme was specialized for transparent terminals. i am using wezterm (in windows, with wsl) local wezterm = require 'wezterm'\nlocal config = {}\n\n-- Font configuration\nconfig.font = wezterm.font_with_fallback({\n  {\n    family = 'VictorMono NF',\n    weight = 'Regular',\n  }\n})\nconfig.font_size = 14.0\n\n-- Bold, italic font variants\nconfig.font_rules = {\n  {\n    italic = true,\n    font = wezterm.font_with_fallback({\n      {\n        family = 'VictorMono NF',\n        weight = 'Regular',\n        italic = true,\n      }\n    }),\n  },\n  {\n    intensity = 'Bold',\n    font = wezterm.font_with_fallback({\n      {\n        family = 'VictorMono NF',\n        weight = 'Bold',\n      }\n    }),\n  },\n  {\n    italic = true,\n    intensity = 'Bold',\n    font = wezterm.font_with_fallback({\n      {\n        family = 'VictorMono NF',\n        weight = 'Bold',\n        italic = true,\n      }\n    }),\n  },\n}\n\n-- Window configuration\nconfig.window_decorations = \"TITLE | RESIZE\"\nconfig.enable_tab_bar = true\nconfig.use_fancy_tab_bar = true\nconfig.tab_bar_at_bottom = false\nconfig.show_tab_index_in_tab_bar = false\nconfig.window_background_opacity = 0.6\n\n-- Shell configuration\nconfig.default_prog = { 'wsl.exe', '-d', 'Ubuntu-24.04', '--cd', '~' }\n\nreturn config"
+  },
+  {
+    "session_id": "36642702-36c2-4916-ad71-e49a59ae3526",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/36642702-36c2-4916-ad71-e49a59ae3526.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "/commit "
   }
 ]

@@ -6,7 +6,7 @@ return {
     theme = {
       style = 'dark',
       contrast = 'default',
-      transparent = false,
+      transparent = true,
     },
     colors = {
       mode = 'default',

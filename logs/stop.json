@@ -150,5 +150,21 @@
     "permission_mode": "acceptEdits",
     "hook_event_name": "Stop",
     "stop_hook_active": false
+  },
+  {
+    "session_id": "36642702-36c2-4916-ad71-e49a59ae3526",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/36642702-36c2-4916-ad71-e49a59ae3526.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "Stop",
+    "stop_hook_active": false
+  },
+  {
+    "session_id": "36642702-36c2-4916-ad71-e49a59ae3526",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/36642702-36c2-4916-ad71-e49a59ae3526.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "Stop",
+    "stop_hook_active": false
   }
 ]
