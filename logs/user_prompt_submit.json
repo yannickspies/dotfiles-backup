@@ -198,5 +198,21 @@
     "permission_mode": "acceptEdits",
     "hook_event_name": "UserPromptSubmit",
     "prompt": "/commit "
+  },
+  {
+    "session_id": "70a0dfa0-2d31-41ff-85b6-756540d093b9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/70a0dfa0-2d31-41ff-85b6-756540d093b9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "- replace my filetree plugin with `https://github.com/stevearc/oil.nvim`, set it up so that - takes my to the parent dir\n- check to see if `https://github.com/hrsh7th/nvim-cmp` can be an upgrade on what we use now\n- add `https://github.com/ThePrimeagen/harpoon/tree/harpoon2`, eventually i want to be able to do leader + 1, or leader + 2 etc to jump to hook 2 \n- set this as my color scheme `https://github.com/wnkz/monoglow.nvim?tab=readme-ov-file` "
+  },
+  {
+    "session_id": "da7931d6-041c-4e41-9280-2e7fdcb1ed5b",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/da7931d6-041c-4e41-9280-2e7fdcb1ed5b.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "/commit "
   }
 ]

@@ -162,5 +162,37 @@
     "hook_event_name": "Notification",
     "message": "Claude Code needs your approval for the plan",
     "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "70a0dfa0-2d31-41ff-85b6-756540d093b9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/70a0dfa0-2d31-41ff-85b6-756540d093b9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "Notification",
+    "message": "Claude needs your permission to use Web Search",
+    "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "70a0dfa0-2d31-41ff-85b6-756540d093b9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/70a0dfa0-2d31-41ff-85b6-756540d093b9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "Notification",
+    "message": "Claude Code needs your attention",
+    "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "70a0dfa0-2d31-41ff-85b6-756540d093b9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/70a0dfa0-2d31-41ff-85b6-756540d093b9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "Notification",
+    "message": "Claude Code needs your approval for the plan",
+    "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "da7931d6-041c-4e41-9280-2e7fdcb1ed5b",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/da7931d6-041c-4e41-9280-2e7fdcb1ed5b.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "Notification",
+    "message": "Claude needs your permission to use Bash",
+    "notification_type": "permission_prompt"
   }
 ]

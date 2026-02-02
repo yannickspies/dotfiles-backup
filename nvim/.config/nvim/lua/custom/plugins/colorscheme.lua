@@ -1,24 +1,10 @@
 return {
-  '0xstepit/flow.nvim',
+  'wnkz/monoglow.nvim',
   lazy = false,
   priority = 1000,
-  opts = {
-    theme = {
-      style = 'dark',
-      contrast = 'default',
-      transparent = true,
-    },
-    colors = {
-      mode = 'default',
-      fluo = 'pink',
-    },
-    ui = {
-      borders = 'theme',
-      aggressive_spell = false,
-    },
-  },
+  opts = {},
   config = function(_, opts)
-    require('flow').setup(opts)
-    vim.cmd.colorscheme 'flow'
+    require('monoglow').setup(opts)
+    vim.cmd.colorscheme 'monoglow'
   end,
 }

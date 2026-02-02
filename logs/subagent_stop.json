@@ -94,5 +94,60 @@
     "stop_hook_active": false,
     "agent_id": "af5478a",
     "agent_transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/36642702-36c2-4916-ad71-e49a59ae3526/subagents/agent-af5478a.jsonl"
+  },
+  {
+    "session_id": "70a0dfa0-2d31-41ff-85b6-756540d093b9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/70a0dfa0-2d31-41ff-85b6-756540d093b9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a436fa3",
+    "agent_transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/70a0dfa0-2d31-41ff-85b6-756540d093b9/subagents/agent-a436fa3.jsonl",
+    "agent_type": "Explore"
+  },
+  {
+    "session_id": "70a0dfa0-2d31-41ff-85b6-756540d093b9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/70a0dfa0-2d31-41ff-85b6-756540d093b9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a88bd0f",
+    "agent_transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/70a0dfa0-2d31-41ff-85b6-756540d093b9/subagents/agent-a88bd0f.jsonl",
+    "agent_type": "Explore"
+  },
+  {
+    "session_id": "70a0dfa0-2d31-41ff-85b6-756540d093b9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/70a0dfa0-2d31-41ff-85b6-756540d093b9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a243f47",
+    "agent_transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/70a0dfa0-2d31-41ff-85b6-756540d093b9/subagents/agent-a243f47.jsonl",
+    "agent_type": "Explore"
+  },
+  {
+    "session_id": "70a0dfa0-2d31-41ff-85b6-756540d093b9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/70a0dfa0-2d31-41ff-85b6-756540d093b9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "ae319b5",
+    "agent_transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/70a0dfa0-2d31-41ff-85b6-756540d093b9/subagents/agent-ae319b5.jsonl",
+    "agent_type": "Plan"
+  },
+  {
+    "session_id": "da7931d6-041c-4e41-9280-2e7fdcb1ed5b",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/da7931d6-041c-4e41-9280-2e7fdcb1ed5b.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a98b938",
+    "agent_transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/da7931d6-041c-4e41-9280-2e7fdcb1ed5b/subagents/agent-a98b938.jsonl",
+    "agent_type": ""
   }
 ]

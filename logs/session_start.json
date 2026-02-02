@@ -49,5 +49,20 @@
     "cwd": "/home/yannickspies/dotfiles",
     "hook_event_name": "SessionStart",
     "source": "clear"
+  },
+  {
+    "session_id": "70a0dfa0-2d31-41ff-85b6-756540d093b9",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/70a0dfa0-2d31-41ff-85b6-756540d093b9.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "SessionStart",
+    "source": "startup",
+    "model": "claude-opus-4-5-20251101"
+  },
+  {
+    "session_id": "da7931d6-041c-4e41-9280-2e7fdcb1ed5b",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/da7931d6-041c-4e41-9280-2e7fdcb1ed5b.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "SessionStart",
+    "source": "clear"
   }
 ]
