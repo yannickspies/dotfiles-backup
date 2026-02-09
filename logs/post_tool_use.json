@@ -1380,5 +1380,125 @@
       "noOutputExpected": false
     },
     "tool_use_id": "toolu_01THEmTSnJD7zKTTLgXV35zR"
+  },
+  {
+    "session_id": "c4f0a09a-79fd-4a5a-ad65-af49c15eef2a",
+    "transcript_path": "/home/yspies/.claude/projects/-home-yspies-dotfiles/c4f0a09a-79fd-4a5a-ad65-af49c15eef2a.jsonl",
+    "cwd": "/home/yspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "PostToolUse",
+    "tool_name": "Read",
+    "tool_input": {
+      "file_path": "/home/yspies/dotfiles/nvim/.config/nvim/lua/custom/plugins/snacks.lua"
+    },
+    "tool_response": {
+      "type": "text",
+      "file": {
+        "filePath": "/home/yspies/dotfiles/nvim/.config/nvim/lua/custom/plugins/snacks.lua",
+        "content": "-- Snacks.nvim - A collection of small QoL plugins for Neovim\n-- https://github.com/folke/snacks.nvim\n\nreturn {\n  'folke/snacks.nvim',\n  priority = 1000,\n  lazy = false,\n  opts = {\n    -- Enable specific features\n    bigfile = { enabled = true }, -- Better performance for large files\n    notifier = { enabled = true }, -- Pretty notifications (replaces fidget.nvim)\n    quickfile = { enabled = true }, -- Faster file loading\n    statuscolumn = { enabled = false }, -- We're using default for now\n<<<<<<< HEAD\n    words = { enabled = false },\n    scroll = { enabled = false },\n=======\n    words = { enabled = true }, -- Enhanced LSP reference highlighting\n    image = { enabled = true }, -- Inline image rendering\n\n    -- Smooth scrolling animations\n    scroll = {\n      enabled = true,\n      animate = {\n        duration = { step = 15, total = 150 },\n        easing = 'linear',\n      },\n    },\n>>>>>>> 6c09906 (fix treesitter queries and enable snacks.image)\n\n    -- Better buffer deletion\n    bufdelete = {\n      enabled = true,\n    },\n\n    -- Smart file renaming with LSP integration\n    rename = {\n      enabled = true,\n    },\n\n    -- Configure notifier (replaces fidget.nvim)\n    notifier_opts = {\n      timeout = 3000,\n      width = { min = 40, max = 0.4 },\n      height = { min = 1, max = 0.6 },\n      margin = { top = 0, right = 1, bottom = 0 },\n      icons = {\n        error = \"\udb80\udd5a \",\n        warn = \"\udb80\udc2a \",\n        info = \"\udb80\udefd \",\n        debug = \"\udb82\udc2d \",\n        trace = \"\udb80\udfeb \",\n      },\n    },\n  },\n  keys = {\n    -- Notification history\n    { '<leader>sn', function() require('snacks').notifier.show_history() end, desc = 'Show notification history' },\n\n    -- Buffer deletion\n    { '<leader>bd', function() require('snacks').bufdelete.delete() end, desc = 'Delete buffer' },\n    { '<leader>bo', function() require('snacks').bufdelete.other() end, desc = 'Delete other buffers' },\n\n    -- Smart rename\n    { '<leader>rn', function() require('snacks').rename.rename_file() end, desc = 'Rename file' },\n\n    -- Dismiss notifications\n    { '<leader>nd', function() require('snacks').notifier.hide() end, desc = 'Dismiss all notifications' },\n  },\n  init = function()\n    -- Override vim.notify with snacks notifier\n    vim.notify = function(msg, level, opts)\n      require('snacks').notifier.notify(msg, level, opts)\n    end\n  end,\n}",
+        "numLines": 76,
+        "startLine": 1,
+        "totalLines": 76
+      }
+    },
+    "tool_use_id": "toolu_01Qm9YHhqF89Z5gBThzNpJ9G"
+  },
+  {
+    "session_id": "c4f0a09a-79fd-4a5a-ad65-af49c15eef2a",
+    "transcript_path": "/home/yspies/.claude/projects/-home-yspies-dotfiles/c4f0a09a-79fd-4a5a-ad65-af49c15eef2a.jsonl",
+    "cwd": "/home/yspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "PostToolUse",
+    "tool_name": "Edit",
+    "tool_input": {
+      "file_path": "/home/yspies/dotfiles/nvim/.config/nvim/lua/custom/plugins/snacks.lua",
+      "old_string": "<<<<<<< HEAD\n    words = { enabled = false },\n    scroll = { enabled = false },\n=======\n    words = { enabled = true }, -- Enhanced LSP reference highlighting\n    image = { enabled = true }, -- Inline image rendering\n\n    -- Smooth scrolling animations\n    scroll = {\n      enabled = true,\n      animate = {\n        duration = { step = 15, total = 150 },\n        easing = 'linear',\n      },\n    },\n>>>>>>> 6c09906 (fix treesitter queries and enable snacks.image)",
+      "new_string": "    words = { enabled = true }, -- Enhanced LSP reference highlighting\n    image = { enabled = true }, -- Inline image rendering\n\n    -- Smooth scrolling animations\n    scroll = {\n      enabled = true,\n      animate = {\n        duration = { step = 15, total = 150 },\n        easing = 'linear',\n      },\n    },",
+      "replace_all": false
+    },
+    "tool_response": {
+      "filePath": "/home/yspies/dotfiles/nvim/.config/nvim/lua/custom/plugins/snacks.lua",
+      "oldString": "<<<<<<< HEAD\n    words = { enabled = false },\n    scroll = { enabled = false },\n=======\n    words = { enabled = true }, -- Enhanced LSP reference highlighting\n    image = { enabled = true }, -- Inline image rendering\n\n    -- Smooth scrolling animations\n    scroll = {\n      enabled = true,\n      animate = {\n        duration = { step = 15, total = 150 },\n        easing = 'linear',\n      },\n    },\n>>>>>>> 6c09906 (fix treesitter queries and enable snacks.image)",
+      "newString": "    words = { enabled = true }, -- Enhanced LSP reference highlighting\n    image = { enabled = true }, -- Inline image rendering\n\n    -- Smooth scrolling animations\n    scroll = {\n      enabled = true,\n      animate = {\n        duration = { step = 15, total = 150 },\n        easing = 'linear',\n      },\n    },",
+      "originalFile": "-- Snacks.nvim - A collection of small QoL plugins for Neovim\n-- https://github.com/folke/snacks.nvim\n\nreturn {\n  'folke/snacks.nvim',\n  priority = 1000,\n  lazy = false,\n  opts = {\n    -- Enable specific features\n    bigfile = { enabled = true }, -- Better performance for large files\n    notifier = { enabled = true }, -- Pretty notifications (replaces fidget.nvim)\n    quickfile = { enabled = true }, -- Faster file loading\n    statuscolumn = { enabled = false }, -- We're using default for now\n<<<<<<< HEAD\n    words = { enabled = false },\n    scroll = { enabled = false },\n=======\n    words = { enabled = true }, -- Enhanced LSP reference highlighting\n    image = { enabled = true }, -- Inline image rendering\n\n    -- Smooth scrolling animations\n    scroll = {\n      enabled = true,\n      animate = {\n        duration = { step = 15, total = 150 },\n        easing = 'linear',\n      },\n    },\n>>>>>>> 6c09906 (fix treesitter queries and enable snacks.image)\n\n    -- Better buffer deletion\n    bufdelete = {\n      enabled = true,\n    },\n\n    -- Smart file renaming with LSP integration\n    rename = {\n      enabled = true,\n    },\n\n    -- Configure notifier (replaces fidget.nvim)\n    notifier_opts = {\n      timeout = 3000,\n      width = { min = 40, max = 0.4 },\n      height = { min = 1, max = 0.6 },\n      margin = { top = 0, right = 1, bottom = 0 },\n      icons = {\n        error = \"\udb80\udd5a \",\n        warn = \"\udb80\udc2a \",\n        info = \"\udb80\udefd \",\n        debug = \"\udb82\udc2d \",\n        trace = \"\udb80\udfeb \",\n      },\n    },\n  },\n  keys = {\n    -- Notification history\n    { '<leader>sn', function() require('snacks').notifier.show_history() end, desc = 'Show notification history' },\n\n    -- Buffer deletion\n    { '<leader>bd', function() require('snacks').bufdelete.delete() end, desc = 'Delete buffer' },\n    { '<leader>bo', function() require('snacks').bufdelete.other() end, desc = 'Delete other buffers' },\n\n    -- Smart rename\n    { '<leader>rn', function() require('snacks').rename.rename_file() end, desc = 'Rename file' },\n\n    -- Dismiss notifications\n    { '<leader>nd', function() require('snacks').notifier.hide() end, desc = 'Dismiss all notifications' },\n  },\n  init = function()\n    -- Override vim.notify with snacks notifier\n    vim.notify = function(msg, level, opts)\n      require('snacks').notifier.notify(msg, level, opts)\n    end\n  end,\n}",
+      "structuredPatch": [
+        {
+          "oldStart": 11,
+          "oldLines": 10,
+          "newStart": 11,
+          "newLines": 6,
+          "lines": [
+            "     notifier = { enabled = true }, -- Pretty notifications (replaces fidget.nvim)",
+            "     quickfile = { enabled = true }, -- Faster file loading",
+            "     statuscolumn = { enabled = false }, -- We're using default for now",
+            "-<<<<<<< HEAD",
+            "-    words = { enabled = false },",
+            "-    scroll = { enabled = false },",
+            "-=======",
+            "     words = { enabled = true }, -- Enhanced LSP reference highlighting",
+            "     image = { enabled = true }, -- Inline image rendering",
+            " "
+          ]
+        },
+        {
+          "oldStart": 26,
+          "oldLines": 7,
+          "newStart": 22,
+          "newLines": 6,
+          "lines": [
+            "         easing = 'linear',",
+            "       },",
+            "     },",
+            "->>>>>>> 6c09906 (fix treesitter queries and enable snacks.image)",
+            " ",
+            "     -- Better buffer deletion",
+            "     bufdelete = {"
+          ]
+        }
+      ],
+      "userModified": false,
+      "replaceAll": false
+    },
+    "tool_use_id": "toolu_017zDxxBt8M24i7P3DnCf72L"
+  },
+  {
+    "session_id": "c4f0a09a-79fd-4a5a-ad65-af49c15eef2a",
+    "transcript_path": "/home/yspies/.claude/projects/-home-yspies-dotfiles/c4f0a09a-79fd-4a5a-ad65-af49c15eef2a.jsonl",
+    "cwd": "/home/yspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "PostToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "git diff --name-only --diff-filter=U",
+      "description": "Check remaining unresolved conflicts"
+    },
+    "tool_response": {
+      "stdout": "",
+      "stderr": "",
+      "interrupted": false,
+      "isImage": false,
+      "noOutputExpected": false
+    },
+    "tool_use_id": "toolu_013CK6vvmgMCbVHZhcR1zd1a"
+  },
+  {
+    "session_id": "c4f0a09a-79fd-4a5a-ad65-af49c15eef2a",
+    "transcript_path": "/home/yspies/.claude/projects/-home-yspies-dotfiles/c4f0a09a-79fd-4a5a-ad65-af49c15eef2a.jsonl",
+    "cwd": "/home/yspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "PostToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "git status --short",
+      "description": "Check full status"
+    },
+    "tool_response": {
+      "stdout": " D claude/.claude/backups/.claude.json.backup.1771601305405\n D claude/.claude/backups/.claude.json.backup.1771833256413\nM  claude/.claude/hooks/pre_tool_use.py\nM  fish/.config/fish/config.fish\n M logs/notification.json\n M logs/post_tool_use.json\n M logs/pre_tool_use.json\nM  nvim/.config/nvim/lua/custom/plugins/snacks.lua\nM  tmux/.tmux.conf\n?? claude/.claude/backups/.claude.json.backup.1771836791745\n?? claude/.claude/backups/.claude.json.backup.1771836863112",
+      "stderr": "",
+      "interrupted": false,
+      "isImage": false,
+      "noOutputExpected": false
+    },
+    "tool_use_id": "toolu_01UZHfVwzEwFsSLjv9BdRBMN"
   }
 ]

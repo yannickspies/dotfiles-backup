@@ -466,5 +466,13 @@
     "hook_event_name": "Notification",
     "message": "Claude needs your permission to use Bash",
     "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "c4f0a09a-79fd-4a5a-ad65-af49c15eef2a",
+    "transcript_path": "/home/yspies/.claude/projects/-home-yspies-dotfiles/c4f0a09a-79fd-4a5a-ad65-af49c15eef2a.jsonl",
+    "cwd": "/home/yspies/dotfiles",
+    "hook_event_name": "Notification",
+    "message": "Claude needs your permission to use Bash",
+    "notification_type": "permission_prompt"
   }
 ]
