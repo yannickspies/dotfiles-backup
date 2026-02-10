@@ -149,5 +149,49 @@
     "agent_id": "a98b938",
     "agent_transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/da7931d6-041c-4e41-9280-2e7fdcb1ed5b/subagents/agent-a98b938.jsonl",
     "agent_type": ""
+  },
+  {
+    "session_id": "da7931d6-041c-4e41-9280-2e7fdcb1ed5b",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/da7931d6-041c-4e41-9280-2e7fdcb1ed5b.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a98c67f",
+    "agent_transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/da7931d6-041c-4e41-9280-2e7fdcb1ed5b/subagents/agent-a98c67f.jsonl",
+    "agent_type": ""
+  },
+  {
+    "session_id": "c08b649a-5ad7-4294-83b5-a97087f8381f",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/c08b649a-5ad7-4294-83b5-a97087f8381f.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "ab2b8ae",
+    "agent_transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/c08b649a-5ad7-4294-83b5-a97087f8381f/subagents/agent-ab2b8ae.jsonl",
+    "agent_type": ""
+  },
+  {
+    "session_id": "9ac1fb18-cc7f-4b4c-a111-d7c419b665b0",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/9ac1fb18-cc7f-4b4c-a111-d7c419b665b0.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "a90a2e7",
+    "agent_transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/9ac1fb18-cc7f-4b4c-a111-d7c419b665b0/subagents/agent-a90a2e7.jsonl",
+    "agent_type": "Explore"
+  },
+  {
+    "session_id": "c9b21707-5f35-426c-a0cb-94f0bf8eaf46",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/c9b21707-5f35-426c-a0cb-94f0bf8eaf46.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "SubagentStop",
+    "stop_hook_active": false,
+    "agent_id": "acdd459",
+    "agent_transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/c9b21707-5f35-426c-a0cb-94f0bf8eaf46/subagents/agent-acdd459.jsonl",
+    "agent_type": ""
   }
 ]

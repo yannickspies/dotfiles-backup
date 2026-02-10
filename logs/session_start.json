@@ -64,5 +64,28 @@
     "cwd": "/home/yannickspies/dotfiles",
     "hook_event_name": "SessionStart",
     "source": "clear"
+  },
+  {
+    "session_id": "c08b649a-5ad7-4294-83b5-a97087f8381f",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/c08b649a-5ad7-4294-83b5-a97087f8381f.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "SessionStart",
+    "source": "startup",
+    "model": "claude-opus-4-5-20251101"
+  },
+  {
+    "session_id": "9ac1fb18-cc7f-4b4c-a111-d7c419b665b0",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/9ac1fb18-cc7f-4b4c-a111-d7c419b665b0.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "SessionStart",
+    "source": "startup",
+    "model": "claude-opus-4-6"
+  },
+  {
+    "session_id": "c9b21707-5f35-426c-a0cb-94f0bf8eaf46",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/c9b21707-5f35-426c-a0cb-94f0bf8eaf46.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "SessionStart",
+    "source": "clear"
   }
 ]
