@@ -1,0 +1,45 @@
+hey Nick, ik heb nu meerdere issues die probeer op te lossen - een daarvan is de login, misschien heb ik dat niet helemaal goed geinterpreteerd: 
+ 
+HUIDIGE SITUATIE:
+
+  - ES: Aparte login app op /acceso-area-personal/ (werkt)
+
+  - NL/DE: Login geïntegreerd als route in my-zone op /inloggen
+ 
+  PIPELINE BEVINDING:
+
+  De build pipeline (build-template.yml) heeft ES en DE in de multi-project
+
+  case statement, maar NL is NIET opgenomen. Du als ik dit zo zie, suggereert dat de infrastructuur
+
+  ontworpen was om separate login apps voor ES/DE te ondersteunen.
+ 
+  VRAGEN:
+
+  1. Moeten NL/DE het ES patroon volgen met aparte login apps?
+
+  2. OF Is de geïntegreerde aanpak (login als route in my-zone) acceptabel?
+
+  3. Als we de geïntegreerde aanpak behouden, moeten we DE dan verwijderen uit
+
+     de multi-project case statement (aangezien het alleen my-zone heeft)?
+ 
+  HUIDIG GEDRAG:
+
+  De NL/DE login feature libraries bestaan:
+
+  - libs/spa/authentication/inshared-nl/login/feature/
+
+  - libs/spa/authentication/inshared-de/login/feature/
+ 
+  Ze worden geladen als routes binnen my-zone, niet als aparte apps.
+
+ 
+ik ga het even lezen, kun jij rustig pauze houden  
+ 
+haha helemaal goed, heb een pauze nodig 
+ 
+totzo!
+ 
+kun je het stukje uit de build.yaml is laten zien? 
+ 

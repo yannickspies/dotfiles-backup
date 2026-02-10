@@ -1,0 +1,84 @@
+https://jira.outshared.com/browse/WINS-13578
+MyZone - Create separate app(s) NL/DE/ES
+
+note senior dev: 
+```
+ de bedoeling is dat er 3 aparte apps komen bv myZoneDe, myZoneNL, myZoneEs, die 3 apps maken gebruik van 1 gedeelde myZone lib die in die 3 talen vertaald is. Als je in de websites repo kijkt dan is daar onder libs/spa/my-zone al aan begonnen voor ES.  (misschien valt dat al te gebruiken)
+ 
+het is de bedoeling dat het in ieder geval alle functionaliteiten heeft die nu al in NL beschikbaar zijn. 
+```
+
+Requirements:
+
+Create apps for all countries (NL/DE/ES)
+Create separate shell for the MyZone. This one has a new navigation (for MyZone only) included
+Copy code to new app
+No WUC
+Implement shared (dato) footer
+Add new page structure based on new pages in navigation (see table below)
+
+Navigation (fase 1)
+
+Old    New
+Mijn verzekeringen    Overzicht
+-    Berichten (fase 2)
+Schademelden    -
+Schadestatus    Claims
+Mijn gegevens    Gegevens
+Facturen    Facturen
+JaarBalans    -
+-    Contact
+
+
+
+
+
+
+See above the initial context we gave the includes the description for the story
+
+How can we verify that we did is correct?
+Given we have the blocker that we need to implement the login apps for DE and NL, does that mean we simply cannot verify our work locally before this is completed?
+Can people review the PR or does this need to happen first otherwise its hard to say. also hard to merge?
+
+also take into consideration
+```
+hey Nick 
+
+
+  - De NL MyZone app (apps/inshared-nl/spa/my-zone) is aangemaakt in websites repo
+
+  - Alle routes zijn beveiligd met AuthenticateGuard → redirect naar /inloggen
+
+  - Maar: er is geen login app voor NL in deze repo (alleen ES heeft apps/inshared-es/spa/login)
+
+  Vraag:
+
+  Voor de NL MyZone app in de websites repo: moeten we een aparte login app maken (zoals ES heeft in apps/inshared-es/spa/login). De auth guard redirect naar /inloggen maar die
+
+  route bestaat niet in de NL MyZone app.
+ 
+er zou een lib moeten komen voor login waarvan alle apps gebruik kunnen maken
+ 
+i seeee
+ 
+ok maar dat zou best groot zijn of niet 
+ 
+ja dat valt niet in deze scope
+ 
+misschien even overleggen als Laura terug is
+ 
+kan het met een harde link naar de login pagina? 
+ 
+Ok check - ja het is lastig testen dan nu. ik probeer het met een workaround. 
+ 
+bedoel je met een harde link naar de andere repo als het ware, die inlog 
+ 
+naar de url, als ik het goed begrijp wil je in de guard verwijzen naar de login pagina (repo) maar als we die voor nu houden zoals ie is en alleen verwijzen naar /inloggen (die ergens anders in een dist gemaakt word)
+ 
+Ok, ik ga me even erin verdiepen. kom erop terug  
+ 
+ik probeer nu inloggen in inshared-app, hopelijk blijft dat in local storage, de nieuwe myzone app tijdelijk dezelfde port, wie weet gaat de session over hehe 
+ 
+op de server blijft dat sowieso
+ 
+ ```

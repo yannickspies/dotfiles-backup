@@ -1,0 +1,37 @@
+We have just completed and created our new applications and shared libs in https://jira.outshared.com/browse/WINS-13578
+
+Now we will start implementing and preparing the new MyZone design.
+
+https://jira.outshared.com/browse/WINS-13580
+```
+MyZone - Setup framework for design
+
+https://www.figma.com/design/7wU69VagekV41zKmMfCvDD/My-InShared-Redesign--Marian-s-version-?node-id=2097-10089&t=sPgntDJjCOQrR9gt-0
+
+Requirements:
+
+Create basic structure for new MyZone for desktop and mobile (grid/breakpoints etc. see https://storybook-testing.inshared.io/?path=/docs/foundations-breakpoints--playground)
+Make connection to ui Angular components (storybook https://storybook-testing.inshared.io/)
+Set pink background color (from tokens)
+Navigation in separate ticket
+
+Implementation solution:
+
+one nieuw component can be used in the Myzone.
+```
+
+Figma with new design: 
+https://www.figma.com/design/7wU69VagekV41zKmMfCvDD/My-InShared-Redesign--Marian-s-version-?node-id=2097-10089&t=AYiyPfS5fXrgYaAM-0
+
+And 'standards' we need to implement as foundation are at:
+- https://storybook-testing.inshared.io/?path=/docs/foundations-breakpoints--playground
+- https://storybook-testing.inshared.io/?path=/docs/foundations-grid--playground
+- https://storybook-testing.inshared.io/?path=/docs/foundations-color--playground
+
+Following stories will have us use the new ui library in our codebase, 
+a snippet from a following story":
+f.e. The "Your insurances" section in the dashboard is styled like the design (https://www.figma.com/design/7wU69VagekV41zKmMfCvDD/My-InShared-Redesign--Marian-s-version-?node-id=2097-10089&t=jkOb6BGRXmMDWbrF-0)
+
+- So we need to do the preparation work to allow us to use the new standards, components, color tokens etc
+
+You can fetch if you need extra context. Create a team of agents to plan and execute this story if it is clear, if instructions are ambigous create a markdown doc in root with all questions and info we are still missing 

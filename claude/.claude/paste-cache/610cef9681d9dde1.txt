@@ -1,0 +1,51 @@
+I have some context from a senior dev
+```
+hey Nick 
+
+
+  - De NL MyZone app (apps/inshared-nl/spa/my-zone) is aangemaakt in websites repo
+
+  - Alle routes zijn beveiligd met AuthenticateGuard → redirect naar /inloggen
+
+  - Maar: er is geen login app voor NL in deze repo (alleen ES heeft apps/inshared-es/spa/login)
+
+  Vraag:
+
+  Voor de NL MyZone app in de websites repo: moeten we een aparte login app maken (zoals ES heeft in apps/inshared-es/spa/login). De auth guard redirect naar /inloggen maar die
+
+  route bestaat niet in de NL MyZone app.
+ 
+er zou een lib moeten komen voor login waarvan alle apps gebruik kunnen maken
+ 
+i seeee
+ 
+ok maar dat zou best groot zijn of niet 
+ 
+ja dat valt niet in deze scope
+ 
+misschien even overleggen als Laura terug is
+ 
+kan het met een harde link naar de login pagina? 
+ 
+Ok check - ja het is lastig testen dan nu. ik probeer het met een workaround. 
+ 
+bedoel je met een harde link naar de andere repo als het ware, die inlog 
+ 
+naar de url, als ik het goed begrijp wil je in de guard verwijzen naar de login pagina (repo) maar als we die voor nu houden zoals ie is en alleen verwijzen naar /inloggen (die ergens anders in een dist gemaakt word)
+ 
+Ok, ik ga me even erin verdiepen. kom erop terug  
+ 
+ik probeer nu inloggen in inshared-app, hopelijk blijft dat in local storage, de nieuwe myzone app tijdelijk dezelfde port, wie weet gaat de session over hehe 
+ 
+op de server blijft dat sowieso
+ 
+libs/spa/authentication/feature-login
+ 
+in de websites repo
+```
+
+
+
+So `libs/spa/authentication/feature-login` is where a working auth implementation is according to him that we can use for the login of NL and DE. see if our current plan for the login is complete
+
+is there a way to temporarily point to the other apps login page like Nick is saying to test our current code

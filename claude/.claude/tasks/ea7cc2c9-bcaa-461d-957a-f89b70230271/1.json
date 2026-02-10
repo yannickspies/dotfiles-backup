@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "subject": "Remove unnecessary comments from fetch_stories.py",
+  "description": "Remove obvious/redundant comments that restate what the code does: \"# Configure logging\", \"# Build JQL query\", \"# Jira REST API endpoint\", \"# Table format\", and redundant docstrings.",
+  "activeForm": "Removing unnecessary comments",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

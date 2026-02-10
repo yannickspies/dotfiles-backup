@@ -1,0 +1,88 @@
+Front-end Release 12.1.0 – Now in Acceptance
+ 
+Hello everyone,
+ 
+Due to some technical comlications this release is a bit later on acceptance than normaly however the issues have been resolved and the new release is available on the acceptance environments. 
+ 
+Release 12.0.0 Haftpflicht Germany
+Last week release 12.0.0 has been pushed to production. This release is marked as a major release because this release marked the second product in Germany. Customers can now take out a Haftpflicht and Hundehalterhaftpflicht versicherung. This is a very nice achievement and milestone for the team and InShared as a whole. 
+ 
+Release 12.1.0
+Front-end Release 12.1.0 has been deployed to the acceptance environments. The tickets are prioritized on the UAT board and are awaiting approval. This release mainly contains some aftercare for the new Haftfplicht funnels in Germany.
+ 
+We've also done technical optimalisations and expansions on the E2E tests which are not mentioned in the tickets below. If there are any questions about these changes feel free to reach out.
+ 
+ 
+Highlights of this Release
+Netherlands (NL)
+[WINS-13612] - Prerender / top navigation Myzone always redirected to the my insurances page
+[WINS-13422] - Add e-mailadres text to the collectivity label
+Germany (DE)
+[WINS-13583] - URL's to myzone navigated to the 404 page whilst using the header menu
+[WINS-13446] - Change gender option Neutral to Divers in the car funnel and Myzone
+[WINS-13457] - All documents are loaded from DatoCMS
+ 
+Haftpflicht:
+[WINS-13429] - The URL of the funnel was not normalised
+[WINS-13562] - Navigate steps with browser blocked the funnel
+[WINS-13567] - Fixed button link on the thanks page
+[WINS-13574] - Password change in input blocked the login flow in the funnel
+[WINS-13577] - The name of a logged in customer was not showing in the topbar while in the funnel
+[WINS-13370] - Fixed the titels of the more info dialogs
+[WINS-13425] - Implemented the modal when Kontoinhaber changes
+[WINS-13534] - Added meta data to Haftpflichtfunnel
+[WINS-13550] - Deleted the payment period in the coverage blocks
+[WINS-13101] - Finalized analytics property mapping
+[WINS-13605] - If you closed the browser while logged in, you will not be able to proceed further in the funnel without a page refresh
+Spain (ES)
+[WINS-13477] - Add duplicate 'thank you' page to CMS and adjust all links towards that page
+All Countries
+[WINS-13200] - NoIndex/NoFollow option is available for Smart Tips and FAQ’s in DatoCMS
+[WINS-13236] - Removed publishing date for Smart Tips on the overview page
+[WINS-13310] - Added the option the choose 'More Smart Tips' in the sidebar
+[WINS-13466] - Fixed a shift in content after adding a header
+[WINS-13618] - Updated website chatbot integrations to use the new middleware connection for CM Conversational AI Cloud
+ 
+Acceptance Environments
+Netherlands Acceptance Environment
+Germany Acceptance Environment
+Spain Acceptance Environment
+ 
+Didier van Esch
+Front-end Release 12.1.0 – Now in Acceptance     Hello everyone,     Due to some technical comlications this release is a bit later on acceptance than normaly however the issues have been resolved and the new release is available on the acceptance environments.      Release 12.0.0 Haftpflicht Germa…
+Front-end Release 12.1.0 – Now in Production
+ 
+Hi all, thanks to the quick UAT this release is already in production! 
+ 
+Front-end Release 12.2.0 – Now in Acceptance
+ 
+Hello everyone,
+ 
+Release 12.2.0
+Front-end Release 12.2.0 has been deployed to the acceptance environments. The tickets are prioritized on the UAT board and are awaiting approval. This release is not a big release but just to try and keep a 2 week cycle going. 
+ 
+ 
+Highlights of this Release
+Netherlands (NL)
+[WINS-13642] - Schademelden button in the top right was not navigating to the correct page.
+Germany (DE)
+[WINS-13535] - Removed Smart tips from MyZone
+Haftpflicht:
+[WINS-13588] - After logout (via profile menu) the funnel form has value Ja selected for Sind sie bereits kunde and field Familienzusammensetzung is disabled
+[WINS-13542] - Updated the field order in step 3
+[WINS-13563] - Add robot tag to the funnel page
+[WINS-13589] - Add Haftpflicht funnel to the sitemap
+Spain (ES)
+[WINS-13586] - Create solid solution for Chatbot fix on Spanish product page
+All Countries
+No functional changes for all countries have been made in this release
+ 
+Acceptance Environments
+Netherlands Acceptance Environment
+Germany Acceptance Environment
+Spain Acceptance Environment
+ 
+Didier van Esch
+Front-end Release 12.2.0 – Now in Acceptance     Hello everyone,     Release 12.2.0  Front-end Release 12.2.0 has been deployed to the acceptance environments. The tickets are prioritized on the UAT board and are awaiting approval. This release is not a big release but just to try and keep a 2 week…
+Frontend release 12.2.0 is now in production
+ 

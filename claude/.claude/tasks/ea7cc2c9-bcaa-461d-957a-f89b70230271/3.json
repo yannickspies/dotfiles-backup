@@ -1,0 +1,9 @@
+{
+  "id": "3",
+  "subject": "Extract HTTP error handling into dedicated function",
+  "description": "The nested try/except block in fetch_stories (lines 88-109) handles multiple HTTP error types with status-specific messages. Extract the error response handling to clean up the main flow.",
+  "activeForm": "Extracting HTTP error handling",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

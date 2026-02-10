@@ -1,0 +1,110 @@
+~/projects/frontend/websites feature/WINS-13578_myzone-separate-apps* ≡ 15s
+❯ nx serve inshared-nl-my-zone
+
+nx: command not found
+
+~/projects/frontend/websites feature/WINS-13578_myzone-separate-apps* ≡
+❯ npx nx serve inshared-nl-my-zone
+
+npm warn Unknown project config "always-auth". This will stop working in the next major version of npm.
+
+> nx run web-common:clean
+
+
+> nx run ui-website:clean
+
+
+> nx run inshared-nl-my-zone:extract-i18n
+
+
+> nx run ui-website:build  [local cache]
+
+
+> nx run web-common:build  [local cache]
+
+
+> nx run ui-icons:build  [local cache]
+
+
+> nx run app-shell-inshared-nl:build:production  [local cache]
+
+
+> nx run inshared-nl-my-zone:sync-translations
+
+
+—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+ NX   Ran target serve for project inshared-nl-my-zone and 8 task(s) they depend on (34s)
+
+   ✖  1/8 failed
+   ✔  7/8 succeeded [4 read from cache]
+
+
+ NX   Nx detected a flaky task
+
+  ui-icons:build
+
+Flaky tasks can disrupt your CI pipeline. Automatically retry them with Nx Cloud. Learn more at https://nx.dev/ci/features/flaky-tasks
+
+
+
+~/projects/frontend/websites feature/WINS-13578_myzone-separate-apps* ≡ 35s
+❯ npx nx build web-common
+npm warn Unknown project config "always-auth". This will stop working in the next major version of npm.
+
+> nx run web-common:clean
+
+
+> nx run web-common:build  [local cache]
+
+
+—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+ NX   Successfully ran target build for project web-common and 1 task it depends on (2s)
+
+Nx read the output from the cache instead of running the command for 1 out of 2 tasks.
+
+
+
+~/projects/frontend/websites feature/WINS-13578_myzone-separate-apps* ≡
+❯ npx nx build inshared-nl-my-zone
+
+npm warn Unknown project config "always-auth". This will stop working in the next major version of npm.
+
+> nx run web-common:clean
+
+
+> nx run ui-website:clean
+
+
+> nx run inshared-nl-my-zone:extract-i18n
+
+
+> nx run ui-website:build  [local cache]
+
+
+> nx run web-common:build  [local cache]
+
+
+> nx run ui-icons:build  [existing outputs match the cache, left as is]
+
+
+> nx run app-shell-inshared-nl:build:production  [existing outputs match the cache, left as is]
+
+
+> nx run inshared-nl-my-zone:sync-translations
+
+
+—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+ NX   Ran target build for project inshared-nl-my-zone and 8 task(s) they depend on (23s)
+
+   ✖  1/8 failed
+   ✔  7/8 succeeded [4 read from cache]
+
+
+ NX   Nx detected a flaky task
+
+  ui-icons:build
+
+Flaky tasks can disrupt your CI pipeline. Automatically retry them with Nx Cloud. Learn more at https://nx.dev/ci/features/flaky-tasks

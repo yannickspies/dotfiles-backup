@@ -1,0 +1,41 @@
+Ter referentie. Onderstaande heb je nodig in je project.json. Met die prerender true gaat die de routes.txt uitlezen. En die server.ts geloof ik meer generiek en kan je copy pastaen naar je SPAtje. Maar dan de routes die in je SPA routes.txt toevoegt. Die zou ik yeeten uit inshared-app respectievelijke routes.txt in branch daar. En dan manueel websites pipeline triggeren, zodat je jouw inshared-app branch kan setten 
+ 
+                    "prerender": true,
+                    "ssr": {
+                        "entry": "apps/inshared-es/spa/login/server.ts"
+                    }
+ 
+ 
+thaaaanks amigo!! appreciate it 
+ 
+Owja, was even naar je login PR aan het kijken. Maar je kan je routes.txt yeeten, omdat je via provideServerRendering(withRoutes(serverRoutes)), je ServerRoutes toevoegt. Je kan dan in app.routes.server.ts onderstaande doen. Om heel verbose te maken welke routes je sowieso wilt prerenderen. Ookal heb je die wildcard catch onderaan:
+ 
+import { ServerRoute, RenderMode } from '@angular/ssr';
+export const serverRoutes: ServerRoute[] = [
+  { path: '/', renderMode: RenderMode.Prerender },
+  { path: '/inloggen', renderMode: RenderMode.Prerender },
+  { path: '/overzicht', renderMode: RenderMode.Prerender },
+  { path: '/schades', renderMode: RenderMode.Prerender },
+  { path: '/mijn-gegevens', renderMode: RenderMode.Prerender },
+  { path: '/mijn-facturen', renderMode: RenderMode.Prerender },
+  { path: '/contact', renderMode: RenderMode.Prerender },
+  { path: '/betalen', renderMode: RenderMode.Prerender },
+  { path: '/betalen/ideal/starten', renderMode: RenderMode.Prerender },
+  { path: '/betalen/ideal/afronden', renderMode: RenderMode.Prerender },
+  { path: '**', renderMode: RenderMode.Prerender }
+];
+ 
+ 
+ 
+omggg
+ 
+ooh ok 
+ 
+zat op het verkeerde pad haha 
+ 
+wel je zat in de buurt. No worries Yannick. Die routes.txt is legacy stijl
+ 
+Verder wat mij ook opvalt is dat Spanje heeft login zitten in apps\inshared-es\spa\login. Maar die van jou zit in libs. Maar dat kan een keuze zijn denk ik.
+ 
+En ik zie nergens een Route voor inloggen . Bijv Spanje heeft apps\inshared-es\spa\login\src\app\app.routes.ts
+ 

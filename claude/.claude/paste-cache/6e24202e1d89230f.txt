@@ -1,0 +1,56 @@
+
+commit 424484cac3b6ef1b601e4ed565c0d89dcb4ffa8b (HEAD -> feature/WINS-13578_nl-de-spa-apps)
+Author: Yannick Spies <y.spies@inshared.nl>
+Date:   Fri Feb 13 08:26:26 2026 +0000
+
+    address PR review comments: match prod metadata, fix DE route and cleanup (WINS-13578)
+
+    - Update NL/DE login and logout page titles and descriptions to match production
+    - Change DE myzone route from mein-bereich to versicherungsmappe (existing prod route)
+    - Remove noindex/nofollow from DE logout to match current prod behavior
+    - Delete unused empty app.component.css files from NL/DE my-zone
+    - Add favicon.ico to all NL/DE SPA apps (matching ES pattern)
+    - Update review guide with new DE myzone route
+
+commit 091430022b905d2262913cd4fcd8d057c64c0246
+Author: Yannick Spies <y.spies@inshared.nl>
+Date:   Thu Feb 12 12:24:09 2026 +0000
+
+    fix review guide: remove duplication, fix typo and DE slugs (WINS-13578)
+
+commit bb8647d72a282058e93cfd5b55b3d98a7747911d
+Author: Yannick Spies <y.spies@inshared.nl>
+Date:   Thu Feb 12 07:51:46 2026 +0000
+
+    WINS-13578: fix readme
+
+commit a40e3d0718f2d2a4933ff8700c5f55cb410581f7
+Author: Yannick Spies <y.spies@inshared.nl>
+Date:   Wed Feb 11 21:33:47 2026 +0000
+
+    fix DE login/logout route slugs: anmelden/abmelden → einloggen/ausloggen (WINS-13578)
+
+commit fb7254d5ea76be5bb46557e980542a7f8c6b8b39
+Author: Yannick Spies <y.spies@inshared.nl>
+Date:   Wed Feb 11 21:30:06 2026 +0000
+
+    remove working docs from repo (WINS-13578)
+
+commit cb237d2eb28b972121c40add4afe623a80a68d93
+Author: Yannick Spies <y.spies@inshared.nl>
+Date:   Wed Feb 11 21:27:07 2026 +0000
+
+    prepare WINS-13578 for PR review: add review guide, gitignore logs/ (WINS-13578)
+
+commit 1558081103c6b718cce4e88fc3bfc5c32c0b827c
+Author: Ritchy Hohne <r.hohne@inshared.nl>
+
+~/projects/frontend/websites feature/WINS-13578_nl-de-spa-apps* ≡ ⇡⇣ 38s
+❯ git push
+To https://dev.azure.com/InShared/frontend/_git/websites
+ ! [rejected]          feature/WINS-13578_nl-de-spa-apps -> feature/WINS-13578_nl-de-spa-apps (non-fast-forward)
+error: failed to push some refs to 'https://dev.azure.com/InShared/frontend/_git/websites'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.

@@ -1,0 +1,49 @@
+{
+  "name": "keycloak-validation",
+  "description": "Validate 10 Keycloak Jira stories against FE template and provide implementation feedback based on websites + inshared-app codebases",
+  "createdAt": 1770979990878,
+  "leadAgentId": "team-lead@keycloak-validation",
+  "leadSessionId": "928a5f93-7d2a-4f35-b9a1-65d28c902404",
+  "members": [
+    {
+      "agentId": "team-lead@keycloak-validation",
+      "name": "team-lead",
+      "agentType": "team-lead",
+      "model": "claude-opus-4-6",
+      "joinedAt": 1770979990878,
+      "tmuxPaneId": "",
+      "cwd": "/home/yspies/projects/frontend/jira-automation",
+      "subscriptions": []
+    },
+    {
+      "agentId": "design-validator@keycloak-validation",
+      "name": "design-validator",
+      "agentType": "general-purpose",
+      "model": "claude-opus-4-6",
+      "prompt": "You are a Jira story validator and FE implementation reviewer on team \"keycloak-validation\". Your name is \"design-validator\".\n\nYOUR TASK (Task #1): Validate 5 Keycloak design page stories against the FE story template and provide implementation feedback.\n\nSTEPS:\n1. Read the stories data from /home/yspies/projects/frontend/jira-automation/output/keycloak_stories.json\n2. Read the template from /home/yspies/projects/frontend/jira-automation/templates/story_template.md\n3. Read the PO message template from /home/yspies/projects/frontend/jira-automation/templates/po_message.md\n\n4. Filter and validate ONLY these 5 stories:\n   - WINS-13689: [Keycloak] Inshared login page\n   - WINS-13690: [Keycloak] Inshared select authenticate page\n   - WINS-13696: [Keycloak] Inshared email authentication page\n   - WINS-13697: [Keycloak] Inshared sms authentication page\n   - WINS-13698: [Keycloak] Inshared phone number authentication page\n\n5. For each story, evaluate CONTENT (not headings) against these template sections:\n   - Story Goal: Is there a problem, goal, or business value described?\n   - Implementation / Scope: Is there a description of WHAT needs to happen? What changes?\n   - Acceptance Criteria: Are there criteria for when it's done? (explicit or implicit)\n   - Validation / Proof: Are there test scenarios, validation approach, or proof criteria?\n\n6. Classify each as:\n   - INCOMPLETE: Missing content for one or more sections. Generate PO feedback in Dutch using po_message.md template. JIRA_BASE_URL is https://jira.outshared.com\n   - COMPLETE_UNFORMATTED: All content present but not in template format. Provide reformatted description.\n   - COMPLETE_FORMATTED: All sections present and correctly formatted. Confirm.\n\n7. ALSO explore the InShared app codebase at /home/yspies/projects/frontend/inshared-app to find:\n   - Existing login page implementations or auth-related pages\n   - Any 2FA or Keycloak related code\n   - UI patterns for auth flows\n   - Existing component patterns that could inform these stories\n   Provide implementation feedback and answer any open questions from the stories.\n\n8. Write the full validation report to /home/yspies/projects/frontend/jira-automation/output/design_stories_validation.md\n   Format: Dutch with technical terms in English.\n\n9. After writing the report, mark Task #1 as completed using TaskUpdate.\n\nIMPORTANT: Be thorough in your analysis. Check all content sources (description, attachments with text_content, comments). Write output in Dutch with technical terms in English.",
+      "color": "blue",
+      "planModeRequired": false,
+      "joinedAt": 1770980035487,
+      "tmuxPaneId": "%18",
+      "cwd": "/home/yspies/projects/frontend/jira-automation",
+      "subscriptions": [],
+      "backendType": "tmux",
+      "isActive": true
+    },
+    {
+      "agentId": "tech-validator@keycloak-validation",
+      "name": "tech-validator",
+      "agentType": "general-purpose",
+      "model": "claude-opus-4-6",
+      "prompt": "You are a Jira story validator and FE implementation reviewer on team \"keycloak-validation\". Your name is \"tech-validator\".\n\nYOUR TASK (Task #2): Validate 5 Keycloak technical/infrastructure stories against the FE story template and provide implementation feedback.\n\nSTEPS:\n1. Read the stories data from /home/yspies/projects/frontend/jira-automation/output/keycloak_stories.json\n2. Read the template from /home/yspies/projects/frontend/jira-automation/templates/story_template.md\n3. Read the PO message template from /home/yspies/projects/frontend/jira-automation/templates/po_message.md\n\n4. Filter and validate ONLY these 5 stories:\n   - WINS-13688: [Keycloak] Initial setup starter template\n   - WINS-13699: [Keycloak] global localization PO\n   - WINS-13700: [Keycloak] keycloak-js adapter integration\n   - WINS-13701: [Keycloak] middleware setup\n   - WINS-13702: [Keycloak] build theme pipeline and deploy\n\n5. For each story, evaluate CONTENT (not headings) against these template sections:\n   - Story Goal: Is there a problem, goal, or business value described?\n   - Implementation / Scope: Is there a description of WHAT needs to happen? What changes?\n   - Acceptance Criteria: Are there criteria for when it's done? (explicit or implicit)\n   - Validation / Proof: Are there test scenarios, validation approach, or proof criteria?\n\n6. Classify each as:\n   - INCOMPLETE: Missing content for one or more sections. Generate PO feedback in Dutch using po_message.md template. JIRA_BASE_URL is https://jira.outshared.com\n   - COMPLETE_UNFORMATTED: All content present but not in template format. Provide reformatted description.\n   - COMPLETE_FORMATTED: All sections present and correctly formatted. Confirm.\n\n7. ALSO explore BOTH codebases for implementation context:\n   a) /home/yspies/projects/frontend/websites - Look for:\n      - Angular project setup patterns (nx workspace config)\n      - keycloak-js integration or any Keycloak config\n      - i18n/localization patterns (how translations are handled)\n      - Build/deploy pipeline configs\n      - Middleware patterns\n   b) /home/yspies/projects/frontend/inshared-app - Look for:\n      - Existing Keycloak configuration\n      - Auth middleware or interceptors\n      - Pipeline/deployment configuration (bamboo-specs, docker)\n      - i18n setup\n\n   Provide implementation feedback based on what you find. Especially for WINS-13701 (middleware setup) - check with the codebase what middleware adjustments might be needed (this is an open question from the team: \"Check met Kenny => Middleware adjustments needed?\").\n\n8. Write the full validation report to /home/yspies/projects/frontend/jira-automation/output/technical_stories_validation.md\n   Format: Dutch with technical terms in English.\n\n9. After writing the report, mark Task #2 as completed using TaskUpdate.\n\nIMPORTANT: Be thorough in your analysis. Check all content sources (description, attachments with text_content, comments). Write output in Dutch with technical terms in English.",
+      "color": "green",
+      "planModeRequired": false,
+      "joinedAt": 1770980045782,
+      "tmuxPaneId": "%19",
+      "cwd": "/home/yspies/projects/frontend/jira-automation",
+      "subscriptions": [],
+      "backendType": "tmux",
+      "isActive": true
+    }
+  ]
+}

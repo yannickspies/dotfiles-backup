@@ -1,0 +1,86 @@
+ 
+OpenAI GPT-5.1-Codex-Mini in Copilot
+OpenAI GPT-5.1-Codex in Copilot
+Anthropic Claude Opus 4.5 in Copilot
+Anthropic Claude Sonnet 4.5 in Copilot
+ 
+Anne de Vries zou je deze models kunnen enablen voor gebruik?
+ 
+Zie https://inshared.ghe.com/organizations/InShared/settings/copilot/models
+GitHub is where people build software. More than 150 million people use GitHub to discover, fork, and contribute to over 420 million projects.
+ 
+Jeroen Fiege bovenstaande models zijn beschikbaar!
+ 
+ 
+Kijk hier eens naar! https://inshared.ghe.com/InShared/cyno-monorepo/issues/10 
+ 
+Ik heb samen met Copilot een issue gemaakt alle composer.json files te fixen. Daarna heeft Copilot een branch gemaakt en de changes doorgevoerd 
+ 
+Werk alle composer.json-bestanden in de map packages bij.
+
+Vervang afhankelijkheden die nu via Bitbucket (type cvs) lopen door lokale pad-references.
+Omdat alle packages in dezelfde monorepo staan, moeten deze dependencies worden ingesteld als path repositories, volgens de Composer-documentatie voor path repositories.
+GitHub is where people build software. More than 150 million people use GitHub to discover, fork, and contribute to over 420 million projects.
+ 
+Zie hier de sessie die is uitgevoerd:
+ 
+https://inshared.ghe.com/copilot/tasks/pull/PR_kwDOADvKKc4B2ntB?session_id=8aaae033-3bc8-47f9-99e8-7334ded365c3
+GitHub
+GitHub is where people build software. More than 150 million people use GitHub to discover, fork, and contribute to over 420 million projects.
+ 
+Handig! Dus je schiet een issue in en assigned hem aan Copilot?
+ 
+yep! maar je kunt dit natuurlijk ook lokaal doen in je IDE met Copilot en daarna zelf een PR aanmaken
+ 
+Arnoud de Boer heeft Erik Odink toegevoegd aan de chat en alle chatgeschiedenis gedeeld.
+
+ 
+Mijn MCP servers werken niet meer in VS Code. Hebben meer mensen hier last van?
+ 
+Anne de Vries hebben jullie het dichtgezet?
+ 
+Niet bewust
+ 
+Deze setting stond disabled in Github waardoor de MCP servers niet werken in je lokale IDE. Nu werkt het weer!
+ 
+Oh oh, wie heeft er aan gezeten?
+ 
+Hoe goed is de auditlog...
+ 
+Mijn copilot in PHPStorm heeft het heel erg moeilijk met het project omdat het in wsl draait.
+ 
+Zoeken naar bestanden wil niet lukken
+ 
+ 
+Op WSL2 loop ik niet tegen problemen aan 
+ 
+Ik denk dat het echt de combi wsl + phpstorm is
+ 
+Heb ook een issue gevonden hieraan gerelateerd:
+https://github.com/microsoft/copilot-intellij-feedback/issues/788
+run_in_terminal tool hangs indefinitely on WSL Ubuntu paths in PHPStorm · Issue #788 · microsoft/copilot-intellij-feedback
+Problem Description The run_in_terminal tool in GitHub Copilot Chat hangs indefinitely when executing commands in WSL Ubuntu environment through PHPStorm. Environment IDE: PHPStorm (JetBrains) Plug...
+ 
+Arnoud de Boer heeft Stephane Weusten toegevoegd aan de chat en alle chatgeschiedenis gedeeld.
+
+ 
+Anne de Vries ik krijg steeds meer verzoeken / vragen of men een Copilot seat kan krijgen. Kunnen we het misschien open zetten voor alle developers?
+ 
+Goedemorgen Arnoud,
+ 
+Hebben we alles (redelijk) goed ingesteld?
+ 
+Ja, zover ik weet wel.
+ 
+En de gegenereerde code blijft ook bij ons?
+ 
+Copilot draait gewoon in je eigen IDE, op de code die je lokaal hebt uitgecheckt uit Git. Het genereert alleen suggesties; niets wordt automatisch opgeslagen of gedeeld. Pas als de developer accepteert en commit, staat het in de repo, net zoals handgeschreven code.
+ 
+Omdat we GHE gebruiken:
+onze code/prompts worden niet gebruikt voor training
+code blijft ons eigendom
+alles valt onder de Enterprise security-instellingen
+Daarnaast zijn er Copilot Agents op GitHub zelf (inshared.ghe.com).
+
+Die draaien binnen onze GHE omgeving en hebben alleen toegang tot de repositories die wij expliciet toestaan en staan niet standaard aan per repo (opt-in)
+ 

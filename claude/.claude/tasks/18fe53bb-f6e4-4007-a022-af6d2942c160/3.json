@@ -1,0 +1,9 @@
+{
+  "id": "3",
+  "subject": "Phase 4: Create NL MyZone app",
+  "description": "Create NL app shell under apps/inshared-nl/spa/my-zone/ and NL feature wrappers under libs/spa/my-zone/inshared-nl/",
+  "activeForm": "Creating NL app",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

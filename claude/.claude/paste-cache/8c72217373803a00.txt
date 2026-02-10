@@ -1,0 +1,98 @@
+inshared-de-my-zone:sync-translations wordt aangeroepen, dus lijkt me wel bewust ingericht. Weet alleen niet hoe lang dit er al in zit en waarom die token er dan nu niet is
+ 
+ja dat is nieuw in mijn branch! vandaar 
+ 
+Timo Goudzwaard
+inshared-de-my-zone:sync-translations wordt aangeroepen, dus lijkt me wel bewust ingericht. Weet alleen niet hoe lang dit er al in zit en waarom die token er dan nu niet is
+maar spanje doet dat dus niet zo?
+ 
+geloof ik kan in pipeline env toevoegen. Even bellen Yannick?
+ 
+Ritchy Hohne
+geloof ik kan in pipeline env toevoegen. Even bellen Yannick?
+het is meer de vraag wat is de waarde van die api key 
+ 
+Jawel, zie: https://dev.azure.com/InShared/frontend/_library?itemType=VariableGroups&view=VariableGroupView&variableGroupId=57&path=website-testing-es voor Spanje
+
+    
+            Azure DevOps Services | Sign In
+        
+
+ 
+Mag dezelfde waarde worden als bij spanje dus kan copy-paste
+ 
+niiice timooo
+ 
+Let op dat dit dan ook voor acceptatie/prod gedaan moet worden anders knalt die er daar alsnog weer uit
+ 
+Zal ik dan maar eens een variabele toevoegen  
+ 
+ 
+ 
+ 
+Didier van Esch
+Zal ik dan maar eens een variabele toevoegen 😋
+zal ik helpen Didier? Doe ik DE en jij NL ofzo haha?
+ 
+Zoveel werk is het niet hoor 
+ 
+Didier van Esch
+Zoveel werk is het niet hoor 😋
+noice, dan ben ik even weg naar dierendokter
+ 
+Ik heb ze voor alle omgevingen (test/acct/demo/prod) toegevoegd
+ 
+super! dan loop ik nu tegen het volgende aan haha: 
+ 
+Voor de Duitse my-zone app (inshared-de-my-zone) die ik heb gemaakt, moet de taal Duits (de) toegevoegd worden aan POEditor project 811442.
+ 
+  Dit project wordt al gebruikt voor de Spaanse my-zone app (met taal "es"), maar de Duitse taal ontbreekt nog. dus faalt de CI
+
+  build met de foutmelding:
+ 
+  POEditor export error (de): Project not containing specified language
+ 
+  Kun iemand met toegang tot POEditor de taal "German (de)" toevoegen (aan project 811442)?
+
+ 
+want volgens mijn zijn er maar een paar licenses oid...?
+ 
+moet dat niet in het inshared-de project?
+ 
+Nee we doen nu per angular app een eigen project van POEditor dus dit lijkt wel te kloppen. Ik weet dat Kenny dit kan regelen, ik weet niet of er nog meer mensen zijn met die rechten
+ 
+Kenny Korte 
+ 
+nogmaals bedankt amigo! Timo Goudzwaard
+ 
+Yannick Spies
+Kenny Korte ❤️     nogmaals bedankt amigo! Timo Goudzwaard
+De nada!
+ 
+Hallo, Op test nl is de inloggen pagina stuk, en datzelfde gebeurt bij ES de sales funnel. Het lijkt erop alsof daar iets niet geladen wordt. Is er iemand die daar even een blik oop zou kunnen werpen? 
+ 
+Didier van Esch kan zijn vanwege mijn deployment/test eerder, heb het nu niet nodig - moet ik een andere stable branch voor je deployen? wat of welke wilde je testen
+ 
+Ik moet gewoon main hebben dat alles goed gaat, want dan kunnen we gaan kijken voor de acct release
+ 
+Didier van Esch
+Hallo, Op test nl is de inloggen pagina stuk, en datzelfde gebeurt bij ES de sales funnel. Het lijkt erop alsof daar iets niet geladen wordt. Is er iemand die daar even een blik oop zou kunnen werpen?    📷
+Bij Spanje lijkt die helemaal de Angular bundles niet meer in te laden op de test pagina, maar ik kon nog niet echt debuggen vanwege dat andere issue.. heeel misschien dat ze zelfs gerelateerd zijn ivm de build
+ 
+Timo Goudzwaard
+Nee we doen nu per angular app een eigen project van POEditor dus dit lijkt wel te kloppen. Ik weet dat Kenny dit kan regelen, ik weet niet of er nog meer mensen zijn met die rechten
+done, al zie ik wel dat het project nog "inshared-es-my-zone" heet, dus die moeten we dan eigenlijk hernoemen 
+ 
+Kenny Korte
+done, al zie ik wel dat het project nog "inshared-es-my-zone" heet, dus die moeten we dan eigenlijk hernoemen 😋
+Nee dit project is de inshared-es-my-zone, die heb ik voor de spaanse myzone zoals de naam al doet denken
+Daar moest de duitse taal niet aan toegevoegd worden
+ 
+die heeft ID 811442 
+ 
+https://poeditor.com/projects/view?id=811442
+Log in - POEditor localization platform
+Log in to your POEditor account using one of the available login options.
+ 
+Ah, in dat geval klopt dit nu niet. Die zou dan ook zijn eigen project moeten krijgen, toch?
+ 

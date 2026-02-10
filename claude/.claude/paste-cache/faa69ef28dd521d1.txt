@@ -1,0 +1,53 @@
+Stap 3 - Zusammenfassung - Ihre Angaben: Field order is not the same step 2&3
+Estimate:    1
+Details
+Status:To Do (View Workflow)
+Priority:Icon: Low Low
+Component/s:None
+Labels:None
+Affects Version/s:None
+Fix Version/s:None
+Epic Link:Haftpflichtversicherung Aftercare
+People
+Reporter:    
+w.staat
+ Wijnand Staat 
+Assignee:    
+y.spies
+ Yannick Spies 
+Dates
+Created:    20/Jan/26 09:37 AM
+Updated:    29/Jan/26 11:27 AM
+Issue Links
+mentioned in
+[Confluence] Page Page Authenticate to see additional information.
+Delete this link
+Add Link
+Description
+The order of the fields is not the same in step 2 and 3:
+
+Weitere Angaben (Stap 2)    Zusammenfassung (Stap 3)
+Anrede    Anrede
+Vorname    Name
+Nachname     
+Familienzusammensetzung    Geburtsdatum
+Geburtsdatum    Handynummer
+Handynummer    E-Mail-Adresse
+E-Mail-Adresse    Familienzusammensetzung
+Only change the position of Familienzusammensetzung. The name view should remain the same.
+Move Familienzusammensetzung to the top of Geburtsdatum
+
+Comments
+
+Newest first
+You can now pin up to five comments to highlight important information. Pinned comments will appear above all other comments, so they're easy to find.
+
+
+Got it
+Learn more about pinned comments
+ Collapse comment: Laura Runneboom added a comment - 26/Jan/26 11:50 AM
+
+Laura Runneboom added a comment - 26/Jan/26 11:50 AM
+Checked by Kevin. Only change the position of the family composition
+
+

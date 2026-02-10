@@ -1,0 +1,19 @@
+{
+  "name": "wins-13580",
+  "description": "WINS-13580: MyZone design framework setup - create layout component, extract Figma specs",
+  "createdAt": 1770979200363,
+  "leadAgentId": "team-lead@wins-13580",
+  "leadSessionId": "637d7dd5-9674-470b-a8bf-0eadf58b0f56",
+  "members": [
+    {
+      "agentId": "team-lead@wins-13580",
+      "name": "team-lead",
+      "agentType": "team-lead",
+      "model": "claude-opus-4-6",
+      "joinedAt": 1770979200363,
+      "tmuxPaneId": "",
+      "cwd": "/home/yspies/projects/frontend/websites",
+      "subscriptions": []
+    }
+  ]
+}

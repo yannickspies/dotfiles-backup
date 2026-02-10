@@ -1,0 +1,14 @@
+[
+  {
+    "from": "team-lead",
+    "text": "You are part of team \"wins-13578-pr-review\". Your name is \"doc-finder\".\n\nTASK: Find the review guide markdown document for the WINS-13578 PR.\n\nWorking directory: /home/yspies/projects/frontend/websites\n\nSteps:\n1. Search for markdown files that might be the review guide: look for files like REVIEW_GUIDE.md, review-guide.md, PR_REVIEW.md, etc.\n2. Check git log for the commit that added it: `git log --all --oneline | grep -i review`\n3. Check the commit \"prepare WINS-13578 for PR review: add review guide\" to see what file was added\n4. Read the review guide document and summarize its contents\n5. Note: the commit \"remove working docs from repo\" may have removed it - check if it still exists or was removed\n\nReport back with:\n- The file path of the review guide (or if it was removed)\n- A brief summary of what it contains\n- Whether it needs to be referenced in the PR\n\nAfter completing your research, update task #3 as completed using TaskUpdate, and send a message to \"team-lead\" with your findings.",
+    "timestamp": "2026-02-12T12:15:06.613Z",
+    "read": true
+  },
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"shutdown_request\",\"requestId\":\"shutdown-1770899056001@doc-finder\",\"from\":\"team-lead\",\"reason\":\"Work complete, shutting down team\",\"timestamp\":\"2026-02-12T12:24:16.001Z\"}",
+    "timestamp": "2026-02-12T12:24:16.001Z",
+    "read": true
+  }
+]

@@ -1,0 +1,59 @@
+2026-02-19T12:38:11.6210451Z ##[section]Starting: Install NPM packages
+2026-02-19T12:38:11.6216278Z ==============================================================================
+2026-02-19T12:38:11.6216352Z Task         : Command line
+2026-02-19T12:38:11.6216397Z Description  : Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
+2026-02-19T12:38:11.6216473Z Version      : 2.268.0
+2026-02-19T12:38:11.6216516Z Author       : Microsoft Corporation
+2026-02-19T12:38:11.6216571Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/command-line
+2026-02-19T12:38:11.6216635Z ==============================================================================
+2026-02-19T12:38:11.7851846Z Generating script.
+2026-02-19T12:38:11.7857632Z Script contents:
+2026-02-19T12:38:11.7857825Z npm ci --no-audit --no-fund --prefer-offline
+2026-02-19T12:38:11.7858233Z ========================== Starting Command Output ===========================
+2026-02-19T12:38:11.7868421Z [command]/bin/bash --noprofile --norc /pipelineagent_data/work/_temp/6f2024a2-2172-4b59-8eda-01a8b9e69253.sh
+2026-02-19T12:38:13.4211595Z npm warn ERESOLVE overriding peer dependency
+2026-02-19T12:38:13.4212240Z npm warn While resolving: eslint-etc@5.2.1
+2026-02-19T12:38:13.4212530Z npm warn Found: eslint@9.8.0
+2026-02-19T12:38:13.4212793Z npm warn node_modules/eslint
+2026-02-19T12:38:13.4213031Z npm warn   dev eslint@"9.8.0" from the root project
+2026-02-19T12:38:13.4213245Z npm warn   26 more (@angular-eslint/eslint-plugin, ...)
+2026-02-19T12:38:13.4213440Z npm warn
+2026-02-19T12:38:13.4213633Z npm warn Could not resolve dependency:
+2026-02-19T12:38:13.4213854Z npm warn peer eslint@"^8.0.0" from eslint-etc@5.2.1
+2026-02-19T12:38:13.4214348Z npm warn node_modules/eslint-etc
+2026-02-19T12:38:13.4214539Z npm warn   eslint-etc@"^5.1.0" from eslint-plugin-rxjs@5.0.3
+2026-02-19T12:38:13.4214659Z npm warn   node_modules/eslint-plugin-rxjs
+2026-02-19T12:38:13.4214755Z npm warn
+2026-02-19T12:38:13.4214861Z npm warn Conflicting peer dependency: eslint@8.57.1
+2026-02-19T12:38:13.4214998Z npm warn node_modules/eslint
+2026-02-19T12:38:13.4215106Z npm warn   peer eslint@"^8.0.0" from eslint-etc@5.2.1
+2026-02-19T12:38:13.4215216Z npm warn   node_modules/eslint-etc
+2026-02-19T12:38:13.4215330Z npm warn     eslint-etc@"^5.1.0" from eslint-plugin-rxjs@5.0.3
+2026-02-19T12:38:13.4215443Z npm warn     node_modules/eslint-plugin-rxjs
+2026-02-19T12:38:13.5014106Z npm error code EUSAGE
+2026-02-19T12:38:13.5015858Z npm error
+2026-02-19T12:38:13.5016512Z npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+2026-02-19T12:38:13.5016750Z npm error
+2026-02-19T12:38:13.5017106Z npm error Missing: @types/express@4.17.25 from lock file
+2026-02-19T12:38:13.5017256Z npm error
+2026-02-19T12:38:13.5017370Z npm error Clean install a project
+2026-02-19T12:38:13.5017477Z npm error
+2026-02-19T12:38:13.5017583Z npm error Usage:
+2026-02-19T12:38:13.5017695Z npm error npm ci
+2026-02-19T12:38:13.5017891Z npm error
+2026-02-19T12:38:13.5018025Z npm error Options:
+2026-02-19T12:38:13.5018164Z npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+2026-02-19T12:38:13.5018322Z npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+2026-02-19T12:38:13.5018477Z npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+2026-02-19T12:38:13.5018628Z npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+2026-02-19T12:38:13.5018767Z npm error [--no-bin-links] [--no-fund] [--dry-run]
+2026-02-19T12:38:13.5018904Z npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+2026-02-19T12:38:13.5019050Z npm error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+2026-02-19T12:38:13.5019175Z npm error
+2026-02-19T12:38:13.5019297Z npm error aliases: clean-install, ic, install-clean, isntall-clean
+2026-02-19T12:38:13.5019676Z npm error
+2026-02-19T12:38:13.5019800Z npm error Run "npm help ci" for more info
+2026-02-19T12:38:13.5022200Z npm error A complete log of this run can be found in: /pipelineagent_data/work/98/.npm/_logs/2026-02-19T12_38_11_940Z-debug-0.log
+2026-02-19T12:38:13.5102821Z 
+2026-02-19T12:38:13.5124626Z ##[error]Bash exited with code '1'.
+2026-02-19T12:38:13.5148264Z ##[section]Finishing: Install NPM packages

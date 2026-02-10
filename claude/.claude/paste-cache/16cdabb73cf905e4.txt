@@ -1,0 +1,35 @@
+Yannick Spies heeft Kenny Korte en Nick van den Berg toegevoegd aan de chat.
+
+ 
+Hey heren, ik loop steeds tegen het volgende aan, 
+ 
+deploy geprobeerd (ook met kleine change in pipelines repo)
+ 
+### NG0401 SSR build error —
+ 
+de nieuwe apps, zoals bijv. DE login, logout en my-zone falen bij `npx nx build --configuration=production` met `NG0401: An error occurred while extracting routes`. De fout treedt op tijdens de SSR prerender stap.
+ 
+Symptoom: Vlak voor de error verschijnen translation warnings voor `password-config.hint-text-special-characters` en `password-config.hint-text-invalid-special-characters`. Daarna stopt de build.
+ 
+Wat geprobeerd is:
+
+- `BootstrapContext` toevoegen aan `main.server.ts` — bestaat niet in Angular 20, geeft `TS2305`
+
+- `provideServerRendering()` toevoegen aan `app.config.server.ts` — lost het niet op
+
+- Ontbrekende translations aanmaken — warnings zijn non-blocking, niet de oorzaak
+ 
+Hebben jullie een idee wat hier fout gaat en wat ik nog kan proberen?
+ 
+Zie:
+https://dev.azure.com/InShared/frontend/_build/results?buildId=61703&view=results
+
+    
+            Azure DevOps Services | Sign In
+        
+
+ 
+krijg je lokaal dezelfde melding? 
+ 
+kun je de project.json van een die slaagt vergelijken met die van de-my-zone? is de optie voor prerender gelijk / aanwezig? 
+ 

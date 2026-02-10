@@ -1,0 +1,45 @@
+Frits van der Sloot
+ik heb nog 1 issue met de imports vanuit @inshared/testing waar ik nog niet uit ben gekomen. Iemand nog een helder idee
+wat is het issue 
+ 
+lijkt me toolerig te zijn. Ik heb voor nu even de class en const die ik importeer direct gedeclareerd in mn file
+ 
+maar als ik dat niet doe dan krijg ik de issue
+ 
+Exception during run: Error [ERR_MODULE_NOT_FOUND]: Cannot find package '@inshared/testing' imported from C:\Users\f.vandersloot\repos\websites\apps\testing\src\funnel-generator\funnel-generator.pact.spec.ts
+
+    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:256:9)
+
+    at packageResolve (node:internal/modules/esm/resolve:768:81)
+
+    at moduleResolve (node:internal/modules/esm/resolve:854:18)
+
+    at defaultResolve (node:internal/modules/esm/resolve:984:11)
+
+    at nextResolve (node:internal/modules/esm/hooks:748:28)
+
+    at resolveBase (file:///C:/Users/f.vandersloot/repos/websites/node_modules/tsx/dist/esm/index.mjs?1771599080274:2:3744)
+
+    at resolveDirectory (file:///C:/Users/f.vandersloot/repos/websites/node_modules/tsx/dist/esm/index.mjs?1771599080274:2:4243)
+
+    at resolveTsPaths (file:///C:/Users/f.vandersloot/repos/websites/node_modules/tsx/dist/esm/index.mjs?1771599080274:2:4984)
+
+    at resolve (file:///C:/Users/f.vandersloot/repos/websites/node_modules/tsx/dist/esm/index.mjs?1771599080274:2:5361)
+
+    at nextResolve (node:internal/modules/esm/hooks:748:28) {
+
+  code: 'ERR_MODULE_NOT_FOUND'
+
+}
+ 
+En echt alleen bij het runnen van mn node command. In TS geen issues. Heb hier ook geen routes ofzo voor toegevoegd want dit werkt normaliter door de repo heen gewoon prima
+ 
+ node --import tsx ./node_modules/mocha/bin/mocha.js --config apps/testing/.mocharc.json apps/testing/**/*.pact.spec.ts
+ 
+ 
+kan ook maandag hoor dit is echt zo'n vrijdagmiddagmoment
+ 
+`import { getRandomNumber, API } from '@inshared/testing';` da's bij zo'n import
+ 
+vermoed dat ie klaagt omdat ie niet in de package json staat
+ 

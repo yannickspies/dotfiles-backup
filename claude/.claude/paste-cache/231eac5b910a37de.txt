@@ -1,0 +1,33 @@
+ Task 2: Login Architecture Decision
+
+  Here's the message to share with the team:
+
+  ARCHITECTURAL DECISION NEEDED: Login App Structure for NL/DE
+
+  CURRENT STATE:
+  - ES: Separate login app at /acceso-area-personal/ (working)
+  - NL/DE: Login integrated as route in my-zone at /inloggen
+
+  PIPELINE FINDING:
+  The build pipeline (build-template.yml) has ES and DE in the multi-project
+  case statement, but NL is NOT included. This suggests the infrastructure
+  was designed to support separate login apps for ES/DE.
+
+  QUESTIONS:
+  1. Should NL/DE follow ES pattern with separate login apps?
+     - PRO: Consistent with ES, matches pipeline design
+     - CON: More complex, more apps to maintain, current integrated approach works
+
+  2. Is the integrated approach (login as route in my-zone) acceptable?
+     - PRO: Simpler, single app, works with Angular routing
+     - CON: Different from ES, may have deployment implications
+
+  3. If keeping integrated approach, should we remove DE from the
+     multi-project case statement (since it only has my-zone)?
+
+  CURRENT BEHAVIOR:
+  The NL/DE login feature libraries exist and work:
+  - libs/spa/authentication/inshared-nl/login/feature/
+  - libs/spa/authentication/inshared-de/login/feature/
+
+  They're loaded as routes within my-zone, not as separate apps.

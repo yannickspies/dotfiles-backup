@@ -1,0 +1,340 @@
+ WINS-13578: add login, logout and my-zone SPA apps for NL and DE
+
+Approve
+
+
+Set auto-complete
+
+
+Active
+!10366
+Yannick Spies
+proposes to merge
+feature/WINS-13578_nl-de-spa-apps
+
+into
+main
+1/11 comments resolved
+Overview
+Files
+Updates
+Commits
+2 required checks failed
+All optional checks succeeded
+View 5 checks
+Ritchy Hohne is waiting for author
+No merge conflicts
+Last checked Yesterday
+Description
+
+Pull Request Templates
+Please select the appropriate pull request template from the dropdown when creating the PR.
+
+For more details on the workflow and guidelines, refer to the documentation:
+Project Workflow Documentation 
+
+Important: Before selecting the correct template, please remove this index text!
+
+Note:
+If the PR is already created with the wrong template, you can fix it by copying the correct markdown text into the PR description.
+You can find the templates here:
+Azure DevOps Pull Request Templates.
+
+
+Show everything (20)
+Add a comment...
+Ritchy Hohne
+ is waiting for the author
+Yesterday
+Ritchy Hohne
+ joined as a reviewer
+Yesterday
+Ritchy Hohne
+Yesterday
+
+
+
+
+Active
+Last check comment. Is there somewhere a feature flag or so? Or will this become available to users after merge to main?
+
+P.S. sorry for my comment spam Yannick 😅
+
+Write a reply...
+Resolve
+feature-login-page-de.component.html
+/libs/spa/authentication/inshared-de/login/feature/src/lib/feature-login-page-de.component.html
+Yesterday
+
+
+                <wuc-card cardStyle="primary" padding="none">
+                    <div class="login-box__login-content">
+                        <h1
+                            class="h2"
+                            i18n="@@pages.feature-login.login"
+                        >Anmelden</h1>
+                        <ins-feature-login (afterLogin)="onLogin()"/>
+Ritchy Hohne
+Yesterday
+
+
+
+
+Active
+Assuming it is copied from elsewhere. This <h1 has a class h2 and below <h2 has a class h3
+
+Should it be just a <h2 and <h3? But then again for accessibility a page should start with a <h1
+
+Write a reply...
+Resolve
+logout-page.njk
+/apps/inshared-nl/site/src/pages/spa/logout-page.njk
+Yesterday
+
+---
+title: Uitloggen
+layout: home.njk
+permalink: "uitloggen/"
+sitemap:
+Ritchy Hohne
+Yesterday
+
+
+
+
+Active
+Minor. Current is:
+
+
+ title: 'U bent nu met succes uitgelogd uit uw digitale Verzekeringsmap'
+Write a reply...
+Resolve
+login-page.njk
+/apps/inshared-nl/site/src/pages/spa/login-page.njk
+Yesterday
+
+---
+title: "Inloggen - InShared"
+collection:
+    seo:
+        description: Log in op je InShared verzekeringsmap om je verzekeringen, schades en facturen te beheren.
+Ritchy Hohne
+Yesterday
+
+
+
+
+Active
+To check. Current title and desc are:
+
+
+title: 'Inloggen om alles zelf te kunnen beheren',
+description: 'Log veilig in bij uw InShared-account om uw verzekeringen te beheren, betalingen te bekijken en uw gegevens eenvoudig bij te werken.',
+Write a reply...
+Resolve
+Ritchy Hohne
+Yesterday
+
+
+
+
+Active
+Minor. Several .css are unused and can be yeeted. Though I assume auto generated
+
+Write a reply...
+Resolve
+Ritchy Hohne
+Yesterday
+
+
+
+
+Active
+Minor. The favicon.ico from my-zone inshared-de can be changed with the one from apps\inshared-es\spa\logout\src\favicon.ico I think
+
+Write a reply...
+Resolve
+myzone-page.njk
+/apps/inshared-de/site/src/pages/spa/myzone-page.njk
+Yesterday
+
+---
+title: Mein Bereich
+layout: home.njk
+permalink: "mein-bereich/"
+sitemap:
+    include: false
+    priority: 0.5
+Ritchy Hohne
+Yesterday
+
+
+
+
+Active
+The current DE myzone redirects to /versicherungsmappe/versicherungen and uses that Route title, description.
+
+I am ok with it becoming mein-bereich. But just to check, business is ok with the route becoming mein-bereich instead of versicherungsmappe?
+
+Write a reply...
+Resolve
+logout-page.njk
+/apps/inshared-de/site/src/pages/spa/logout-page.njk
+Yesterday
+
+
+sitemap:
+    include: false
+    priority: 0.5
+noindex: true
+nofollow: true
+---
+Ritchy Hohne
+Yesterday
+
+
+
+
+Active
+Current DE logout page allows indexing and following. Should this be double checked with business?
+
+Even though in NL it is not indexed and followed 👀
+
+Write a reply...
+Resolve
+logout-page.njk
+/apps/inshared-de/site/src/pages/spa/logout-page.njk
+Yesterday
+
+---
+title: Ausloggen
+layout: home.njk
+permalink: "ausloggen/"
+sitemap:
+Ritchy Hohne
+Yesterday
+
+
+
+
+Active
+Minor check also. Currently for DE logging out:
+
+
+title: 'Alles einfach online regeln',
+description: 'Bei InShared können Sie einfach alles online regeln. Versicherungen abschließen, Änderungen vornehmen oder den Schadenstatus abrufen. ✓ Mehr erfahren.',
+Is ok to change?
+
+Write a reply...
+Resolve
+login-page.njk
+/apps/inshared-de/site/src/pages/spa/login-page.njk
+Yesterday
+
+---
+title: "Einloggen - InShared"
+collection:
+    seo:
+        description: Melden Sie sich in Ihrem InShared Bereich an, um Ihre Versicherungen, Schäden und Rechnungen zu verwalten.
+Ritchy Hohne
+Yesterday
+
+
+
+
+Active
+Minor check. If I am correct the current title and description are:
+
+
+title: 'Alles erledigen: In die Versicherungsmappe einloggen – InShared',
+description: 'Bei InShared können Sie einfach alles online erledigen. Versicherungen abschließen, Änderungen vornehmen oder den Schadenstatus abrufen. ✓ Mehr erfahren.',
+It is ok to change these?
+
+Write a reply...
+Resolve
+3
+Yannick Spies pushed 1 commit
+Yesterday
+fix review guide: remove duplication, fix typo and DE slugs (WINS-13578)
+ee630e9d
+Yannick Spies
+Yesterday at 13:24
+messages.xlf
+/apps/inshared-de/spa/login/src/i18n/messages.xlf
+Yesterday
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+    </body>
+  </file>
+</xliff>
+Ritchy Hohne
+Yesterday
+
+
+
+
+Resolved
+Only to check. It is ok that there are empty translation files? Or no problem for the translation sync?
+
+Yannick Spies
+Yesterday
+
+
+
+
+The 4 empty messages.xlf files (NL/DE login/logout) are expected for new apps. The extract-i18n → sync-translations pipeline populates them automatically.
+The ES equivalents are populated because that pipeline already ran for ES.
+
+Ritchy Hohne
+Yesterday
+
+
+With the manual method we also fill them. But if the sync does it for us without issues then fine by me
+
+Write a reply...
+Reactivate
+Yannick Spies
+ published the pull request
+Yesterday
+[frontend]\Front-End QA
+ was added as a required reviewer.
+Yesterday
+[frontend]\Front-End QA
+ was added as a required reviewer.
+Yesterday
+[frontend]\Front-End Developers
+ was added as a required reviewer.
+Yesterday
+2
+Yannick Spies pushed 2 commits
+Yesterday
+WINS-13578: fix readme
+67f45728
+Yannick Spies
+Yesterday at 08:51
+fix DE login/logout route slugs: anmelden/abmelden → einloggen/ausloggen (WINS-13578)
+28d1c9b2
+Yannick Spies
+wo at 22:33
+Yannick Spies
+ created the pull request
+woensdag
+Reviewers
+
+Add
+Required
+Front-End Developers
+Waiting for author via Ritchy Hohne
+Front-End QA
+No review yet
+Optional
+Ritchy Hohne
+Waiting for author
+Tags
+
+No tags
+Work items
+

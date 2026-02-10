@@ -1,0 +1,371 @@
+2026-02-02T13:25:25.5266432Z ##[section]Starting: Run Functional Playwright Tests
+2026-02-02T13:25:25.5271459Z ==============================================================================
+2026-02-02T13:25:25.5271536Z Task         : Command line
+2026-02-02T13:25:25.5271595Z Description  : Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
+2026-02-02T13:25:25.5271683Z Version      : 2.268.0
+2026-02-02T13:25:25.5271729Z Author       : Microsoft Corporation
+2026-02-02T13:25:25.5271802Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/command-line
+2026-02-02T13:25:25.5271868Z ==============================================================================
+2026-02-02T13:25:25.6394094Z Generating script.
+2026-02-02T13:25:25.6397568Z ========================== Starting Command Output ===========================
+2026-02-02T13:25:25.6405981Z [command]/bin/bash --noprofile --norc /pipelineagent_data/work/_temp/361f5a10-4d6d-468f-ad1a-ff7725b80b5d.sh
+2026-02-02T13:25:25.6442940Z Running functional tests with BASE_URL=https://insh-nl-frontend-website.test.outshared-staging.services
+2026-02-02T13:25:26.5307686Z BEWARE: your OS is not officially supported by Playwright; downloading fallback build for ubuntu20.04-x64.
+2026-02-02T13:25:26.5313080Z BEWARE: your OS is not officially supported by Playwright; downloading fallback build for ubuntu20.04-x64.
+2026-02-02T13:25:26.5314311Z BEWARE: your OS is not officially supported by Playwright; downloading fallback build for ubuntu20.04-x64.
+2026-02-02T13:25:26.5466695Z BASE_URL=https://insh-nl-frontend-website.test.outshared-staging.services COUNTRY=nl STAGE=test STUB=true npx nx run testing:ciFunctional --skipInstall
+2026-02-02T13:25:31.5837750Z 
+2026-02-02T13:25:31.5838773Z > nx run testing:ciFunctional --skipInstall
+2026-02-02T13:25:31.5839201Z 
+2026-02-02T13:25:33.2463229Z Running 45 tests using 3 workers
+2026-02-02T13:25:36.8539609Z   ✓  1 [setup] › apps/testing/src/login/authentication.setup.ts:5:1 › Login and store state (to re-use) @test @nl @de (2.5s)
+2026-02-02T13:25:36.9005210Z   ✓  3 [test - not logged in (Desktop Chrome)] › apps/testing/src/contact/contact-form.spec.ts:9:5 › Contact › Contactform (happyflow) @test @nl (2.6s)
+2026-02-02T13:25:38.5496280Z   ✓  2 [test - not logged in (Desktop Chrome)] › apps/testing/src/contact/chatbot.spec.ts:64:9 › Chatbot tests › Multiple interations & Escalation › Dialog link with contact escalation @test @nl (4.2s)
+2026-02-02T13:25:38.6482494Z   ✓  4 [test - not logged in (Desktop Chrome)] › apps/testing/src/home/home.spec.ts:68:5 › Home product page Tests › Navigation: Ensure that the more reviews link works correctly and the survey page is opened @test @nl @de (1.7s)
+2026-02-02T13:25:39.5228408Z   ✓  5 [test - not logged in (Desktop Chrome)] › apps/testing/src/home/home.spec.ts:33:5 › Home product page Tests › Calculation: Ensure navigation to salesfunnel page @test @nl @de @es (1.7s)
+2026-02-02T13:25:39.8644756Z   ✓  7 [test - not logged in (Desktop Chrome)] › apps/testing/src/ideal/ideal.spec.ts:21:5 › iDeal payment initiated from a payment reminder email › payment locked @test @nl (1.2s)
+2026-02-02T13:25:40.5779750Z   ✓  8 [test - not logged in (Desktop Chrome)] › apps/testing/src/menu/mobile-menu.spec.ts:179:5 › Mobile Menu nl › Navigates to the "Contact" page @test @mobile @nl (995ms)
+2026-02-02T13:25:40.7906635Z   ✓  6 [test - not logged in (Desktop Chrome)] › apps/testing/src/ideal/ideal.spec.ts:7:5 › iDeal payment initiated from a payment reminder email › happyflow @test @nl (2.2s)
+2026-02-02T13:25:41.5986587Z   ✓  9 [test - not logged in (Desktop Chrome)] › apps/testing/src/product-pages/car-page.spec.ts:33:5 › Car product page Tests › Calculation: Ensure navigation to car salesfunnel page @test @nl @de @es (1.7s)
+2026-02-02T13:25:42.4697214Z   ✓  11 [test - not logged in (Desktop Chrome)] › apps/testing/src/product-pages/car-page.spec.ts:77:5 › Car product page Tests › Navigation: Ensure that the more info option works correctly @preview @test @nl @de (1.7s)
+2026-02-02T13:25:43.7009025Z   ✓  12 [test - not logged in (Desktop Chrome)] › apps/testing/src/product-pages/car-page.spec.ts:88:5 › Car product page Tests › Navigation: Ensure that the roadside assistance link works correctly @preview @test @nl @de (2.1s)
+2026-02-02T13:25:44.1927410Z   ✓  10 [test - not logged in (Desktop Chrome)] › apps/testing/src/product-pages/car-page.spec.ts:50:5 › Car product page Tests › Calculation: Ensure licenseplate is copied to the license plate box on the car salesfunnel page @test @nl (3.6s)
+2026-02-02T13:25:44.7271563Z   ✓  13 [test - not logged in (Desktop Chrome)] › apps/testing/src/product-pages/car-page.spec.ts:119:5 › Car product page Tests › Navigation: Ensure that the more reviews link works correctly and the survey page is opened @test @nl @de (2.2s)
+2026-02-02T13:25:48.2585317Z   ✓  15 [test - not logged in (Desktop Chrome)] › apps/testing/src/salesfunnels/car-insurance.spec.ts:24:9 › Take out car insurance flows › Dutch car prefill flows › Getting Dutch car data via prefill from localstorage and going to step 1b @test @nl @e2e (4.0s)
+2026-02-02T13:25:56.1052383Z   ✓  17 [test - not logged in (Desktop Chrome)] › apps/testing/src/salesfunnels/home-insurance.spec.ts:36:5 › Take out home insurance flows › Getting Dutch home data via prefill from localstorage and going to step 1b @test @nl @e2e (7.8s)
+2026-02-02T13:26:10.6891812Z   ✓  14 [test - not logged in (Desktop Chrome)] › apps/testing/src/salesfunnels/bike-insurance.spec.ts:12:5 › Take out bike insurance flows › New user successfully takes out Dutch bike insurance coverage @test @nl @e2e (27.0s)
+2026-02-02T13:26:13.7598528Z   ✓  16 [test - not logged in (Desktop Chrome)] › apps/testing/src/salesfunnels/car-insurance.spec.ts:91:9 › Take out car insurance flows › Dutch car prefill flows › New user successfully takes out Dutch car insurance coverage @test @nl @e2e (29.0s)
+2026-02-02T13:26:14.9223595Z   ✓  19 [test - not logged in (Desktop Chrome)] › apps/testing/src/salesfunnels/moped-insurance.spec.ts:20:5 › Take out moped insurance flows › Getting Dutch moped data via prefill from localstorage and going to step 1b @test @nl @e2e (4.2s)
+2026-02-02T13:26:16.6323116Z   ✓  18 [test - not logged in (Desktop Chrome)] › apps/testing/src/salesfunnels/home-insurance.spec.ts:82:5 › Take out home insurance flows › New user successfully takes out home insurance coverage @test @nl @e2e (20.5s)
+2026-02-02T13:26:17.8855921Z   ✓  21 [test - not logged in (Desktop Chrome)] › apps/testing/src/salesfunnels/travel-insurance.spec.ts:32:5 › Take out travel insurance flows › Getting Dutch travel data via prefill from localstorage and going to step 1b @test @nl @e2e (3.0s)
+2026-02-02T13:26:38.4159206Z   ✓  20 [test - not logged in (Desktop Chrome)] › apps/testing/src/salesfunnels/moped-insurance.spec.ts:85:5 › Take out moped insurance flows › New user successfully takes out Dutch moped insurance coverage @test @nl @e2e (24.6s)
+2026-02-02T13:26:40.9268236Z   ✓  22 [test - not logged in (Desktop Chrome)] › apps/testing/src/salesfunnels/travel-insurance.spec.ts:64:5 › Take out travel insurance flows › New user successfully takes out travel insurance coverage @test @nl @e2e (24.3s)
+2026-02-02T13:26:42.1894576Z   ✓  24 [test - not logged in (Pixel 5 with Chromium)] › apps/testing/src/salesfunnels/car-insurance.spec.ts:24:9 › Take out car insurance flows › Dutch car prefill flows › Getting Dutch car data via prefill from localstorage and going to step 1b @test @nl @e2e (2.9s)
+2026-02-02T13:26:44.5201631Z   ✓  23 [test - not logged in (Pixel 5 with Chromium)] › apps/testing/src/salesfunnels/bike-insurance.spec.ts:12:5 › Take out bike insurance flows › New user successfully takes out Dutch bike insurance coverage @test @nl @e2e (25.7s)
+2026-02-02T13:26:50.1434990Z   ✓  26 [test - not logged in (Pixel 5 with Chromium)] › apps/testing/src/salesfunnels/home-insurance.spec.ts:36:5 › Take out home insurance flows › Getting Dutch home data via prefill from localstorage and going to step 1b @test @nl @e2e (7.9s)
+2026-02-02T13:26:54.1084293Z   ✓  28 [test - not logged in (Pixel 5 with Chromium)] › apps/testing/src/salesfunnels/moped-insurance.spec.ts:20:5 › Take out moped insurance flows › Getting Dutch moped data via prefill from localstorage and going to step 1b @test @nl @e2e (4.0s)
+2026-02-02T13:27:00.5210755Z   ✓  25 [test - not logged in (Pixel 5 with Chromium)] › apps/testing/src/salesfunnels/car-insurance.spec.ts:91:9 › Take out car insurance flows › Dutch car prefill flows › New user successfully takes out Dutch car insurance coverage @test @nl @e2e (18.7s)
+2026-02-02T13:27:01.0201874Z   ✓  27 [test - not logged in (Pixel 5 with Chromium)] › apps/testing/src/salesfunnels/home-insurance.spec.ts:82:5 › Take out home insurance flows › New user successfully takes out home insurance coverage @test @nl @e2e (16.5s)
+2026-02-02T13:27:03.6335143Z   ✓  30 [test - not logged in (Pixel 5 with Chromium)] › apps/testing/src/salesfunnels/travel-insurance.spec.ts:32:5 › Take out travel insurance flows › Getting Dutch travel data via prefill from localstorage and going to step 1b @test @nl @e2e (3.1s)
+2026-02-02T13:27:19.8305292Z   ✓  29 [test - not logged in (Pixel 5 with Chromium)] › apps/testing/src/salesfunnels/moped-insurance.spec.ts:85:5 › Take out moped insurance flows › New user successfully takes out Dutch moped insurance coverage @test @nl @e2e (25.7s)
+2026-02-02T13:27:21.8761933Z   ✓  31 [test - not logged in (Pixel 5 with Chromium)] › apps/testing/src/salesfunnels/travel-insurance.spec.ts:64:5 › Take out travel insurance flows › New user successfully takes out travel insurance coverage @test @nl @e2e (20.8s)
+2026-02-02T13:27:24.8079776Z   ✓  33 [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/invoice/ideal.spec.ts:17:9 › iDeal response pages › Payment cancelled @test @nl (1.8s)
+2026-02-02T13:27:24.8451554Z   ✓  32 [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/invoice/ideal.spec.ts:17:9 › iDeal response pages › Payment succes @test @nl (1.9s)
+2026-02-02T13:27:26.0017505Z   ✓  35 [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/invoice/ideal.spec.ts:17:9 › iDeal response pages › Payment failure @test @nl (1.2s)
+2026-02-02T13:27:26.1361134Z   ✓  36 [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/invoice/ideal.spec.ts:17:9 › iDeal response pages › Payment expired @test @nl (1.3s)
+2026-02-02T13:27:29.4932559Z   ✘  34 [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/claim-funnel/car-nl.spec.ts:4:1 › Car - NL @test @nl (6.5s)
+2026-02-02T13:27:36.8803823Z   ✘  39 [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/claim-funnel/car-nl.spec.ts:4:1 › Car - NL @test @nl (retry #1) (6.2s)
+2026-02-02T13:27:55.7928920Z   ✘  37 [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/invoice/invoice-overview.spec.ts:6:5 › Invoice Overview Tests › Invoice overview page loads successfully @test @nl @de (29.8s)
+2026-02-02T13:27:55.9315098Z   ✘  38 [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/invoice/invoice-overview.spec.ts:20:5 › Invoice Overview Tests › Switch invoice year in overview @test @nl @de (29.8s)
+2026-02-02T13:28:07.6669911Z   ✘  40 [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/invoice/invoice-overview.spec.ts:40:5 › Invoice Overview Tests › Initiate payment with iDeal @test @nl (29.8s)
+2026-02-02T13:28:28.0250322Z   ✘  41 [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/invoice/invoice-overview.spec.ts:6:5 › Invoice Overview Tests › Invoice overview page loads successfully @test @nl @de (retry #1) (30.4s)
+2026-02-02T13:28:28.1645824Z   ✘  42 [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/invoice/invoice-overview.spec.ts:20:5 › Invoice Overview Tests › Switch invoice year in overview @test @nl @de (retry #1) (30.5s)
+2026-02-02T13:28:35.3512226Z   ✘  44 [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/my-details/family-composition.spec.ts:5:5 › Update Family Composition › Family composition can be updated, displaying premium impact @test @nl (6.2s)
+2026-02-02T13:28:35.3630024Z   ✘  45 [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/my-details/my-details.spec.ts:5:5 › My Details Page (Test Coverage Pending) › Verify Header Text @test @nl @de (6.1s)
+2026-02-02T13:28:39.3618316Z   ✘  43 [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/invoice/invoice-overview.spec.ts:40:5 › Invoice Overview Tests › Initiate payment with iDeal @test @nl (retry #1) (30.2s)
+2026-02-02T13:28:43.8290096Z   ✘  46 [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/my-details/my-details.spec.ts:5:5 › My Details Page (Test Coverage Pending) › Verify Header Text @test @nl @de (retry #1) (7.2s)
+2026-02-02T13:28:43.8312042Z Testing stopped early after 5 maximum allowed failures.
+2026-02-02T13:28:43.8534092Z   ✘  47 [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/my-details/family-composition.spec.ts:5:5 › Update Family Composition › Family composition can be updated, displaying premium impact @test @nl (retry #1) (7.2s)
+2026-02-02T13:28:43.8610340Z   ✘  48 [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/my-insurances/change-coverage.spec.ts:6:5 › Minimal Car Coverage Upgrade Test › Upgrade to medium coverage from minimal @test @nl (3.5s)
+2026-02-02T13:28:43.8647510Z   1) [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/claim-funnel/car-nl.spec.ts:4:1 › Car - NL @test @nl 
+2026-02-02T13:28:43.8648122Z     Error: Timed out 5000ms waiting for expect(locator).toHaveText(expected)
+2026-02-02T13:28:43.8648375Z     Locator: locator('.claim-funnel__page-title')
+2026-02-02T13:28:43.8648727Z     Expected string: "Schademelden"
+2026-02-02T13:28:43.8648926Z     Received: <element(s) not found>
+2026-02-02T13:28:43.8649330Z     Call log:
+2026-02-02T13:28:43.8649670Z       - expect.toHaveText with timeout 5000ms
+2026-02-02T13:28:43.8649926Z       - waiting for locator('.claim-funnel__page-title')
+2026-02-02T13:28:43.8650187Z        at my-zone/claim-funnel/shared/claim-base-page.ts:19
+2026-02-02T13:28:43.8650510Z       17 |         await this.page.waitForLoadState('domcontentloaded');
+2026-02-02T13:28:43.8650805Z       18 |         if (this.translations.title) {
+2026-02-02T13:28:43.8651241Z     > 19 |             await expect(this.page.locator('.claim-funnel__page-title')).toHaveText(this.translations.title);
+2026-02-02T13:28:43.8651616Z          |                                                                          ^
+2026-02-02T13:28:43.8651832Z       20 |         }
+2026-02-02T13:28:43.8652102Z       21 |         if (this.translations.description) {
+2026-02-02T13:28:43.8652483Z       22 |             await expect(this.page.locator('.claim-funnel__page-description')).toHaveText(this.translations.description);
+2026-02-02T13:28:43.8652902Z         at ClaimCategoriesPage.isReady (/pipelineagent_data/work/71/s/apps/testing/src/my-zone/claim-funnel/shared/claim-base-page.ts:19:74)
+2026-02-02T13:28:43.8653237Z         at /pipelineagent_data/work/71/s/apps/testing/src/my-zone/claim-funnel/car-nl.spec.ts:14:9
+2026-02-02T13:28:43.8655042Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8655400Z     Error: Timed out 5000ms waiting for expect(locator).toHaveText(expected)
+2026-02-02T13:28:43.8655637Z     Locator: locator('.claim-funnel__page-title')
+2026-02-02T13:28:43.8655898Z     Expected string: "Schademelden"
+2026-02-02T13:28:43.8656086Z     Received: <element(s) not found>
+2026-02-02T13:28:43.8656291Z     Call log:
+2026-02-02T13:28:43.8656515Z       - expect.toHaveText with timeout 5000ms
+2026-02-02T13:28:43.8656783Z       - waiting for locator('.claim-funnel__page-title')
+2026-02-02T13:28:43.8657048Z        at my-zone/claim-funnel/shared/claim-base-page.ts:19
+2026-02-02T13:28:43.8657370Z       17 |         await this.page.waitForLoadState('domcontentloaded');
+2026-02-02T13:28:43.8657658Z       18 |         if (this.translations.title) {
+2026-02-02T13:28:43.8659922Z     > 19 |             await expect(this.page.locator('.claim-funnel__page-title')).toHaveText(this.translations.title);
+2026-02-02T13:28:43.8660267Z          |                                                                          ^
+2026-02-02T13:28:43.8660514Z       20 |         }
+2026-02-02T13:28:43.8660914Z       21 |         if (this.translations.description) {
+2026-02-02T13:28:43.8661346Z       22 |             await expect(this.page.locator('.claim-funnel__page-description')).toHaveText(this.translations.description);
+2026-02-02T13:28:43.8661744Z         at ClaimCategoriesPage.isReady (/pipelineagent_data/work/71/s/apps/testing/src/my-zone/claim-funnel/shared/claim-base-page.ts:19:74)
+2026-02-02T13:28:43.8662080Z         at /pipelineagent_data/work/71/s/apps/testing/src/my-zone/claim-funnel/car-nl.spec.ts:14:9
+2026-02-02T13:28:43.8662718Z     attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8663055Z     dist/.playwright/nl/test-results/my-zone-claim-funnel-car-nl-Car---NL-test---logged-in-Desktop-Chrome--retry1/video.webm
+2026-02-02T13:28:43.8663396Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8663705Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8664022Z     dist/.playwright/nl/test-results/my-zone-claim-funnel-car-nl-Car---NL-test---logged-in-Desktop-Chrome--retry1/trace.zip
+2026-02-02T13:28:43.8665815Z     Usage:
+2026-02-02T13:28:43.8666186Z         npx playwright show-trace dist/.playwright/nl/test-results/my-zone-claim-funnel-car-nl-Car---NL-test---logged-in-Desktop-Chrome--retry1/trace.zip
+2026-02-02T13:28:43.8666550Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8666918Z   2) [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/invoice/invoice-overview.spec.ts:6:5 › Invoice Overview Tests › Invoice overview page loads successfully @test @nl @de 
+2026-02-02T13:28:43.8667171Z     Error: Page is loaded
+2026-02-02T13:28:43.8667497Z     Timed out 5000ms waiting for expect(locator).toBeVisible()
+2026-02-02T13:28:43.8667719Z     Locator: locator('ins-invoices h2')
+2026-02-02T13:28:43.8667935Z     Expected: visible
+2026-02-02T13:28:43.8668121Z     Received: <element(s) not found>
+2026-02-02T13:28:43.8668305Z     Call log:
+2026-02-02T13:28:43.8668528Z       - Page is loaded with timeout 5000ms
+2026-02-02T13:28:43.8668765Z       - waiting for locator('ins-invoices h2')
+2026-02-02T13:28:43.8668960Z     Call Log:
+2026-02-02T13:28:43.8669143Z     - Test timeout of 30000ms exceeded
+2026-02-02T13:28:43.8669480Z        at my-zone/invoice/overview/invoice-overview-page.ts:45
+2026-02-02T13:28:43.8669714Z       43 |
+2026-02-02T13:28:43.8669976Z       44 |     async isReady() {
+2026-02-02T13:28:43.8670365Z     > 45 |         await expect(async () => await expect(this.header, 'Page is loaded').toBeVisible()).toPass();
+2026-02-02T13:28:43.8670685Z          |                                                                                             ^
+2026-02-02T13:28:43.8670901Z       46 |     }
+2026-02-02T13:28:43.8671269Z       47 |
+2026-02-02T13:28:43.8671524Z       48 |     // Return a button locator based on its visible text
+2026-02-02T13:28:43.8671973Z         at InvoiceOverview.isReady (/pipelineagent_data/work/71/s/apps/testing/src/my-zone/invoice/overview/invoice-overview-page.ts:45:93)
+2026-02-02T13:28:43.8672305Z         at /pipelineagent_data/work/71/s/apps/testing/src/my-zone/invoice/invoice-overview.spec.ts:15:28
+2026-02-02T13:28:43.8672714Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8672909Z     Error: Page is loaded
+2026-02-02T13:28:43.8673255Z     Timed out 5000ms waiting for expect(locator).toBeVisible()
+2026-02-02T13:28:43.8673467Z     Locator: locator('ins-invoices h2')
+2026-02-02T13:28:43.8673683Z     Expected: visible
+2026-02-02T13:28:43.8673953Z     Received: <element(s) not found>
+2026-02-02T13:28:43.8674133Z     Call log:
+2026-02-02T13:28:43.8674370Z       - Page is loaded with timeout 5000ms
+2026-02-02T13:28:43.8674609Z       - waiting for locator('ins-invoices h2')
+2026-02-02T13:28:43.8674831Z     Call Log:
+2026-02-02T13:28:43.8675003Z     - Test timeout of 30000ms exceeded
+2026-02-02T13:28:43.8675262Z        at my-zone/invoice/overview/invoice-overview-page.ts:45
+2026-02-02T13:28:43.8675513Z       43 |
+2026-02-02T13:28:43.8675745Z       44 |     async isReady() {
+2026-02-02T13:28:43.8676163Z     > 45 |         await expect(async () => await expect(this.header, 'Page is loaded').toBeVisible()).toPass();
+2026-02-02T13:28:43.8676541Z          |                                                                                             ^
+2026-02-02T13:28:43.8676791Z       46 |     }
+2026-02-02T13:28:43.8677023Z       47 |
+2026-02-02T13:28:43.8677275Z       48 |     // Return a button locator based on its visible text
+2026-02-02T13:28:43.8677636Z         at InvoiceOverview.isReady (/pipelineagent_data/work/71/s/apps/testing/src/my-zone/invoice/overview/invoice-overview-page.ts:45:93)
+2026-02-02T13:28:43.8677954Z         at /pipelineagent_data/work/71/s/apps/testing/src/my-zone/invoice/invoice-overview.spec.ts:15:28
+2026-02-02T13:28:43.8678294Z     attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8678623Z     dist/.playwright/nl/test-results/my-zone-invoice-invoice-ov-a92f3-iew-page-loads-successfully-test---logged-in-Desktop-Chrome--retry1/video.webm
+2026-02-02T13:28:43.8678990Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8679301Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8679727Z     dist/.playwright/nl/test-results/my-zone-invoice-invoice-ov-a92f3-iew-page-loads-successfully-test---logged-in-Desktop-Chrome--retry1/trace.zip
+2026-02-02T13:28:43.8679979Z     Usage:
+2026-02-02T13:28:43.8680301Z         npx playwright show-trace dist/.playwright/nl/test-results/my-zone-invoice-invoice-ov-a92f3-iew-page-loads-successfully-test---logged-in-Desktop-Chrome--retry1/trace.zip
+2026-02-02T13:28:43.8680692Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8681058Z   3) [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/invoice/invoice-overview.spec.ts:20:5 › Invoice Overview Tests › Switch invoice year in overview @test @nl @de 
+2026-02-02T13:28:43.8681298Z     Error: Page is loaded
+2026-02-02T13:28:43.8681580Z     Timed out 5000ms waiting for expect(locator).toBeVisible()
+2026-02-02T13:28:43.8681863Z     Locator: locator('ins-invoices h2')
+2026-02-02T13:28:43.8682040Z     Expected: visible
+2026-02-02T13:28:43.8682252Z     Received: <element(s) not found>
+2026-02-02T13:28:43.8682425Z     Call log:
+2026-02-02T13:28:43.8682672Z       - Page is loaded with timeout 5000ms
+2026-02-02T13:28:43.8682910Z       - waiting for locator('ins-invoices h2')
+2026-02-02T13:28:43.8683117Z     Call Log:
+2026-02-02T13:28:43.8683288Z     - Test timeout of 30000ms exceeded
+2026-02-02T13:28:43.8683572Z        at my-zone/invoice/overview/invoice-overview-page.ts:45
+2026-02-02T13:28:43.8683799Z       43 |
+2026-02-02T13:28:43.8684033Z       44 |     async isReady() {
+2026-02-02T13:28:43.8684412Z     > 45 |         await expect(async () => await expect(this.header, 'Page is loaded').toBeVisible()).toPass();
+2026-02-02T13:28:43.8684858Z          |                                                                                             ^
+2026-02-02T13:28:43.8685121Z       46 |     }
+2026-02-02T13:28:43.8685375Z       47 |
+2026-02-02T13:28:43.8685638Z       48 |     // Return a button locator based on its visible text
+2026-02-02T13:28:43.8685973Z         at InvoiceOverview.isReady (/pipelineagent_data/work/71/s/apps/testing/src/my-zone/invoice/overview/invoice-overview-page.ts:45:93)
+2026-02-02T13:28:43.8686305Z         at /pipelineagent_data/work/71/s/apps/testing/src/my-zone/invoice/invoice-overview.spec.ts:29:28
+2026-02-02T13:28:43.8686669Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8686870Z     Error: Page is loaded
+2026-02-02T13:28:43.8687175Z     Timed out 5000ms waiting for expect(locator).toBeVisible()
+2026-02-02T13:28:43.8687429Z     Locator: locator('ins-invoices h2')
+2026-02-02T13:28:43.8687624Z     Expected: visible
+2026-02-02T13:28:43.8687810Z     Received: <element(s) not found>
+2026-02-02T13:28:43.8687980Z     Call log:
+2026-02-02T13:28:43.8688212Z       - Page is loaded with timeout 5000ms
+2026-02-02T13:28:43.8688447Z       - waiting for locator('ins-invoices h2')
+2026-02-02T13:28:43.8688638Z     Call Log:
+2026-02-02T13:28:43.8688811Z     - Test timeout of 30000ms exceeded
+2026-02-02T13:28:43.8689092Z        at my-zone/invoice/overview/invoice-overview-page.ts:45
+2026-02-02T13:28:43.8689315Z       43 |
+2026-02-02T13:28:43.8689597Z       44 |     async isReady() {
+2026-02-02T13:28:43.8689972Z     > 45 |         await expect(async () => await expect(this.header, 'Page is loaded').toBeVisible()).toPass();
+2026-02-02T13:28:43.8690343Z          |                                                                                             ^
+2026-02-02T13:28:43.8690550Z       46 |     }
+2026-02-02T13:28:43.8690779Z       47 |
+2026-02-02T13:28:43.8691038Z       48 |     // Return a button locator based on its visible text
+2026-02-02T13:28:43.8691376Z         at InvoiceOverview.isReady (/pipelineagent_data/work/71/s/apps/testing/src/my-zone/invoice/overview/invoice-overview-page.ts:45:93)
+2026-02-02T13:28:43.8691690Z         at /pipelineagent_data/work/71/s/apps/testing/src/my-zone/invoice/invoice-overview.spec.ts:29:28
+2026-02-02T13:28:43.8692021Z     attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8692396Z     dist/.playwright/nl/test-results/my-zone-invoice-invoice-ov-390e8-ch-invoice-year-in-overview-test---logged-in-Desktop-Chrome--retry1/video.webm
+2026-02-02T13:28:43.8692818Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8693128Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8693474Z     dist/.playwright/nl/test-results/my-zone-invoice-invoice-ov-390e8-ch-invoice-year-in-overview-test---logged-in-Desktop-Chrome--retry1/trace.zip
+2026-02-02T13:28:43.8693725Z     Usage:
+2026-02-02T13:28:43.8694082Z         npx playwright show-trace dist/.playwright/nl/test-results/my-zone-invoice-invoice-ov-390e8-ch-invoice-year-in-overview-test---logged-in-Desktop-Chrome--retry1/trace.zip
+2026-02-02T13:28:43.8694490Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8694837Z   4) [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/invoice/invoice-overview.spec.ts:40:5 › Invoice Overview Tests › Initiate payment with iDeal @test @nl 
+2026-02-02T13:28:43.8695091Z     Error: Page is loaded
+2026-02-02T13:28:43.8695361Z     Timed out 5000ms waiting for expect(locator).toBeVisible()
+2026-02-02T13:28:43.8695565Z     Locator: locator('ins-invoices h2')
+2026-02-02T13:28:43.8695761Z     Expected: visible
+2026-02-02T13:28:43.8695936Z     Received: <element(s) not found>
+2026-02-02T13:28:43.8696123Z     Call log:
+2026-02-02T13:28:43.8696339Z       - Page is loaded with timeout 5000ms
+2026-02-02T13:28:43.8696586Z       - waiting for locator('ins-invoices h2')
+2026-02-02T13:28:43.8696763Z     Call Log:
+2026-02-02T13:28:43.8696959Z     - Test timeout of 30000ms exceeded
+2026-02-02T13:28:43.8697209Z        at my-zone/invoice/overview/invoice-overview-page.ts:45
+2026-02-02T13:28:43.8697495Z       43 |
+2026-02-02T13:28:43.8697718Z       44 |     async isReady() {
+2026-02-02T13:28:43.8698123Z     > 45 |         await expect(async () => await expect(this.header, 'Page is loaded').toBeVisible()).toPass();
+2026-02-02T13:28:43.8698434Z          |                                                                                             ^
+2026-02-02T13:28:43.8698650Z       46 |     }
+2026-02-02T13:28:43.8698863Z       47 |
+2026-02-02T13:28:43.8699106Z       48 |     // Return a button locator based on its visible text
+2026-02-02T13:28:43.8699548Z         at InvoiceOverview.isReady (/pipelineagent_data/work/71/s/apps/testing/src/my-zone/invoice/overview/invoice-overview-page.ts:45:93)
+2026-02-02T13:28:43.8699905Z         at /pipelineagent_data/work/71/s/apps/testing/src/my-zone/invoice/invoice-overview.spec.ts:50:28
+2026-02-02T13:28:43.8700265Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8700485Z     Error: Page is loaded
+2026-02-02T13:28:43.8700751Z     Timed out 5000ms waiting for expect(locator).toBeVisible()
+2026-02-02T13:28:43.8700967Z     Locator: locator('ins-invoices h2')
+2026-02-02T13:28:43.8701193Z     Expected: visible
+2026-02-02T13:28:43.8701390Z     Received: <element(s) not found>
+2026-02-02T13:28:43.8701559Z     Call log:
+2026-02-02T13:28:43.8701804Z       - Page is loaded with timeout 5000ms
+2026-02-02T13:28:43.8702037Z       - waiting for locator('ins-invoices h2')
+2026-02-02T13:28:43.8702231Z     Call Log:
+2026-02-02T13:28:43.8702449Z     - Test timeout of 30000ms exceeded
+2026-02-02T13:28:43.8702787Z        at my-zone/invoice/overview/invoice-overview-page.ts:45
+2026-02-02T13:28:43.8703012Z       43 |
+2026-02-02T13:28:43.8703243Z       44 |     async isReady() {
+2026-02-02T13:28:43.8703641Z     > 45 |         await expect(async () => await expect(this.header, 'Page is loaded').toBeVisible()).toPass();
+2026-02-02T13:28:43.8703950Z          |                                                                                             ^
+2026-02-02T13:28:43.8704181Z       46 |     }
+2026-02-02T13:28:43.8704371Z       47 |
+2026-02-02T13:28:43.8704664Z       48 |     // Return a button locator based on its visible text
+2026-02-02T13:28:43.8704991Z         at InvoiceOverview.isReady (/pipelineagent_data/work/71/s/apps/testing/src/my-zone/invoice/overview/invoice-overview-page.ts:45:93)
+2026-02-02T13:28:43.8705420Z         at /pipelineagent_data/work/71/s/apps/testing/src/my-zone/invoice/invoice-overview.spec.ts:50:28
+2026-02-02T13:28:43.8705829Z     attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8706170Z     dist/.playwright/nl/test-results/my-zone-invoice-invoice-ov-570b5-Initiate-payment-with-iDeal-test---logged-in-Desktop-Chrome--retry1/video.webm
+2026-02-02T13:28:43.8706615Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8707017Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8707359Z     dist/.playwright/nl/test-results/my-zone-invoice-invoice-ov-570b5-Initiate-payment-with-iDeal-test---logged-in-Desktop-Chrome--retry1/trace.zip
+2026-02-02T13:28:43.8707623Z     Usage:
+2026-02-02T13:28:43.8707980Z         npx playwright show-trace dist/.playwright/nl/test-results/my-zone-invoice-invoice-ov-570b5-Initiate-payment-with-iDeal-test---logged-in-Desktop-Chrome--retry1/trace.zip
+2026-02-02T13:28:43.8708379Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8708769Z   5) [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/my-details/family-composition.spec.ts:5:5 › Update Family Composition › Family composition can be updated, displaying premium impact @test @nl 
+2026-02-02T13:28:43.8709031Z     Error: Verifying correct header text
+2026-02-02T13:28:43.8709334Z     Timed out 5000ms waiting for expect(locator).toContainText(expected)
+2026-02-02T13:28:43.8710416Z     Locator: locator('wuc-page-block[id=family-panel] .wuc-page-block__header-text')
+2026-02-02T13:28:43.8710664Z     Expected string: "Gezinssamenstelling"
+2026-02-02T13:28:43.8710787Z     Received: <element(s) not found>
+2026-02-02T13:28:43.8710895Z     Call log:
+2026-02-02T13:28:43.8711059Z       - Verifying correct header text with timeout 5000ms
+2026-02-02T13:28:43.8711255Z       - waiting for locator('wuc-page-block[id=family-panel] .wuc-page-block__header-text')
+2026-02-02T13:28:43.8711453Z        at my-zone/my-details/my-details/my-details-page.ts:46
+2026-02-02T13:28:43.8711654Z       44 |     async verifySectionHeader(id: string) {
+2026-02-02T13:28:43.8711938Z       45 |         const sectionHeader = this.page.locator(`wuc-page-block[id=${id}-panel] .wuc-page-block__header-text`); 
+2026-02-02T13:28:43.8712285Z     > 46 |         await expect(sectionHeader, 'Verifying correct header text').toContainText(this.translations.header.block[id]);
+2026-02-02T13:28:43.8712522Z          |                                                                      ^
+2026-02-02T13:28:43.8712655Z       47 |     }
+2026-02-02T13:28:43.8712779Z       48 |
+2026-02-02T13:28:43.8712928Z       49 |     async clickSubmitButton() {
+2026-02-02T13:28:43.8713178Z         at MyDetailsPage.verifySectionHeader (/pipelineagent_data/work/71/s/apps/testing/src/my-zone/my-details/my-details/my-details-page.ts:46:70)
+2026-02-02T13:28:43.8713435Z         at /pipelineagent_data/work/71/s/apps/testing/src/my-zone/my-details/family-composition.spec.ts:12:29
+2026-02-02T13:28:43.8713686Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8713843Z     Test was interrupted.
+2026-02-02T13:28:43.8714063Z     attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8714366Z     dist/.playwright/nl/test-results/my-zone-my-details-family--b97da-d-displaying-premium-impact-test---logged-in-Desktop-Chrome--retry1/video.webm
+2026-02-02T13:28:43.8714646Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8714872Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8715130Z     dist/.playwright/nl/test-results/my-zone-my-details-family--b97da-d-displaying-premium-impact-test---logged-in-Desktop-Chrome--retry1/trace.zip
+2026-02-02T13:28:43.8715304Z     Usage:
+2026-02-02T13:28:43.8715558Z         npx playwright show-trace dist/.playwright/nl/test-results/my-zone-my-details-family--b97da-d-displaying-premium-impact-test---logged-in-Desktop-Chrome--retry1/trace.zip
+2026-02-02T13:28:43.8715896Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8716224Z   6) [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/my-details/my-details.spec.ts:5:5 › My Details Page (Test Coverage Pending) › Verify Header Text @test @nl @de 
+2026-02-02T13:28:43.8716389Z     Error: header correct
+2026-02-02T13:28:43.8716605Z     Timed out 5000ms waiting for expect(locator).toContainText(expected)
+2026-02-02T13:28:43.8716764Z     Locator: locator('ins-feature-my-details, ins-details-container').locator('h2')
+2026-02-02T13:28:43.8716933Z     Expected string: "Mijn gegevens"
+2026-02-02T13:28:43.8717052Z     Received: <element(s) not found>
+2026-02-02T13:28:43.8717157Z     Call log:
+2026-02-02T13:28:43.8717304Z       - header correct with timeout 5000ms
+2026-02-02T13:28:43.8717508Z       - waiting for locator('ins-feature-my-details, ins-details-container').locator('h2')
+2026-02-02T13:28:43.8717706Z        at my-zone/my-details/my-details/my-details-page.ts:35
+2026-02-02T13:28:43.8717858Z       33 |
+2026-02-02T13:28:43.8717997Z       34 |     async checkHeader() {
+2026-02-02T13:28:43.8718356Z     > 35 |         await expect(this.header, 'header correct').toContainText(this.translations.header.page);    
+2026-02-02T13:28:43.8718597Z          |                                                     ^
+2026-02-02T13:28:43.8718729Z       36 |     }
+2026-02-02T13:28:43.8718853Z       37 |
+2026-02-02T13:28:43.8719020Z       38 |     async clickEditLink(id: string) {
+2026-02-02T13:28:43.8719270Z         at MyDetailsPage.checkHeader (/pipelineagent_data/work/71/s/apps/testing/src/my-zone/my-details/my-details/my-details-page.ts:35:53)
+2026-02-02T13:28:43.8719586Z         at /pipelineagent_data/work/71/s/apps/testing/src/my-zone/my-details/my-details.spec.ts:12:29
+2026-02-02T13:28:43.8719834Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8719957Z     Error: header correct
+2026-02-02T13:28:43.8720172Z     Timed out 5000ms waiting for expect(locator).toContainText(expected)
+2026-02-02T13:28:43.8720332Z     Locator: locator('ins-feature-my-details, ins-details-container').locator('h2')
+2026-02-02T13:28:43.8720529Z     Expected string: "Mijn gegevens"
+2026-02-02T13:28:43.8720646Z     Received: <element(s) not found>
+2026-02-02T13:28:43.8720749Z     Call log:
+2026-02-02T13:28:43.8720903Z       - header correct with timeout 5000ms
+2026-02-02T13:28:43.8721090Z       - waiting for locator('ins-feature-my-details, ins-details-container').locator('h2')
+2026-02-02T13:28:43.8721344Z        at my-zone/my-details/my-details/my-details-page.ts:35
+2026-02-02T13:28:43.8721493Z       33 |
+2026-02-02T13:28:43.8721641Z       34 |     async checkHeader() {
+2026-02-02T13:28:43.8721987Z     > 35 |         await expect(this.header, 'header correct').toContainText(this.translations.header.page);    
+2026-02-02T13:28:43.8722230Z          |                                                     ^
+2026-02-02T13:28:43.8722361Z       36 |     }
+2026-02-02T13:28:43.8722484Z       37 |
+2026-02-02T13:28:43.8722638Z       38 |     async clickEditLink(id: string) {
+2026-02-02T13:28:43.8722953Z         at MyDetailsPage.checkHeader (/pipelineagent_data/work/71/s/apps/testing/src/my-zone/my-details/my-details/my-details-page.ts:35:53)
+2026-02-02T13:28:43.8723201Z         at /pipelineagent_data/work/71/s/apps/testing/src/my-zone/my-details/my-details.spec.ts:12:29
+2026-02-02T13:28:43.8723446Z     attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8723704Z     dist/.playwright/nl/test-results/my-zone-my-details-my-deta-d5515--Pending-Verify-Header-Text-test---logged-in-Desktop-Chrome--retry1/video.webm
+2026-02-02T13:28:43.8723967Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8724191Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8724448Z     dist/.playwright/nl/test-results/my-zone-my-details-my-deta-d5515--Pending-Verify-Header-Text-test---logged-in-Desktop-Chrome--retry1/trace.zip
+2026-02-02T13:28:43.8724626Z     Usage:
+2026-02-02T13:28:43.8724887Z         npx playwright show-trace dist/.playwright/nl/test-results/my-zone-my-details-my-deta-d5515--Pending-Verify-Header-Text-test---logged-in-Desktop-Chrome--retry1/trace.zip
+2026-02-02T13:28:43.8725161Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-02-02T13:28:43.8725405Z   Slow test file: [test - not logged in (Pixel 5 with Chromium)] › apps/testing/src/salesfunnels/moped-insurance.spec.ts (29.7s)
+2026-02-02T13:28:43.8725663Z   Slow test file: [test - not logged in (Desktop Chrome)] › apps/testing/src/salesfunnels/home-insurance.spec.ts (28.4s)
+2026-02-02T13:28:43.8725918Z   Slow test file: [test - not logged in (Desktop Chrome)] › apps/testing/src/salesfunnels/bike-insurance.spec.ts (27.0s)
+2026-02-02T13:28:43.8726185Z   Slow test file: [test - not logged in (Pixel 5 with Chromium)] › apps/testing/src/salesfunnels/bike-insurance.spec.ts (25.7s)
+2026-02-02T13:28:43.8726529Z   Consider running tests from slow files in parallel, see https://playwright.dev/docs/test-parallel.
+2026-02-02T13:28:43.8726730Z   6 failed
+2026-02-02T13:28:43.8726946Z     [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/claim-funnel/car-nl.spec.ts:4:1 › Car - NL @test @nl 
+2026-02-02T13:28:43.8727284Z     [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/invoice/invoice-overview.spec.ts:6:5 › Invoice Overview Tests › Invoice overview page loads successfully @test @nl @de 
+2026-02-02T13:28:43.8727662Z     [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/invoice/invoice-overview.spec.ts:20:5 › Invoice Overview Tests › Switch invoice year in overview @test @nl @de 
+2026-02-02T13:28:43.8728063Z     [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/invoice/invoice-overview.spec.ts:40:5 › Invoice Overview Tests › Initiate payment with iDeal @test @nl 
+2026-02-02T13:28:43.8728494Z     [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/my-details/family-composition.spec.ts:5:5 › Update Family Composition › Family composition can be updated, displaying premium impact @test @nl 
+2026-02-02T13:28:43.8728840Z     [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/my-details/my-details.spec.ts:5:5 › My Details Page (Test Coverage Pending) › Verify Header Text @test @nl @de 
+2026-02-02T13:28:43.8729027Z   1 interrupted
+2026-02-02T13:28:43.8729298Z     [test - logged in (Desktop Chrome)] › apps/testing/src/my-zone/my-insurances/change-coverage.spec.ts:6:5 › Minimal Car Coverage Upgrade Test › Upgrade to medium coverage from minimal @test @nl 
+2026-02-02T13:28:43.8729570Z   3 did not run
+2026-02-02T13:28:43.8729720Z   35 passed (3.2m)
+2026-02-02T13:28:43.8729888Z   1 error was not a part of any test, see above for details
+2026-02-02T13:28:44.0287021Z 
+2026-02-02T13:28:44.0287330Z 
+2026-02-02T13:28:44.0288670Z 
+2026-02-02T13:28:44.0291171Z  NX   Running target ciFunctional for project testing failed
+2026-02-02T13:28:44.0291437Z 
+2026-02-02T13:28:44.0291629Z Failed tasks:
+2026-02-02T13:28:44.0291673Z 
+2026-02-02T13:28:44.0291800Z - testing:ciFunctional
+2026-02-02T13:28:44.0291846Z 
+2026-02-02T13:28:44.0291953Z Hint: run the command with --verbose for more details.
+2026-02-02T13:28:44.0292015Z 
+2026-02-02T13:28:44.0584545Z Nx exit code: 1
+2026-02-02T13:28:44.0584783Z Please review the test errors and trace logs at [https://insh-nl-frontend-website.test.outshared-staging.services/functional-test] and ensure appropriate follow-up actions are taken.
+2026-02-02T13:28:44.0620783Z 
+2026-02-02T13:28:44.0641855Z ##[error]Bash exited with code '1'.
+2026-02-02T13:28:44.0671415Z ##[section]Finishing: Run Functional Playwright Tests

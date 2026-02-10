@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "subject": "Phase 1: Update shared navigation with new route enums",
+  "description": "Add new route enums (Overview, Claims, Contact) to app-routes.enum.ts and update DashboardSideMenuComponent with new navigation structure",
+  "activeForm": "Updating shared navigation",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

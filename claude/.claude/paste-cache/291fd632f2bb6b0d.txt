@@ -1,0 +1,71 @@
+[WebServer] > nx run ui-website:clean
+
+[WebServer] 
+
+[WebServer] > rm -rf libs/website/ui-website/dist
+
+[WebServer] 
+
+[WebServer] 'rm' is not recognized as an internal or external command,
+
+[WebServer] operable program or batch file.
+
+[WebServer] Warning: command "rm -rf libs/website/ui-website/dist" exited with non-zero status code[WebServer] 
+
+[WebServer] > nx run web-common:clean
+
+[WebServer] 
+
+[WebServer] > rm -rf dist
+
+[WebServer] 
+
+[WebServer] 'rm' is not recognized as an internal or external command,
+
+[WebServer] operable program or batch file.
+
+[WebServer] 
+
+[WebServer] > rm -rf loader
+
+[WebServer] 
+
+[WebServer] 'rm' is not recognized as an internal or external command,
+
+[WebServer] operable program or batch file.
+
+[WebServer] Warning: command "rm -rf dist" exited with non-zero status code[WebServer] 
+
+[WebServer] 
+
+[WebServer] 
+
+[WebServer] 
+
+[WebServer] 
+
+[WebServer] 
+
+[WebServer] 
+
+[WebServer]  NX   Running target serve for project inshared-de-funnel-liability and 6 tasks it depends on failed
+
+[WebServer] 
+
+[WebServer] Failed tasks:
+
+[WebServer] 
+
+[WebServer] - ui-website:clean
+
+[WebServer] - web-common:clean
+
+[WebServer] 
+
+[WebServer] Hint: run the command with --verbose for more details.
+
+[WebServer] 
+
+Error: Process from config.webServer was not able to start. Exit code: 130
+
+ 

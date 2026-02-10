@@ -1,0 +1,9 @@
+{
+  "id": "2",
+  "subject": "Phase 5: Create DE MyZone app",
+  "description": "Create DE app shell under apps/inshared-de/spa/my-zone/ and DE feature wrappers under libs/spa/my-zone/inshared-de/",
+  "activeForm": "Creating DE app",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

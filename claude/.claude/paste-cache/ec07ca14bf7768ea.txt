@@ -1,0 +1,539 @@
+Create in this dir a virtual env for my for python 
+
+```
+# Jira Story Validator
+
+Fetches stories from Jira and generates structured output for Claude Code to validate against the FE story template.
+
+## Setup
+
+```bash
+pip install requests
+```
+
+### Authentication
+
+Set environment variables for your Jira instance:
+
+**Option A — Basic Auth (username + password/API token):**
+```bash
+export JIRA_URL="https://jira.outshared.com"
+export JIRA_USER="your.name@inshared.nl"
+export JIRA_TOKEN="your-password"
+```
+
+**Option B — Personal Access Token (Jira Server 8.14+):**
+```bash
+export JIRA_URL="https://jira.outshared.com"
+export JIRA_PAT="your-personal-access-token"
+```
+
+> To create a PAT: Jira → Profile → Personal Access Tokens → Create token
+
+## Usage
+
+### Fetch all new stories in OSDI
+```bash
+python fetch_stories.py --project OSDI --status "New"
+```
+
+### Fetch stories created in the last 7 days
+```bash
+python fetch_stories.py --project OSDI --days 7
+```
+
+### Fetch specific issues
+```bash
+python fetch_stories.py --issues OSDI-10226,OSDI-10230,OSDI-10235
+```
+
+### Custom JQL
+```bash
+python fetch_stories.py --jql "project = OSDI AND status = New AND issuetype = Story ORDER BY created DESC"
+```
+
+### All options
+```
+--project     Project key (e.g., OSDI)
+--jql         Custom JQL query
+--issues      Comma-separated issue keys
+--status      Filter by status (e.g., "New,Open,In Progress")
+--type        Issue type (default: Story)
+--max         Max issues to fetch (default: 50)
+--days        Only issues created in last N days
+--output      Output directory (default: ./story_validation)
+```
+
+## Output
+
+```
+story_validation/
+├── TEMPLATE_REQUIREMENTS.md   # FE story template rules
+├── VALIDATE.md                # Instructions for Claude Code
+├── issues.json                # Raw data (all issues)
+└── issues/                    # One markdown file per issue
+    ├── OSDI-10226.md
+    ├── OSDI-10230.md
+    └── ...
+```
+
+## Validate with Claude Code
+
+```bash
+cd story_validation
+
+# Validate all stories
+claude "Read VALIDATE.md and follow the instructions to validate all stories"
+
+# Validate a single story
+claude "Read TEMPLATE_REQUIREMENTS.md, then validate issues/OSDI-10226.md"
+
+# Generate a report for the PO
+claude "Read VALIDATE.md, validate all stories, and create a summary report as validation_report.md with actionable feedback per story"
+```
+
+## Workflow
+
+```
+Business creates service request
+         ↓
+Jira automation creates OSDI ticket
+         ↓
+You run: python fetch_stories.py --project OSDI --status "New"
+         ↓
+Claude Code validates against template
+         ↓
+PO gets report: which stories are ready, which need more info
+         ↓
+PO updates status / asks business for clarification
+```
+``` 
+
+with code:
+```
+#!/usr/bin/env python3
+"""
+Jira Story Fetcher & Validator
+Fetches stories from a Jira project and outputs structured data
+for Claude Code to validate against the FE story template.
+
+Usage:
+    python fetch_stories.py --project OSDI --status "New,Open,In Progress"
+    python fetch_stories.py --jql "project = OSDI AND created >= -7d"
+    python fetch_stories.py --issues OSDI-10226,OSDI-10230
+"""
+
+import argparse
+import json
+import os
+import sys
+from datetime import datetime
+from pathlib import Path
+
+try:
+    import requests
+except ImportError:
+    print("Installing requests...")
+    os.system(f"{sys.executable} -m pip install requests --break-system-packages -q")
+    import requests
+
+
+# ─── Configuration ───────────────────────────────────────────────────────────
+# Set these as environment variables or edit the defaults below.
+# For Jira Server: use username + password or PAT (Personal Access Token)
+#
+# Option A - Basic Auth (username + password/API token):
+#   export JIRA_URL="https://jira.outshared.com"
+#   export JIRA_USER="your.email@inshared.nl"
+#   export JIRA_TOKEN="your-api-token-or-password"
+#
+# Option B - Personal Access Token (Jira Server/DC 8.14+):
+#   export JIRA_URL="https://jira.outshared.com"
+#   export JIRA_PAT="your-personal-access-token"
+# ─────────────────────────────────────────────────────────────────────────────
+
+JIRA_URL = os.environ.get("JIRA_URL", "https://jira.outshared.com")
+JIRA_USER = os.environ.get("JIRA_USER", "")
+JIRA_TOKEN = os.environ.get("JIRA_TOKEN", "")
+JIRA_PAT = os.environ.get("JIRA_PAT", "")
+
+# Fields to fetch from Jira
+FIELDS = [
+    "summary",
+    "description",
+    "status",
+    "priority",
+    "issuetype",
+    "created",
+    "updated",
+    "assignee",
+    "reporter",
+    "labels",
+    "components",
+    "fixVersions",
+    "issuelinks",
+    "comment",
+    "attachment",
+]
+
+# The FE story template requirements (used in the output for Claude Code)
+STORY_TEMPLATE = """
+## FE Story Template Requirements
+
+### Story Goal
+- What is the goal of the story?
+- The purpose and business/user value must be clear
+- The problem being solved must be understood
+
+### Implementation / Scope
+- What needs to be done to achieve the goal?
+- Should contain concrete technical steps, not just the placeholder question
+
+### Acceptance Criteria
+- When is the story considered done?
+- Acceptance criteria must be defined and unambiguous
+- Should be testable (pass/fail)
+
+### Validation / Proof
+- How do we show that it works?
+- At least one test scenario must be defined (preferably BDD / Gherkin format)
+- The scenario must be verifiable by testing
+""".strip()
+
+
+def get_auth():
+    """Build auth headers/tuple for Jira requests."""
+    if JIRA_PAT:
+        return {"headers": {"Authorization": f"Bearer {JIRA_PAT}"}}
+    elif JIRA_USER and JIRA_TOKEN:
+        return {"auth": (JIRA_USER, JIRA_TOKEN)}
+    else:
+        print("ERROR: No Jira credentials configured.")
+        print("Set JIRA_USER + JIRA_TOKEN (basic auth) or JIRA_PAT (personal access token)")
+        print("Example:")
+        print('  export JIRA_URL="https://jira.outshared.com"')
+        print('  export JIRA_USER="your.name@inshared.nl"')
+        print('  export JIRA_TOKEN="your-password-or-token"')
+        sys.exit(1)
+
+
+def fetch_issues(jql: str, max_results: int = 100) -> list[dict]:
+    """Fetch issues from Jira using JQL."""
+    auth_config = get_auth()
+    all_issues = []
+    start_at = 0
+
+    while True:
+        params = {
+            "jql": jql,
+            "fields": ",".join(FIELDS),
+            "startAt": start_at,
+            "maxResults": min(max_results - len(all_issues), 50),
+            "expand": "renderedFields",  # Get HTML-rendered description too
+        }
+
+        url = f"{JIRA_URL}/rest/api/2/search"
+        kwargs = {"params": params, "timeout": 30}
+
+        if "headers" in auth_config:
+            kwargs["headers"] = auth_config["headers"]
+        if "auth" in auth_config:
+            kwargs["auth"] = auth_config["auth"]
+
+        print(f"  Fetching issues {start_at + 1}-{start_at + params['maxResults']}...")
+        resp = requests.get(url, **kwargs)
+
+        if resp.status_code == 401:
+            print("ERROR: Authentication failed. Check your credentials.")
+            sys.exit(1)
+        elif resp.status_code == 403:
+            print("ERROR: Permission denied. Your account may not have access to this project.")
+            sys.exit(1)
+
+        resp.raise_for_status()
+        data = resp.json()
+
+        issues = data.get("issues", [])
+        all_issues.extend(issues)
+
+        total = data.get("total", 0)
+        print(f"  Retrieved {len(all_issues)}/{total} issues")
+
+        if len(all_issues) >= total or len(all_issues) >= max_results:
+            break
+
+        start_at += len(issues)
+
+    return all_issues
+
+
+def extract_issue_data(issue: dict) -> dict:
+    """Extract relevant fields from a Jira issue into a clean structure."""
+    fields = issue.get("fields", {})
+    rendered = issue.get("renderedFields", {})
+
+    # Get plain text description (Jira wiki markup)
+    description = fields.get("description", "") or ""
+
+    # Get rendered HTML description (useful for seeing formatting)
+    rendered_description = rendered.get("description", "") or ""
+
+    # Extract linked issues
+    links = []
+    for link in fields.get("issuelinks", []) or []:
+        link_info = {}
+        if "outwardIssue" in link:
+            link_info = {
+                "type": link.get("type", {}).get("outward", ""),
+                "key": link["outwardIssue"]["key"],
+                "summary": link["outwardIssue"]["fields"]["summary"],
+                "status": link["outwardIssue"]["fields"]["status"]["name"],
+            }
+        elif "inwardIssue" in link:
+            link_info = {
+                "type": link.get("type", {}).get("inward", ""),
+                "key": link["inwardIssue"]["key"],
+                "summary": link["inwardIssue"]["fields"]["summary"],
+                "status": link["inwardIssue"]["fields"]["status"]["name"],
+            }
+        if link_info:
+            links.append(link_info)
+
+    # Extract comments
+    comments = []
+    comment_data = fields.get("comment", {})
+    for c in (comment_data.get("comments", []) if isinstance(comment_data, dict) else []):
+        comments.append({
+            "author": c.get("author", {}).get("displayName", "Unknown"),
+            "created": c.get("created", ""),
+            "body": c.get("body", ""),
+        })
+
+    # Extract attachments (names only)
+    attachments = [
+        a.get("filename", "")
+        for a in (fields.get("attachment", []) or [])
+    ]
+
+    return {
+        "key": issue.get("key", ""),
+        "url": f"{JIRA_URL}/browse/{issue.get('key', '')}",
+        "summary": fields.get("summary", ""),
+        "type": fields.get("issuetype", {}).get("name", ""),
+        "status": fields.get("status", {}).get("name", ""),
+        "priority": fields.get("priority", {}).get("name", ""),
+        "assignee": (fields.get("assignee") or {}).get("displayName", "Unassigned"),
+        "reporter": (fields.get("reporter") or {}).get("displayName", "Unknown"),
+        "created": fields.get("created", ""),
+        "updated": fields.get("updated", ""),
+        "labels": fields.get("labels", []),
+        "components": [c.get("name", "") for c in (fields.get("components") or [])],
+        "fix_versions": [v.get("name", "") for v in (fields.get("fixVersions") or [])],
+        "description_raw": description,
+        "description_rendered": rendered_description,
+        "linked_issues": links,
+        "comments": comments,
+        "attachments": attachments,
+    }
+
+
+def generate_validation_report(issues: list[dict], output_dir: Path):
+    """Generate markdown files for Claude Code to analyze."""
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    # Write the template requirements file
+    template_file = output_dir / "TEMPLATE_REQUIREMENTS.md"
+    template_file.write_text(f"""# FE Story Template Requirements
+
+This document defines what a well-structured story looks like for the FE team.
+
+{STORY_TEMPLATE}
+
+## Example of a GOOD story
+
+A good story (like WINS-13647) has:
+- **Story Goal**: Clear explanation of what needs to be built and why, with visual references
+- **Implementation / Scope**: Detailed technical steps, UI behavior descriptions, API payloads, conditional logic (IF valid/invalid), specific component behavior
+- **Acceptance Criteria**: Concrete, testable items (e.g., "You are able to enter a discount code", "The premiums are updated")
+- **Validation / Proof**: Specific test types mentioned (unit tests, e2e tests, integration tests)
+
+## What makes a BAD story
+
+- Story Goal is vague or missing ("Implement feature X" with no context)
+- Implementation/Scope only has the placeholder question "What needs to be done to achieve the goal?" with no actual content
+- Acceptance Criteria are missing, or just restate the goal
+- Validation/Proof is empty or only says "test it"
+- No references to designs, APIs, or technical details
+""")
+
+    # Write individual issue files
+    issues_dir = output_dir / "issues"
+    issues_dir.mkdir(exist_ok=True)
+
+    for issue in issues:
+        issue_file = issues_dir / f"{issue['key']}.md"
+        content = f"""# {issue['key']}: {issue['summary']}
+
+| Field | Value |
+|-------|-------|
+| **URL** | {issue['url']} |
+| **Type** | {issue['type']} |
+| **Status** | {issue['status']} |
+| **Priority** | {issue['priority']} |
+| **Assignee** | {issue['assignee']} |
+| **Reporter** | {issue['reporter']} |
+| **Created** | {issue['created']} |
+| **Updated** | {issue['updated']} |
+| **Labels** | {', '.join(issue['labels']) or 'None'} |
+| **Components** | {', '.join(issue['components']) or 'None'} |
+
+## Description (Raw)
+
+```
+{issue['description_raw']}
+```
+
+## Linked Issues
+
+"""
+        if issue['linked_issues']:
+            for link in issue['linked_issues']:
+                content += f"- {link['type']} **{link['key']}**: {link['summary']} ({link['status']})\n"
+        else:
+            content += "_No linked issues_\n"
+
+        content += f"\n## Attachments\n\n"
+        if issue['attachments']:
+            for att in issue['attachments']:
+                content += f"- {att}\n"
+        else:
+            content += "_No attachments_\n"
+
+        if issue['comments']:
+            content += f"\n## Comments ({len(issue['comments'])})\n\n"
+            for c in issue['comments'][:5]:  # Limit to latest 5
+                content += f"**{c['author']}** ({c['created']}):\n{c['body']}\n\n---\n\n"
+
+        issue_file.write_text(content)
+
+    # Write the main validation prompt file
+    prompt_file = output_dir / "VALIDATE.md"
+    all_keys = [i['key'] for i in issues]
+    prompt_file.write_text(f"""# Story Validation Task
+
+## Instructions for Claude Code
+
+You have {len(issues)} stories to validate against the FE story template.
+
+**Template requirements** are in `TEMPLATE_REQUIREMENTS.md`.
+**Individual stories** are in the `issues/` folder.
+
+For each story, check:
+
+1. **Story Goal** — Is it present? Is the purpose/business value clear? Is the problem understood?
+2. **Implementation / Scope** — Is it present with actual content (not just the placeholder question)? Are there concrete technical steps?
+3. **Acceptance Criteria** — Are they defined? Are they unambiguous and testable?
+4. **Validation / Proof** — Is at least one test scenario defined? Is it verifiable?
+5. **Overall Quality** — Are there design references, API details, or linked issues that support the story?
+
+## Output format
+
+For each story, provide:
+- **Status**: ✅ Ready / ⚠️ Needs Improvement / ❌ Not Ready
+- **Missing sections**: Which template sections are missing or inadequate
+- **Specific feedback**: What exactly needs to be added or improved
+- **Suggested questions**: Questions the PO could ask the business to get the missing info
+
+## Stories to validate
+
+{chr(10).join(f'- `issues/{key}.md`' for key in all_keys)}
+
+Generate a summary report at the end with counts of Ready / Needs Improvement / Not Ready.
+""")
+
+    # Also dump raw JSON for programmatic use
+    json_file = output_dir / "issues.json"
+    json_file.write_text(json.dumps(issues, indent=2, default=str))
+
+    return template_file, prompt_file
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Fetch Jira stories for validation")
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument("--project", help="Project key (e.g., OSDI)")
+    group.add_argument("--jql", help="Custom JQL query")
+    group.add_argument("--issues", help="Comma-separated issue keys (e.g., OSDI-10226,OSDI-10230)")
+
+    parser.add_argument("--status", default=None,
+                        help="Comma-separated statuses to filter (e.g., 'New,Open')")
+    parser.add_argument("--type", default="Story",
+                        help="Issue type to filter (default: Story)")
+    parser.add_argument("--max", type=int, default=50,
+                        help="Maximum number of issues to fetch (default: 50)")
+    parser.add_argument("--days", type=int, default=None,
+                        help="Only fetch issues created in the last N days")
+    parser.add_argument("--output", default="./story_validation",
+                        help="Output directory (default: ./story_validation)")
+
+    args = parser.parse_args()
+
+    # Build JQL
+    if args.jql:
+        jql = args.jql
+    elif args.issues:
+        keys = [k.strip() for k in args.issues.split(",")]
+        jql = f"key in ({','.join(keys)})"
+    else:
+        jql_parts = [f"project = {args.project}"]
+        if args.type:
+            jql_parts.append(f'issuetype = "{args.type}"')
+        if args.status:
+            statuses = ",".join(f'"{s.strip()}"' for s in args.status.split(","))
+            jql_parts.append(f"status in ({statuses})")
+        if args.days:
+            jql_parts.append(f"created >= -{args.days}d")
+        jql = " AND ".join(jql_parts)
+        jql += " ORDER BY created DESC"
+
+    print(f"\n🔍 JQL: {jql}\n")
+
+    # Fetch
+    raw_issues = fetch_issues(jql, max_results=args.max)
+
+    if not raw_issues:
+        print("No issues found matching the query.")
+        sys.exit(0)
+
+    # Extract
+    print(f"\n📋 Processing {len(raw_issues)} issues...\n")
+    issues = [extract_issue_data(issue) for issue in raw_issues]
+
+    # Generate output
+    output_dir = Path(args.output)
+    template_file, prompt_file = generate_validation_report(issues, output_dir)
+
+    print(f"\n✅ Done! Output written to: {output_dir.resolve()}\n")
+    print(f"Files generated:")
+    print(f"  📄 {template_file.name}    — Template requirements")
+    print(f"  📄 {prompt_file.name}            — Validation prompt for Claude Code")
+    print(f"  📄 issues.json              — Raw issue data")
+    print(f"  📁 issues/                  — Individual issue markdown files")
+    print(f"     ({len(issues)} files)\n")
+    print(f"─── Next steps ───")
+    print(f"")
+    print(f"  Use Claude Code to validate:")
+    print(f"")
+    print(f"    cd {output_dir.resolve()}")
+    print(f'    claude "Read VALIDATE.md and follow the instructions to validate all stories"')
+    print(f"")
+    print(f"  Or for a quick single-issue check:")
+    print(f"")
+    print(f'    claude "Read TEMPLATE_REQUIREMENTS.md, then validate issues/{issues[0]["key"]}.md"')
+    print()
+
+
+if __name__ == "__main__":
+    main()
+    ```

@@ -1,0 +1,24 @@
+Sprint Chores | PR #10412
+Vulnerabilities
+Kwetsbaarheden verholpen via npm overrides en npm audit fix.
+Er staan nog 73 high-severity meldingen open, allemaal afkomstig van dezelfde oorzaak: de minimatch package (ReDoS kwetsbaarheid) zit op 22 plekken in onze dev-tooling (eslint, jest, karma, nx, glob, rimraf).
+Geprobeerd op te lossen met een globale override naar minimatch v10.2.1, maar dit breekt Karma. De meldingen blijven staan totdat we Karma uitfaseren -> Angular verwijdert Karma-support in Angular 22, dus dit staat sowieso op de roadmap.
+Merged branches — kunnen deze weg? Last chance! 🙂
+WINS-11894 — feature/onduidelijke-functionaliteit-van-de-link-wijzig-afspraak-maken-pagina
+WINS-11908 — feature/selecteer-uw-situatie-aanpassen-naar-kies-uw-situatie-stap-2
+WINS-11978 — feature/snack-isde-broken-links-chatbot-in-angular-germany
+WINS-12038 — feature/redirects-de
+WINS-12130 — feature/2-requests-for-same-ws
+WINS-12134 — feature/remove-skeleton-loader-when-zipcode-is-incorrect
+WINS-12178 — feature/claim-funnel-car-link-from-claim-category-page-to-new-car-claimfunnel
+WINS-1240 — feature/funnel-moped
+WINS-12420 — feature/funnel-moped
+WINS-12420 — feature/funnel-remaining
+WINS-12420 — feature/funnels-germany
+WINS-12420 — feature/grouped-form-controls
+WINS-12420 — feature/siteimprove-issues
+WINS-12491 — feature/fix-mfa-in-login-modal
+WNS-12420 — feature/funnel-car
+WNS-12420 — feature/funnel-house-insurance
+WNS-12420 — feature/funnel-travel
+WINS-13612 — test/detach-me-one-more-time

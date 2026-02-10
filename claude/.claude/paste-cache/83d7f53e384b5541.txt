@@ -1,0 +1,22 @@
+2026-02-06T13:26:50.1793044Z inshared-de-my-zone: ▲ [WARNING] libs/spa/website-ui-components/src/components/common/balloon/balloon.component.scss exceeded maximum budget. Budget 2.00 kB was not met by 2.08 kB with a total of 4.08 kB.
+2026-02-06T13:26:50.1793253Z inshared-de-my-zone: 
+2026-02-06T13:26:50.1793390Z inshared-de-my-zone: 
+2026-02-06T13:26:50.1793708Z inshared-de-my-zone: ▲ [WARNING] libs/spa/website-ui-components/src/components/common/accordion-item/accordion-item.component.scss exceeded maximum budget. Budget 2.00 kB was not met by 120 bytes with a total of 2.12 kB.
+2026-02-06T13:26:50.1793923Z inshared-de-my-zone: 
+2026-02-06T13:26:50.1794062Z inshared-de-my-zone: 
+2026-02-06T13:26:50.1794369Z inshared-de-my-zone: ▲ [WARNING] libs/spa/website-ui-components/src/components/forms/select/select.component.scss exceeded maximum budget. Budget 2.00 kB was not met by 60 bytes with a total of 2.06 kB.
+2026-02-06T13:26:50.1794578Z inshared-de-my-zone: 
+2026-02-06T13:26:50.1794717Z inshared-de-my-zone: 
+2026-02-06T13:26:50.1795037Z inshared-de-my-zone: ▲ [WARNING] Module 'moment' used by 'node_modules/pikaday/pikaday.js' is not ESM
+2026-02-06T13:26:50.1795215Z inshared-de-my-zone: 
+2026-02-06T13:26:50.1795411Z inshared-de-my-zone:   CommonJS or AMD dependencies can cause optimization bailouts.
+2026-02-06T13:26:50.1795667Z inshared-de-my-zone:   For more information see: https://angular.dev/tools/cli/build#configuring-commonjs-dependencies
+2026-02-06T13:26:50.1795932Z inshared-de-my-zone: 
+2026-02-06T13:26:50.1796137Z inshared-de-my-zone: 
+2026-02-06T13:26:50.1796491Z inshared-de-my-zone: ✘ [ERROR] An error occurred while extracting routes.
+2026-02-06T13:26:50.1796677Z inshared-de-my-zone: 
+2026-02-06T13:26:50.1796827Z inshared-de-my-zone: NG0401
+2026-02-06T13:26:50.1796976Z inshared-de-my-zone: 
+2026-02-06T13:26:50.1797159Z inshared-de-my-zone: 
+2026-02-06T13:26:50.3081623Z 
+2026-02-06T13:26:50.3082401Z > nx run inshared-de-login:build:production

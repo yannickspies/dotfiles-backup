@@ -1,0 +1,9 @@
+{
+  "id": "6",
+  "subject": "Phase 6: Add tsconfig path mappings",
+  "description": "Add all required path mappings to tsconfig.base.json for NL/DE features and shared libraries",
+  "activeForm": "Adding path mappings",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

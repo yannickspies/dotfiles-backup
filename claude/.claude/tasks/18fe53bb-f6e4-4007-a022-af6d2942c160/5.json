@@ -1,0 +1,9 @@
+{
+  "id": "5",
+  "subject": "Phase 3: Update ES app with new navigation",
+  "description": "Create ES wrapper components for overview, claims, contact and update ES routes with new navigation structure",
+  "activeForm": "Updating ES app",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

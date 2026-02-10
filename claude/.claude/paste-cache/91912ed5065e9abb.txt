@@ -1,0 +1,29 @@
+# User (e9c20875-e651-4f14-92ee-e68061b0e10a) ───
+
+493f88493f88493f88493f88493f88# User mad0def73-5e81-4103-b519-810f702857c3) ───
+
+What is the purpose of the test_azure.py?
+
+# Copilot (7121c2a6-5e84-4287-b5f5-89ece76da898) ───
+
+I don't have the contents of test_azure.py yet, so I can't determine its purpose. Please provide the file or its contents, and I can analyze and explain its purpose.
+
+# User (c89b1269-ecb3-4f42-82cd-d69c95a575e2) ───
+
+Now it is in the buffer
+
+# Copilot (780a1cb0-53bd-45b4-820f-fd04bd149568) ───
+
+I don't have the contents of test_azure.py in the context yet. Please share the contents or a relevant portion of the file, and I will explain its purpose.
+
+# User (4d61a101-50ed-4f92-adf8-3afab07ab817) ───
+
+tell me about the test_azure.py file and its purpose
+
+# Copilot (ae1f1054-5be4-4757-a212-a88668b44158) ───
+
+I do not have the contents of test_azure.py available in the current context, so I cannot analyze or describe its purpose. Please provide the file's contents or a relevant excerpt, and I will explain its purpose in detail.
+
+# User (df761e13-0146-4773-bcbf-9de432d57ef5) ───
+
+

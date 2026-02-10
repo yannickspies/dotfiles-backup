@@ -1,0 +1,9 @@
+{
+  "id": "4",
+  "subject": "Phase 2: Create shared feature libraries (overview, claims, contact)",
+  "description": "Create new shared libraries: overview/feature, claims/feature, claims/data-access, contact/feature under libs/spa/my-zone/shared/",
+  "activeForm": "Creating shared feature libraries",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

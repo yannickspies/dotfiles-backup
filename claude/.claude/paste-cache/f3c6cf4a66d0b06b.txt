@@ -1,0 +1,9 @@
+~/projects/frontend/websites maintenance/WINS-13719_chores* ≡
+❯ git rm libs/spa/authentication/feature-login/src/lib/two-factor-component/otp-input-component/otp-input.component.spec.html libs/spa/authentication/feature-login/src/lib/two-factor-component/resend-component/resend.component.spec.html libs/spa/authentication/feature-login/src/lib/two-factor-component/select-method-component/select-method.spec.html
+
+fatal: pathspec 'libs/spa/authentication/feature-login/src/lib/two-factor-component/otp-input-component/otp-input.component.spec.html' did not match any files
+
+~/projects/frontend/websites maintenance/WINS-13719_chores* ≡
+❯ git rm libs/spa/authentication/feature-login/src/lib/two-factor-component/otp-input-component/otp-input.component.spec.html libs/spa/authentication/feature-login/src/lib/two-factor-component/resend-component/resend.component.spec.html
+
+fatal: pathspec 'libs/spa/authentication/feature-login/src/lib/two-factor-component/otp-input-component/otp-input.component.spec.html' did not match any files

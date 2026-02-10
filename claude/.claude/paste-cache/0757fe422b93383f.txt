@@ -1,0 +1,31 @@
+~/projects/frontend/jira-automation master*
+❯ clear
+Type Autocommands for "*": Vim(append):Lua callback: ...al/share/nvim/runtime/lua/vim/treesitter/highlighter.lua:275: /usr/local/share/nvim/runti
+me/lua/vim/treesitter/query.lua:373: Query error at 226:4. Invalid node type "except*":
+  "except*"
+   ^
+
+stack traceback:
+        [C]: in function 'error'
+        ...al/share/nvim/runtime/lua/vim/treesitter/highlighter.lua:275: in function 'get_query'
+        ...al/share/nvim/runtime/lua/vim/treesitter/highlighter.lua:107: in function 'set_conceal_lines'
+        ...al/share/nvim/runtime/lua/vim/treesitter/highlighter.lua:155: in function 'new'
+        /usr/local/share/nvim/runtime/lua/vim/treesitter.lua:433: in function 'start'
+        ...m/lazy/nvim-treesitter/lua/nvim-treesitter/highlight.lua:20: in function 'attach'
+        ...vim/lazy/nvim-treesitter/lua/nvim-treesitter/configs.lua:509: in function 'attach_module'
+        ...vim/lazy/nvim-treesitter/lua/nvim-treesitter/configs.lua:532: in function 'reattach_module'
+        ...vim/lazy/nvim-treesitter/lua/nvim-treesitter/configs.lua:133: in function <...vim/lazy/nvim-treesitter/lua/nvim-treesitter/configs.lua
+:132>
+        [C]: in function 'nvim_cmd'
+        /usr/local/share/nvim/runtime/filetype.lua:36: in function </usr/local/share/nvim/runtime/filetype.lua:35>
+        [C]: in function 'pcall'
+        vim/shared.lua: in function <vim/shared.lua:0>
+        [C]: in function '_with'
+        /usr/local/share/nvim/runtime/filetype.lua:35: in function </usr/local/share/nvim/runtime/filetype.lua:10>
+        [C]: at 0x63cdd8e06c20
+        [C]: in function 'pcall'
+        .../yspies/.local/share/nvim/lazy/oil.nvim/lua/oil/init.lua:775: in function 'callback'
+        ...ocal/share/nvim/lazy/oil.nvim/lua/oil/adapters/files.lua:279: in function ''
+        vim/_editor.lua: in function <vim/_editor.lua:0>
+stack traceback:
+        [C]: in function '_with'

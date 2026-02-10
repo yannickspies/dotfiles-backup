@@ -1,0 +1,53 @@
+```
+The following errors have been detected: ~
+- ❌ ERROR angular(highlights): /usr/local/share/nvim/runtime/lua/vim/treesitter/query.lua:373: Query error at 115:4. Invalid node type "static_member_expression":
+    (static_member_expression)
+     ^
+
+  angular(highlights) is concatenated from the following files:
+  |    [OK]:"/home/yspies/.local/share/nvim/lazy/nvim-treesitter/queries/html_tags/highlights.scm"
+  | [ERROR]:"/home/yspies/.local/share/nvim/lazy/nvim-treesitter/queries/angular/highlights.scm", failed to load: /usr/local/share/nvim/runtime/lua/vim/treesitter/query.lua:373: Query error at 9:4. Invalid node type "static_member_expression":
+    (static_member_expression)
+     ^
+
+- ❌ ERROR python(highlights): /usr/local/share/nvim/runtime/lua/vim/treesitter/query.lua:373: Query error at 226:4. Invalid node type "except*":
+    "except*"
+     ^
+
+  python(highlights) is concatenated from the following files:
+  | [ERROR]:"/home/yspies/.local/share/nvim/lazy/nvim-treesitter/queries/python/highlights.scm", failed to load: /usr/local/share/nvim/runtime/lua/vim/treesitter/query.lua:373: Query error at 226:4. Invalid node type "except*":
+    "except*"
+     ^
+
+```
+
+Fix these errors, 
+
+```
+Snacks.image ~
+- ⚠️ WARNING setup {disabled}
+- ❌ ERROR None of the tools found: 'kitty', 'wezterm', 'ghostty'
+- ❌ ERROR None of the tools found: 'magick', 'convert'
+- ❌ ERROR `magick` is required to convert images. Only PNG files will be displayed.
+- ✅ OK `tmux` detected and supported
+- ✅ OK Terminal Dimensions:
+  - {size}: `3680` x `1408` pixels
+  - {scale}: `2.00`
+  - {cell}: `16` x `32` pixels
+- ✅ OK Available Treesitter languages:
+    `css`, `html`, `javascript`, `markdown_inline`, `markdown`, `scss`, `tsx`
+- ⚠️ WARNING Missing Treesitter languages:
+    `latex`, `norg`, `svelte`, `typst`, `vue`
+- ⚠️ WARNING Image rendering in docs with missing treesitter parsers won't work
+- ❌ ERROR Tool not found: 'gs'
+- ⚠️ WARNING `gs` is required to render PDF files
+- ❌ ERROR None of the tools found: 'tectonic', 'pdflatex'
+- ⚠️ WARNING `tectonic` or `pdflatex` is required to render LaTeX math expressions
+- ❌ ERROR Tool not found: 'mmdc'
+- ⚠️ WARNING `mmdc` is required to render Mermaid diagrams
+- ❌ ERROR your terminal does not support the kitty graphics protocol
+- supported terminals: `kitty`, `wezterm`, `ghostty`
+
+``` im using wezterm, why do i see these issues
+
+you can do websearches if needed

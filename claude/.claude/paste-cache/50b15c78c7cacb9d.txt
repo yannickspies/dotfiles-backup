@@ -1,0 +1,591 @@
+2026-02-03T13:35:01.6719309Z ##[section]Starting: Run Build Script
+2026-02-03T13:35:01.6726961Z ==============================================================================
+2026-02-03T13:35:01.6727091Z Task         : Command line
+2026-02-03T13:35:01.6727163Z Description  : Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
+2026-02-03T13:35:01.6727295Z Version      : 2.268.0
+2026-02-03T13:35:01.6727366Z Author       : Microsoft Corporation
+2026-02-03T13:35:01.6727448Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/command-line
+2026-02-03T13:35:01.6727560Z ==============================================================================
+2026-02-03T13:35:01.7975097Z Generating script.
+2026-02-03T13:35:01.7980776Z ========================== Starting Command Output ===========================
+2026-02-03T13:35:01.7989066Z [command]/bin/bash --noprofile --norc /pipelineagent_data/work/_temp/37efd5c1-b408-4d6c-8e7b-6b6e7c46abb7.sh
+2026-02-03T13:35:06.9423505Z 
+2026-02-03T13:35:06.9426120Z  NX   Running target ci for project inshared-de and 7 tasks it depends on:
+2026-02-03T13:35:06.9426359Z 
+2026-02-03T13:35:06.9426580Z 
+2026-02-03T13:35:06.9580809Z 
+2026-02-03T13:35:06.9591427Z > nx run web-common:clean
+2026-02-03T13:35:06.9591571Z 
+2026-02-03T13:35:06.9769461Z 
+2026-02-03T13:35:06.9772763Z > nx run ui-website:clean
+2026-02-03T13:35:06.9773532Z 
+2026-02-03T13:35:06.9874809Z 
+2026-02-03T13:35:06.9875623Z > nx run inshared-de:clean
+2026-02-03T13:35:06.9875751Z 
+2026-02-03T13:35:07.2330027Z ui-website: > rm -rf libs/website/ui-website/dist
+2026-02-03T13:35:07.2346824Z web-common: > rm -rf dist
+2026-02-03T13:35:07.2474256Z web-common: > rm -rf loader
+2026-02-03T13:35:07.2496304Z 
+2026-02-03T13:35:07.2496969Z > nx run ui-website:build
+2026-02-03T13:35:07.2497158Z 
+2026-02-03T13:35:07.2741208Z inshared-de: > rm -rf dist/apps/inshared-de
+2026-02-03T13:35:07.2832179Z 
+2026-02-03T13:35:07.2832980Z > nx run web-common:build
+2026-02-03T13:35:07.2833191Z 
+2026-02-03T13:35:07.5164877Z ui-website: > npx sass libs/website/ui-website/src/styles/index.scss:libs/website/ui-website/dist/styles/index.css --load-path=node_modules --style=compressed --no-source-map
+2026-02-03T13:35:07.5226562Z ui-website: > npx sass libs/website/ui-website/src/styles/11ty-angular.scss:libs/website/ui-website/dist/styles/11ty-angular.css --load-path=node_modules --style=compressed --no-source-map
+2026-02-03T13:35:07.5256221Z web-common: > npx stencil build --config libs/design-system/web-common/stencil.config.ts
+2026-02-03T13:35:07.9949285Z web-common: [35:07.9]  @stencil/core
+2026-02-03T13:35:08.4944072Z web-common: [35:08.4]  v4.39.0 🎭
+2026-02-03T13:35:08.5538829Z web-common: [35:08.5]  cache optimizations disabled
+2026-02-03T13:35:10.5316063Z web-common: [35:10.5]  build, web-common, prod mode, started ...
+2026-02-03T13:35:10.5340120Z web-common: [35:10.5]  transpile started ...
+2026-02-03T13:35:12.0338050Z web-common: [35:12.0]  transpile finished in 1.50 s
+2026-02-03T13:35:12.4373021Z web-common: [35:12.4]  generate hydrate app started ...
+2026-02-03T13:35:12.4382852Z web-common: [35:12.4]  generate lazy + source maps started ...
+2026-02-03T13:35:18.3545031Z web-common: [35:18.3]  generate hydrate app finished in 5.92 s
+2026-02-03T13:35:19.9427005Z web-common: [35:19.9]  generate lazy + source maps finished in 7.50 s
+2026-02-03T13:35:19.9428770Z web-common: [35:19.9]  copy started ...
+2026-02-03T13:35:19.9905944Z web-common: [35:19.9]  copy finished (1 file) in 47 ms
+2026-02-03T13:35:20.0448238Z web-common: [35:20.0]  build finished in 9.51 s
+2026-02-03T13:35:20.6719608Z 
+2026-02-03T13:35:20.6720183Z > nx run ui-icons:build
+2026-02-03T13:35:20.6720249Z 
+2026-02-03T13:35:20.9073866Z ui-icons: > node tools/build-icons.js
+2026-02-03T13:35:21.9929636Z 
+2026-02-03T13:35:21.9930155Z > nx run inshared-de:build
+2026-02-03T13:35:21.9930211Z 
+2026-02-03T13:35:22.2256266Z inshared-de: > npx @11ty/eleventy --quiet
+2026-02-03T13:35:28.7063268Z inshared-de: Skipping duplicate data for unique key "url": {
+2026-02-03T13:35:28.7064028Z inshared-de:   url: 'schaden',
+2026-02-03T13:35:28.7064665Z inshared-de:   title: 'Hilfe bei Schäden NEW',
+2026-02-03T13:35:28.7064897Z inshared-de:   id: 'XreYetzDQGazOQxDeUZgVQ',
+2026-02-03T13:35:28.7065065Z inshared-de:   _modelApiKey: 'content_page'
+2026-02-03T13:35:28.7065179Z inshared-de: }
+2026-02-03T13:36:14.9130779Z inshared-de: ***************************************
+2026-02-03T13:36:14.9131110Z inshared-de: Updating pdf assets from DatoCMS to /pipelineagent_data/work/71/s/dist/apps/inshared-de/dokumente/download.
+2026-02-03T13:36:14.9990665Z inshared-de: widerrufsbelehrung.pdf written
+2026-02-03T13:36:15.0082932Z inshared-de: 12_verzichtserklarung.pdf written
+2026-02-03T13:36:15.0084226Z inshared-de: allgemeine_bedingungen_auslandsschadenschutz.pdf written
+2026-02-03T13:36:15.0084434Z inshared-de: informationsblatt_zu_versicherungsprodukten_inshared.pdf written
+2026-02-03T13:36:15.0124267Z inshared-de: datenschutzinformationen.pdf written
+2026-02-03T13:36:15.0129833Z inshared-de: cookieubersicht.pdf written
+2026-02-03T13:36:15.0135950Z inshared-de: ruckstufungstabelle-sf-klassen_vollkasko.pdf written
+2026-02-03T13:36:15.0175031Z inshared-de: umgang-mit-versicherungsbetrug.pdf written
+2026-02-03T13:36:15.0175775Z inshared-de: versicherungsschein.pdf written
+2026-02-03T13:36:15.0175985Z inshared-de: empfangern_personenbezogenen_daten.pdf written
+2026-02-03T13:36:15.0192460Z inshared-de: ruckstufungstabelle-sf-klassen_kfz-haftpflicht.pdf written
+2026-02-03T13:36:15.0193903Z inshared-de: die_vorvertragliche_anzeigepflicht.pdf written
+2026-02-03T13:36:15.0195517Z inshared-de: einstufung_in_sf-klassen_und_beitragssatze.pdf written
+2026-02-03T13:36:15.0203538Z inshared-de: informationsblatt_zu_versicherungsprodukten_inshared.pdf written
+2026-02-03T13:36:15.0204537Z inshared-de: nutzungsbedingungen_online-versicherungsmappe.pdf written
+2026-02-03T13:36:15.0204799Z inshared-de: informationsblatt_zu_versicherungsprodukten_inshared.pdf written
+2026-02-03T13:36:15.0205140Z inshared-de: verzichtserklarung.pdf written
+2026-02-03T13:36:15.0208111Z inshared-de: nutzungsbedingungen-online-versicherungsmappe.pdf written
+2026-02-03T13:36:15.0210801Z inshared-de: umgang-met-betrugsversuchen.pdf written
+2026-02-03T13:36:15.0291785Z inshared-de: allgemeine-geschaftsbedingungen-familie-freunde-rabatt-auf-die-inshared-versicherung.pdf written
+2026-02-03T13:36:15.0505050Z inshared-de: allgemeine_bedingungen_hundehalterhaftpflicht.pdf written
+2026-02-03T13:36:15.1741235Z inshared-de: informationspflichtenverordnung.pdf written
+2026-02-03T13:36:15.1792852Z inshared-de: europaeischer-unfallbericht.pdf written
+2026-02-03T13:36:15.1944224Z inshared-de: datenschutzinformationen.pdf written
+2026-02-03T13:36:15.1989447Z inshared-de: informationspflichtenverordnung.pdf written
+2026-02-03T13:36:15.2022991Z inshared-de: beschwerdeprozess.pdf written
+2026-02-03T13:36:15.4560743Z inshared-de: regeln-jahresabschluss.pdf written
+2026-02-03T13:36:15.4906085Z inshared-de: allgemeine_bedingungen_autoversicherung.pdf written
+2026-02-03T13:36:15.6546062Z inshared-de: reglement-jahresbelohnung.pdf written
+2026-02-03T13:36:15.6800941Z inshared-de: allgemeine_bedingungen_autoversicherung.pdf written
+2026-02-03T13:36:15.8897839Z inshared-de: allgemeine_bedingungen_privathaftpflicht.pdf written
+2026-02-03T13:36:15.9555947Z inshared-de: allgemeine_bedingungen_inshared_privathaftpflichtversicherung.pdf written
+2026-02-03T13:36:15.9556257Z inshared-de: ***************************************
+2026-02-03T13:36:15.9561056Z inshared-de: [11ty] Benchmark   6501ms  13%   472× (Configuration) "minify-html" Transform
+2026-02-03T13:36:15.9565344Z inshared-de: [11ty] Copied 304 Wrote 472 files in 50.67 seconds (107.3ms each, v3.1.2)
+2026-02-03T13:36:16.0792343Z 
+2026-02-03T13:36:16.0792952Z > nx run inshared-de:ci:test
+2026-02-03T13:36:16.0793010Z 
+2026-02-03T13:36:16.3211432Z inshared-de: > cp apps/inshared-de/site/.artifactignore.test dist/apps/inshared-de/.artifactignore
+2026-02-03T13:36:16.3378495Z 
+2026-02-03T13:36:16.3379148Z 
+2026-02-03T13:36:16.3379314Z 
+2026-02-03T13:36:16.3380029Z  NX   Successfully ran target ci for project inshared-de and 7 tasks it depends on
+2026-02-03T13:36:16.3381997Z 
+2026-02-03T13:36:16.3382053Z 
+2026-02-03T13:36:18.4954000Z 
+2026-02-03T13:36:18.4954965Z  NX   Running target build for 2 projects and 8 tasks they depend on:
+2026-02-03T13:36:18.4955196Z 
+2026-02-03T13:36:18.4955317Z - inshared-de-funnel-liability
+2026-02-03T13:36:18.4955428Z - inshared-de-my-zone
+2026-02-03T13:36:18.4955471Z 
+2026-02-03T13:36:18.4955510Z 
+2026-02-03T13:36:18.5125210Z 
+2026-02-03T13:36:18.5125856Z > nx run web-common:clean
+2026-02-03T13:36:18.5125959Z 
+2026-02-03T13:36:18.7859741Z web-common: > rm -rf dist
+2026-02-03T13:36:18.7919839Z web-common: > rm -rf loader
+2026-02-03T13:36:18.8507044Z 
+2026-02-03T13:36:18.8507737Z > nx run web-common:build  [local cache]
+2026-02-03T13:36:18.8507823Z 
+2026-02-03T13:36:18.8508225Z > npx stencil build --config libs/design-system/web-common/stencil.config.ts
+2026-02-03T13:36:18.8508318Z 
+2026-02-03T13:36:18.8508462Z [35:07.9]  @stencil/core
+2026-02-03T13:36:18.8508657Z [35:08.4]  v4.39.0 🎭
+2026-02-03T13:36:18.8508817Z [35:08.5]  cache optimizations disabled
+2026-02-03T13:36:18.8508998Z [35:10.5]  build, web-common, prod mode, started ...
+2026-02-03T13:36:18.8509165Z [35:10.5]  transpile started ...
+2026-02-03T13:36:18.8509333Z [35:12.0]  transpile finished in 1.50 s
+2026-02-03T13:36:18.8509628Z [35:12.4]  generate hydrate app started ...
+2026-02-03T13:36:18.8509805Z [35:12.4]  generate lazy + source maps started ...
+2026-02-03T13:36:18.8509979Z [35:18.3]  generate hydrate app finished in 5.92 s
+2026-02-03T13:36:18.8510154Z [35:19.9]  generate lazy + source maps finished in 7.50 s
+2026-02-03T13:36:18.8510308Z [35:19.9]  copy started ...
+2026-02-03T13:36:18.8510468Z [35:19.9]  copy finished (1 file) in 47 ms
+2026-02-03T13:36:18.8510640Z [35:20.0]  build finished in 9.51 s
+2026-02-03T13:36:18.8510702Z 
+2026-02-03T13:36:18.8615347Z 
+2026-02-03T13:36:18.8615775Z > nx run ui-icons:build  [local cache]
+2026-02-03T13:36:18.8615838Z 
+2026-02-03T13:36:18.8616110Z > node tools/build-icons.js
+2026-02-03T13:36:18.8616157Z 
+2026-02-03T13:36:18.8618134Z 
+2026-02-03T13:36:18.8618439Z > nx run ui-website:clean
+2026-02-03T13:36:18.8618490Z 
+2026-02-03T13:36:19.0968337Z ui-website: > rm -rf libs/website/ui-website/dist
+2026-02-03T13:36:19.1137910Z 
+2026-02-03T13:36:19.1138416Z > nx run ui-website:build  [local cache]
+2026-02-03T13:36:19.1138473Z 
+2026-02-03T13:36:19.1138897Z > npx sass libs/website/ui-website/src/styles/index.scss:libs/website/ui-website/dist/styles/index.css --load-path=node_modules --style=compressed --no-source-map
+2026-02-03T13:36:19.1138997Z 
+2026-02-03T13:36:19.1139545Z > npx sass libs/website/ui-website/src/styles/11ty-angular.scss:libs/website/ui-website/dist/styles/11ty-angular.css --load-path=node_modules --style=compressed --no-source-map
+2026-02-03T13:36:19.1139660Z 
+2026-02-03T13:36:19.1155077Z 
+2026-02-03T13:36:19.1156104Z > nx run app-shell-inshared-de:build:production
+2026-02-03T13:36:19.1156163Z 
+2026-02-03T13:36:19.3487393Z app-shell-inshared-de: > npx @11ty/eleventy
+2026-02-03T13:36:25.1379859Z app-shell-inshared-de: [11ty] Writing ./dist/static/api/account-menu.json from ./src/pages/static/api/account-menu.njk
+2026-02-03T13:36:25.1380640Z app-shell-inshared-de: [11ty] Writing ./dist/static/api/mobile-menu.json from ./src/pages/static/api/mobile-menu.njk
+2026-02-03T13:36:25.1381437Z app-shell-inshared-de: [11ty] Writing ./dist/static/api/policy-schema.json from ./src/pages/static/api/policy-schema.njk
+2026-02-03T13:36:25.1382191Z app-shell-inshared-de: [11ty] Writing ./dist/static/api/simple-ui.json from ./src/pages/static/api/simple-ui.njk
+2026-02-03T13:36:25.1382490Z app-shell-inshared-de: [11ty] Writing ./dist/static/api/top-menu.json from ./src/pages/static/api/top-menu.njk
+2026-02-03T13:36:25.1382727Z app-shell-inshared-de: [11ty] Writing ./dist/static/api/questions.json from ./src/pages/static/api/questions.njk
+2026-02-03T13:36:25.1382959Z app-shell-inshared-de: [11ty] Writing ./dist/static/api/chat.json from ./src/pages/static/api/chat.njk
+2026-02-03T13:36:25.4917861Z app-shell-inshared-de: [11ty] Writing ./dist/index.html from ./src/pages/index.njk
+2026-02-03T13:36:25.5027950Z app-shell-inshared-de: [11ty] Writing ./dist/funnel-liability.html from ./src/pages/funnel-liability.njk
+2026-02-03T13:36:25.5335666Z app-shell-inshared-de: [11ty] Writing ./dist/404/index.html from ./src/pages/404.njk
+2026-02-03T13:36:25.5359000Z app-shell-inshared-de: [11ty] Copied 304 Wrote 10 files in 3.36 seconds (335.6ms each, v3.1.2)
+2026-02-03T13:36:25.7397325Z 
+2026-02-03T13:36:25.7397863Z > nx run inshared-de-my-zone:extract-i18n
+2026-02-03T13:36:25.7397932Z 
+2026-02-03T13:36:28.6354439Z inshared-de-my-zone: ❯ Building...
+2026-02-03T13:36:36.4186534Z inshared-de-my-zone: ✔ Building...
+2026-02-03T13:36:36.4213023Z inshared-de-my-zone: Initial chunk files | Names         |  Raw size
+2026-02-03T13:36:36.4213689Z inshared-de-my-zone: chunk-JVTJYG2R.js   | -             |   2.04 MB | 
+2026-02-03T13:36:36.4214273Z inshared-de-my-zone: chunk-I6N7TWD7.js   | -             |   1.09 MB | 
+2026-02-03T13:36:36.4214776Z inshared-de-my-zone: polyfills.js        | polyfills     |  91.49 kB | 
+2026-02-03T13:36:36.4215285Z inshared-de-my-zone: chunk-IU36FYTU.js   | -             |  79.03 kB | 
+2026-02-03T13:36:36.4215783Z inshared-de-my-zone: chunk-DXTNKTOL.js   | -             |  27.24 kB | 
+2026-02-03T13:36:36.4216267Z inshared-de-my-zone: main.js             | main          |   4.05 kB | 
+2026-02-03T13:36:36.4216749Z inshared-de-my-zone: chunk-KBUIKKCC.js   | -             |   3.56 kB | 
+2026-02-03T13:36:36.4217245Z inshared-de-my-zone: styles.css          | styles        |  86 bytes | 
+2026-02-03T13:36:36.4217572Z inshared-de-my-zone: 
+2026-02-03T13:36:36.4218350Z inshared-de-my-zone:                     | Initial total |   3.34 MB
+2026-02-03T13:36:36.4218660Z inshared-de-my-zone: 
+2026-02-03T13:36:36.4219053Z inshared-de-my-zone: Lazy chunk files    | Names         |  Raw size
+2026-02-03T13:36:36.4219628Z inshared-de-my-zone: chunk-2HVX7Z6S.js   | index         | 193.99 kB | 
+2026-02-03T13:36:36.4220118Z inshared-de-my-zone: chunk-GIZ4FFER.js   | pikaday       | 184.56 kB | 
+2026-02-03T13:36:36.4220743Z inshared-de-my-zone: chunk-DQM2XLMI.js   | index         | 100.39 kB | 
+2026-02-03T13:36:36.4221229Z inshared-de-my-zone: chunk-HKGKVGLV.js   | index         |  77.39 kB | 
+2026-02-03T13:36:36.4221720Z inshared-de-my-zone: chunk-M3GMHNRZ.js   | index         |  72.29 kB | 
+2026-02-03T13:36:36.4222200Z inshared-de-my-zone: chunk-RAPXXEX4.js   | -             |  28.52 kB | 
+2026-02-03T13:36:36.4222676Z inshared-de-my-zone: chunk-QY6GPFKY.js   | -             |  17.79 kB | 
+2026-02-03T13:36:36.4223150Z inshared-de-my-zone: chunk-PJW35M3L.js   | -             |  13.25 kB | 
+2026-02-03T13:36:36.4223483Z inshared-de-my-zone: ch
+2026-02-03T13:36:36.4224332Z inshared-de-my-zone: unk-IQQBOV2X.js   | -             |  12.83 kB | 
+2026-02-03T13:36:36.4225167Z inshared-de-my-zone: chunk-XPGC5X63.js   | -             |   7.13 kB | 
+2026-02-03T13:36:36.4226005Z inshared-de-my-zone: chunk-6JNQA74P.js   | -             |   5.90 kB | 
+2026-02-03T13:36:36.4226299Z inshared-de-my-zone: chunk-K6AMAM74.js   | index         |   2.92 kB | 
+2026-02-03T13:36:36.4226554Z inshared-de-my-zone: chunk-AI4KUMIO.js   | index         |   2.88 kB | 
+2026-02-03T13:36:36.4226824Z inshared-de-my-zone: chunk-4ZXMDZQP.js   | index         |   2.83 kB | 
+2026-02-03T13:36:36.4227076Z inshared-de-my-zone: chunk-B5MZ5XFS.js   | index         |   1.75 kB | 
+2026-02-03T13:36:36.4227307Z inshared-de-my-zone: ...and 4 more lazy chunks files. Use "--verbose" to show all the files.
+2026-02-03T13:36:36.4227478Z inshared-de-my-zone: 
+2026-02-03T13:36:36.4227712Z inshared-de-my-zone: Application bundle generation complete. [7.782 seconds] - 2026-02-03T13:36:36.417Z
+2026-02-03T13:36:36.4227894Z inshared-de-my-zone: 
+2026-02-03T13:36:39.2372351Z inshared-de-my-zone: 
+2026-02-03T13:36:39.2374305Z inshared-de-my-zone: WARNINGS:
+2026-02-03T13:36:39.2376191Z inshared-de-my-zone:  - Duplicate messages with id "generic.label.regular-driver":
+2026-02-03T13:36:39.2378022Z inshared-de-my-zone:    - "Regular driver" : libs/spa/shared/util-i18n/src/lib/generic-input-labels.ts:34
+2026-02-03T13:36:39.2381713Z inshared-de-my-zone:    - "Future regular driver" : libs/spa/shared/util-i18n/src/lib/generic-input-labels.ts:35
+2026-02-03T13:36:39.2384169Z inshared-de-my-zone:    - "Regular driver" : libs/spa/shared/util-i18n/src/lib/generic-input-labels.ts:34
+2026-02-03T13:36:39.2385426Z inshared-de-my-zone:    - "Future regular driver" : libs/spa/shared/util-i18n/src/lib/generic-input-labels.ts:35
+2026-02-03T13:36:39.2386654Z inshared-de-my-zone:    - "Regular driver" : libs/spa/shared/core/src/lib/configuration/generic-input-labels.ts:33
+2026-02-03T13:36:39.2387864Z inshared-de-my-zone:    - "Regular driver" : libs/spa/shared/core/src/lib/configuration/generic-input-labels.ts:33
+2026-02-03T13:36:39.2388844Z inshared-de-my-zone: Extraction Complete. (Messages: 602)
+2026-02-03T13:36:39.3232566Z 
+2026-02-03T13:36:39.3239755Z > nx run inshared-de-my-zone:sync-translations
+2026-02-03T13:36:39.3240044Z 
+2026-02-03T13:36:40.0404097Z inshared-de-my-zone: ✔ Loaded 334 terms from /pipelineagent_data/work/71/s/apps/inshared-de/spa/my-zone/src/i18n/messages.xlf
+2026-02-03T13:36:40.8129107Z inshared-de-my-zone: ✔ Synced 334 terms with Poeditor.com project 811442
+2026-02-03T13:36:41.2632672Z inshared-de-my-zone: ✔ Imported 334 translations for "en" to Poeditor.com project 811442
+2026-02-03T13:36:41.3446034Z inshared-de-my-zone: Error syncing to Poeditor.com
+2026-02-03T13:36:41.3446497Z inshared-de-my-zone: POEditor export error (de): Project not containing specified language
+2026-02-03T13:36:41.3645125Z 
+2026-02-03T13:36:41.3645672Z > nx run inshared-de-funnel-liability:build:production
+2026-02-03T13:36:41.3645735Z 
+2026-02-03T13:36:44.9192480Z inshared-de-funnel-liability: ---------------------------------
+2026-02-03T13:36:44.9193055Z inshared-de-funnel-liability: - Root directory:  /pipelineagent_data/work/71/s
+2026-02-03T13:36:44.9193305Z inshared-de-funnel-liability: - Working directory:  /pipelineagent_data/work/71/s/apps/inshared-de/spa/funnels/liability
+2026-02-03T13:36:44.9193503Z inshared-de-funnel-liability: - Files: .env
+2026-02-03T13:36:44.9193696Z inshared-de-funnel-liability: - Environment: none
+2026-02-03T13:36:44.9193886Z inshared-de-funnel-liability: - Environment files: none
+2026-02-03T13:36:44.9194019Z inshared-de-funnel-liability: ---------------------------------
+2026-02-03T13:36:45.3317832Z inshared-de-funnel-liability: - Generating browser application bundles (phase: setup)...
+2026-02-03T13:36:59.4003915Z inshared-de-funnel-liability: ✔ Browser application bundle generation complete.
+2026-02-03T13:36:59.4071571Z inshared-de-funnel-liability: ✔ Browser application bundle generation complete.
+2026-02-03T13:36:59.4086749Z inshared-de-funnel-liability: - Generating localized bundles...
+2026-02-03T13:37:01.7445854Z inshared-de-funnel-liability: - Generating localized bundles...
+2026-02-03T13:37:01.7446404Z inshared-de-funnel-liability: - Generating localized bundles...
+2026-02-03T13:37:01.7509655Z inshared-de-funnel-liability: No translation found for "app-routes.my-zone.overview" ("overzicht").
+2026-02-03T13:37:01.7510008Z inshared-de-funnel-liability: No translation found for "app-routes.my-zone.claims" ("schades").
+2026-02-03T13:37:01.7533530Z inshared-de-funnel-liability: ✔ Localized bundle generation complete.
+2026-02-03T13:37:01.7533703Z inshared-de-funnel-liability: - Copying assets...
+2026-02-03T13:37:01.7878002Z inshared-de-funnel-liability: ✔ Copying assets complete.
+2026-02-03T13:37:01.7878339Z inshared-de-funnel-liability: - Generating index html...
+2026-02-03T13:37:01.8441274Z inshared-de-funnel-liability: ✔ Index html generation complete.
+2026-02-03T13:37:01.8602130Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8602716Z inshared-de-funnel-liability: Initial chunk files           | Names         |  Raw size
+2026-02-03T13:37:01.8603092Z inshared-de-funnel-liability: main.b0c526491f6cd0af.js      | main          |   5.38 MB | 
+2026-02-03T13:37:01.8603739Z inshared-de-funnel-liability: styles.b34cd18ec3f12184.css   | styles        | 155.60 kB | 
+2026-02-03T13:37:01.8604102Z inshared-de-funnel-liability: polyfills.7100ac8916228894.js | polyfills     | 117.80 kB | 
+2026-02-03T13:37:01.8604451Z inshared-de-funnel-liability: runtime.8ac3ba4ef7967c44.js   | runtime       |   6.57 kB | 
+2026-02-03T13:37:01.8604792Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8605094Z inshared-de-funnel-liability:                               | Initial total |   5.66 MB
+2026-02-03T13:37:01.8605361Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8605738Z inshared-de-funnel-liability: Build at: 2026-02-03T13:37:01.845Z - Hash: 7641dff6d2aa6326 - Time: 16140ms
+2026-02-03T13:37:01.8606032Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8606447Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/components/interactive/cookie-consent/cookie-consent.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8606813Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8607074Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8607467Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/components/interactive/search/search.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8607820Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8608090Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8608467Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/components/static/buttons/button.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8608839Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8609117Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8609552Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/interfaces/data-layer-data.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8609939Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8610201Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8610576Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/chatbot-answer-parse.service.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8610948Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8611214Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8611586Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/chatbot.service.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8612097Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8612365Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8612778Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/index.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8613118Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8619039Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8619708Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chat
+2026-02-03T13:37:01.8620484Z inshared-de-funnel-liability: bot/interfaces/api/api-chatbot-answer.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8620811Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8621009Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8621343Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/api/api-chatbot-faq.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8621752Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8622010Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8622385Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/api/api-chatbot-feedback-response.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8622677Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8622857Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8623248Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/api/api-chatbot-link.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8623539Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8623715Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8624031Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/api/api-chatbot-metadata.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8624313Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8624494Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8624811Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/api/api-chatbot-request.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8625095Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8625293Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8625800Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/api/api-chatbot-response.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8626238Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8626416Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8626744Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/api/api-chatbot-video.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8627129Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8627558Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8627862Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/api/index.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8628136Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8628314Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8628627Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/chatbot-answer.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8629031Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8629235Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8629661Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/chatbot-bulletedtext.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8629959Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8630141Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8630488Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/chatbot-configuration.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8630807Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8630990Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8631304Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/chatbot-dialog-option.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8631584Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8631765Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8632071Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/chatbot-element.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8632353Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8632603Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8632923Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/chatbot-faq-list.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8633228Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8633411Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8633768Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/chatbot-feedback.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8634048Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8634237Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8634541Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/chatbot-link.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8634828Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8635010Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8635317Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/chatbot-livechat.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8635598Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8635784Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8636094Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/chatbot-text.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8636379Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8636565Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8636907Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/chatbot-video.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8637465Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8637651Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8637972Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/escalation/chatbot-escalation-channel.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8638254Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8638472Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8638846Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/escalation/chatbot-escalation-feedback.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8639192Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8639462Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8639801Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/escalation/chatbot-escalation-livechat.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8640089Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8640326Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8640646Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/escalation/chatbot-escalation-state.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8640942Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8641125Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8641448Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/escalation/chatbot-escalation.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8641803Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8642048Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8642458Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/escalation/index.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8642814Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8643056Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8644045Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/interfaces/index.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8644364Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8644541Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8644844Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/mappers/faq-answer-request.mapper.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8645221Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8645433Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8645812Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/mappers/faq-list-request.mapper.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8646104Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8646299Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8646605Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/mappers/faq-list-response.mapper.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8646983Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8647163Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8647464Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/mappers/feedback-request.mapper.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8647825Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8648013Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8648314Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/mappers/feedback-response.mapper.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8648600Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8648818Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8649239Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/mappers/index.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8649598Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8649776Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8650075Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/mappers/question-request.mapper.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8650354Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8650533Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8650873Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/chatbot/mappers/question-response.mapper.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8651164Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8651342Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8651645Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/cookie-event.service.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8651932Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8652104Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8652382Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/cookie.service.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8652656Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8652840Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8653126Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/data-layer.service.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8653466Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8653691Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8653982Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/external-script.services.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8654314Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8654491Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8654765Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/index.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8655032Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8655211Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8655496Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/license-plate.service.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8655896Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8656115Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8656399Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/search.service.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8656667Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8656848Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8657135Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/storage.service.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8657404Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8657591Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8657947Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/stores/adapters/adapter.interface.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8658239Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8658421Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8658724Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/stores/adapters/cookie-adapter.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8659001Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8659184Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8659557Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/stores/adapters/storage-adapter.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8659928Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8660108Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8660395Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/stores/map-store.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8660665Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8660906Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8661231Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/top-menu.service.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8661511Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8661689Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8661981Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/services/user-state.service.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8662246Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8662429Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8662717Z inshared-de-funnel-liability: Warning: /pipelineagent_data/work/71/s/libs/design-system/web-common/src/utils/object/object-entries.util.ts is part of the TypeScript compilation but it's unused.
+2026-02-03T13:37:01.8663072Z inshared-de-funnel-liability: Add only entry points to the 'files' or 'include' properties in your tsconfig.
+2026-02-03T13:37:01.8663293Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8663481Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8663743Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8663913Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8664100Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8664309Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8664477Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8665112Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8665325Z inshared-de-funnel-liability: Conflicting v
+2026-02-03T13:37:01.8665523Z inshared-de-funnel-liability: alues for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8665701Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8665899Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8666115Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8666294Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8666493Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8666708Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8666889Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8667082Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8667371Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8667540Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8667722Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8667925Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8668092Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8668277Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8668531Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8668702Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8668886Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8669091Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8669258Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8669516Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8669724Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8669890Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8670071Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8670275Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8670441Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8670622Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8670826Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8670999Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8671221Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8671422Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8671589Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8671771Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8671973Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8672139Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8672321Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8672522Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8672689Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8672870Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8673068Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8673234Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8673416Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8673617Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8673786Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8673968Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8674167Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8674400Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8674584Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8674785Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8674954Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8675136Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8675335Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8675557Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8675740Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8675939Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8676111Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8676293Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8676493Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8676660Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8676876Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8677112Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8677286Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8677462Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8677665Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8677845Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8678025Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8678245Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8678421Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8678601Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8678802Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8678972Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8679155Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8679407Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8679598Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8679791Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8679998Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8680174Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8680362Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8680569Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8680743Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8680933Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8681144Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8681318Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8681561Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8681764Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8681929Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8682117Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8682318Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8682484Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8682727Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8682930Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8683097Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8683282Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8683573Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8683818Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8684004Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8684211Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8684378Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8684558Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8684759Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8684926Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8685107Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8685308Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8685472Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8685654Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8685851Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8686017Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8686199Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8686400Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8686567Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8686748Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8686950Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8687115Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8687297Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8687500Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8687667Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8687849Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8688049Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8688215Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8688397Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8688663Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8688830Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8689011Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8689210Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8689422Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8689617Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8689893Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8690058Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8690235Z inshared-de-funnel-liability: Warning: DefinePlugin
+2026-02-03T13:37:01.8690477Z inshared-de-funnel-liability: Conflicting values for 'import.meta.env.NODE_ENV'
+2026-02-03T13:37:01.8690668Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.8690818Z inshared-de-funnel-liability: 
+2026-02-03T13:37:01.9818845Z 
+2026-02-03T13:37:01.9819241Z 
+2026-02-03T13:37:01.9819807Z 
+2026-02-03T13:37:01.9820809Z  NX   Running target build for 2 projects and 8 tasks they depend on failed
+2026-02-03T13:37:01.9820902Z 
+2026-02-03T13:37:01.9821033Z Tasks not run because their dependencies failed or --nx-bail=true:
+2026-02-03T13:37:01.9821097Z 
+2026-02-03T13:37:01.9821221Z - inshared-de-my-zone:build:production
+2026-02-03T13:37:01.9821291Z 
+2026-02-03T13:37:01.9821382Z Failed tasks:
+2026-02-03T13:37:01.9821420Z 
+2026-02-03T13:37:01.9821526Z - inshared-de-my-zone:sync-translations
+2026-02-03T13:37:01.9821584Z 
+2026-02-03T13:37:02.0103925Z 
+2026-02-03T13:37:02.0127111Z ##[error]Bash exited with code '130'.
+2026-02-03T13:37:02.0159059Z ##[section]Finishing: Run Build Script

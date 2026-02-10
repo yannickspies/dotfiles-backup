@@ -1,0 +1,9 @@
+{
+  "id": "2",
+  "subject": "Extract truncation helper to reduce duplication",
+  "description": "Lines 166-167 have duplicated truncation logic for summary and assignee. Extract to a small helper.",
+  "activeForm": "Extracting truncation helper",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

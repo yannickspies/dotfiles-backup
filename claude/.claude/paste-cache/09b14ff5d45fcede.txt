@@ -1,0 +1,22 @@
+mkdir: cannot create directory ‘/home/yannickspies’: Permission denied
+touch: cannot touch '/home/yannickspies/.local/share/z/data': No such file or directory
+Now using Node v24.13.0 (npm 11.6.2) ~/.local/share/nvm/v24.13.0/bin/node
+~
+❯ z webites
+awk: cmd. line:40: fatal: cannot open file `/home/yannickspies/.local/share/z/data' for reading: No such file or directory
+
+~
+❯ fisher install jethrokuan/z
+fisher install version 4.4.5
+mkdir: cannot create directory ‘/home/yannickspies’: Permission denied
+touch: cannot touch '/home/yannickspies/.local/share/z/data': No such file or directory
+Fetching https://api.github.com/repos/jethrokuan/z/tarball/HEAD
+Installing jethrokuan/z
+           /home/yspies/.config/fish/functions/__z.fish
+           /home/yspies/.config/fish/functions/__z_add.fish
+           /home/yspies/.config/fish/functions/__z_clean.fish
+           /home/yspies/.config/fish/functions/__z_complete.fish
+           /home/yspies/.config/fish/conf.d/z.fish
+mkdir: cannot create directory ‘/home/yannickspies’: Permission denied
+touch: cannot touch '/home/yannickspies/.local/share/z/data': No such file or directory
+Updated 1 plugin/s

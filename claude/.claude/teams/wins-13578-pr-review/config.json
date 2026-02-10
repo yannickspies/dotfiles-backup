@@ -1,0 +1,34 @@
+{
+  "name": "wins-13578-pr-review",
+  "description": "Check PR readiness for WINS-13578: verify empty XLF files, pipeline branch, and draft team message",
+  "createdAt": 1770898469390,
+  "leadAgentId": "team-lead@wins-13578-pr-review",
+  "leadSessionId": "ba764852-dabe-49d0-a8ce-d1089cab1a77",
+  "members": [
+    {
+      "agentId": "team-lead@wins-13578-pr-review",
+      "name": "team-lead",
+      "agentType": "team-lead",
+      "model": "claude-opus-4-6",
+      "joinedAt": 1770898469390,
+      "tmuxPaneId": "",
+      "cwd": "/home/yspies/projects/frontend/websites",
+      "subscriptions": []
+    },
+    {
+      "agentId": "xlf-checker@wins-13578-pr-review",
+      "name": "xlf-checker",
+      "agentType": "general-purpose",
+      "model": "claude-opus-4-6",
+      "prompt": "You are part of team \"wins-13578-pr-review\". Your name is \"xlf-checker\".\n\nTASK: Check empty XLF translation files in the websites monorepo and assess their impact.\n\nWorking directory: /home/yspies/projects/frontend/websites\n\nSteps:\n1. Find ALL messages.xlf files in apps/inshared-de/spa/ and apps/inshared-nl/spa/ (login, logout, my-zone)\n2. Read each one to check if they have empty body tags\n3. Find and read the ES equivalents in apps/inshared-es/spa/ to compare\n4. Look for any translation sync configuration (POEditor, i18n scripts, etc.) that explains how translations get populated\n5. Check if there's any Angular i18n extract command in package.json or nx workspace\n\nReport back with:\n- Which files are empty vs have content\n- Whether ES equivalents are also empty or have translations\n- Whether this is expected/okay for new apps\n\nAfter completing your research, update task #1 as completed using TaskUpdate, and send a message to \"team-lead\" with your findings.",
+      "color": "blue",
+      "planModeRequired": false,
+      "joinedAt": 1770898495639,
+      "tmuxPaneId": "%3",
+      "cwd": "/home/yspies/projects/frontend/websites",
+      "subscriptions": [],
+      "backendType": "tmux",
+      "isActive": true
+    }
+  ]
+}

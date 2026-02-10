@@ -1,0 +1,32 @@
+https://jira.outshared.com/browse/WINS-13578
+MyZone - Create separate app(s) NL/DE/ES
+
+note senior dev: 
+```
+ de bedoeling is dat er 3 aparte apps komen bv myZoneDe, myZoneNL, myZoneEs, die 3 apps maken gebruik van 1 gedeelde myZone lib die in die 3 talen vertaald is. Als je in de websites repo kijkt dan is daar onder libs/spa/my-zone al aan begonnen voor ES.  (misschien valt dat al te gebruiken)
+ 
+het is de bedoeling dat het in ieder geval alle functionaliteiten heeft die nu al in NL beschikbaar zijn. 
+```
+
+Requirements:
+
+Create apps for all countries (NL/DE/ES)
+Create separate shell for the MyZone. This one has a new navigation (for MyZone only) included
+Copy code to new app
+No WUC
+Implement shared (dato) footer
+Add new page structure based on new pages in navigation (see table below)
+
+Navigation (fase 1)
+
+Old    New
+Mijn verzekeringen    Overzicht
+-    Berichten (fase 2)
+Schademelden    -
+Schadestatus    Claims
+Mijn gegevens    Gegevens
+Facturen    Facturen
+JaarBalans    -
+-    Contact
+
+Design: https://www.figma.com/design/7wU69VagekV41zKmMfCvDD/My-InShared-Redesign--Marian-s-version-?node-id=2097-10089&t=sPgntDJjCOQrR9gt-0

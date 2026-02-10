@@ -1,0 +1,85 @@
+When deploying both my branch from this repo and the pipelines repo together, 
+still for each country the build script errors/fails:
+
+```
+inshared-nl-logout: 
+inshared-nl-logout: 
+inshared-nl-logout: ▲ [WARNING] No translation found for "password-config.hint-text-letters" ("Your password is missing a letter").
+inshared-nl-logout: 
+inshared-nl-logout: 
+inshared-nl-logout: ▲ [WARNING] No translation found for "password-config.hint-text-numbers" ("Your password is missing a number").
+inshared-nl-logout: 
+inshared-nl-logout: 
+inshared-nl-logout: ▲ [WARNING] No translation found for "password-config.hint-text-special-characters" ("You can make your password stronger with 1 of these characters: #").
+inshared-nl-logout: 
+inshared-nl-logout: 
+inshared-nl-logout: ▲ [WARNING] No translation found for "password-config.hint-text-invalid-special-characters" ("One of the special characters that you used is unavailable. Besides letters and number you can use the following characters: #").
+inshared-nl-logout: 
+inshared-nl-logout: 
+inshared-nl-logout: ✘ [ERROR] An error occurred while extracting routes.
+inshared-nl-logout: 
+inshared-nl-logout: NG0401
+inshared-nl-logout: 
+inshared-nl-logout: 
+
+
+
+ NX   Running target build for 3 projects and 8 tasks they depend on failed
+
+Failed tasks:
+
+- inshared-nl-my-zone:build:production
+- inshared-nl-login:build:production
+- inshared-nl-logout:build:production
+```
+
+
+```
+inshared-de-logout: 
+inshared-de-logout: ▲ [WARNING] No translation found for "password-config.hint-text-invalid-special-characters" ("One of the special characters that you used is unavailable. Besides letters and number you can use the following characters: #").
+inshared-de-logout: 
+inshared-de-logout: 
+inshared-de-logout: ✘ [ERROR] An error occurred while extracting routes.
+inshared-de-logout: 
+inshared-de-logout: NG0401
+inshared-de-logout: 
+inshared-de-logout: 
+
+
+
+ NX   Running target build for 4 projects and 8 tasks they depend on failed
+
+Failed tasks:
+
+- inshared-de-my-zone:build:production
+- inshared-de-login:build:production
+- inshared-de-logout:build:production
+
+
+##[error]Bash exited with code '1'.
+```
+
+
+```
+inshared-es-opt-out: 
+inshared-es-opt-out: 
+inshared-es-opt-out: ▲ [WARNING] No translation found for "password-config.hint-text-special-characters" ("You can make your password stronger with 1 of these characters: #").
+inshared-es-opt-out: 
+inshared-es-opt-out: 
+inshared-es-opt-out: ▲ [WARNING] No translation found for "password-config.hint-text-invalid-special-characters" ("One of the special characters that you used is unavailable. Besides letters and number you can use the following characters: #").
+inshared-es-opt-out: 
+inshared-es-opt-out: 
+
+
+
+ NX   Running target build for 5 projects and 14 tasks they depend on failed
+
+Failed tasks:
+
+- inshared-es-my-zone:build:production
+
+
+##[error]Bash exited with code '1'.
+```
+
+Analyze the issue, see if you can fix it, verify the build 

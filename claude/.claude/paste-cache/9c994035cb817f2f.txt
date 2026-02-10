@@ -1,0 +1,52 @@
+
+https://jira.outshared.com/servicedesk/customer/portal/6/OSDI-10229
+
+I have now created 2 new service tickets, one example of a bad one, where the description is lacking.
+one example of a good one, where i basically stripped the headers, but all info is present to create our template 
+
+so what i want you to verify in our code is, this flow:
+
+python script pulls stories with certrain status
+outputs to json so we can modularize, standarise other solutions later
+then we want claude to go over the jsons, match them with the provided template (that we should store as text in our repo)
+as a reminder:
+```
+Deze gebruiken we bij FE:
+ 
+*Story Goal*
+
+What is the goal of the story?
+
+_The purpose and business/user value are clear_
+
+_The problem being solved is understood_
+ 
+ 
+*Implementation / Scope*
+
+What needs to be done to achieve the goal?
+ 
+ 
+*Acceptance Criteria*
+
+When is the story considered done?
+
+_Acceptance criteria are defined and unambiguous_
+ 
+ 
+*Validation / Proof*
+
+How do we show that it works?
+
+_At least one test scenario is defined (Preferably written in BDD / Gherkin format)_
+
+_The scenario can be verified by testing_
+ 
+ ```
+ 
+if it does NOT match the template, i want for my PO to be able to send a message to the person who created it, 
+generate a message (and define template) that basically provides all details (story url and details), what is missing from context to complete our template
+
+if it IS complete we dont have to do anything, maybe just a message saying that one is ok, 
+
+otherwise if all content is present, but not in template we create the story template from the content for my PO

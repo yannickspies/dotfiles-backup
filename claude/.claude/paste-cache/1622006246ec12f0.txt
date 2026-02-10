@@ -1,0 +1,173 @@
+https://jira.outshared.com/browse/WINS-13677
+MyZone - Create dashboard page - Manage direct
+
+```
+Story Goal
+
+We want to have the first page of the MyZone (Dashboard) where customers can see their insurances and can quickly navigate to the actions they want to do. The Dashboard page is created with the new design components. In this story we will create the section "Manage direct".
+
+Required action / Scope
+Create section "Manage direct" in the Dashboard in the new Angular app (multilingual NL/DE/ES).
+Use the new design components from the Storybook component library
+Connect the components with the Angular functionality that's already in place for the current MyZone
+Content sections:
+
+Create section: "Manage direct"
+
+Title is a H2
+Implement list component (https://storybook-testing.inshared.io/autoverzekering?path=/docs/storybook-angular_list--playground)
+Links for NL:
+Schade melden -> /mijn-verzekeringsmap/schaderegelen#/schademelden
+Contact -> /contact
+Mijn schades bekijken -> /verzekeringsmap/mijn-schades
+Verhuizing doorgeven -> /mijn-verzekeringsmap/woonadres#/woonadres/wijzigen
+Mijn gegevens -> /verzekeringsmap/gegevens
+Acceptance Criteria
+The section "Manage direct" in the Dashboard is styled like the design (https://www.figma.com/design/7wU69VagekV41zKmMfCvDD/My-InShared-Redesign--Marian-s-version-?node-id=2097-10089&t=jkOb6BGRXmMDWbrF-0)
+The section "Manage direct" is created and filled with the content from the backend
+The navigation will be implemented in a later state (WINS-13581)
+The chatbot will be implemented in a later state (no ticket yet)
+The message sections (https://www.figma.com/design/7wU69VagekV41zKmMfCvDD/My-InShared-Redesign--Marian-s-version-?node-id=2097-10064&t=jkOb6BGRXmMDWbrF-0) will be implemented in a later state (no ticket yet)
+The implementation works on mobile and desktop (IE, FF, Chrome, iPhone, Samsung etc.)
+Validation / Proof
+
+How do we show that it works?
+
+There is a unit test written for the components and a e2e test for the whole page
+```
+
+----
+
+https://jira.outshared.com/browse/WINS-13602
+MyZone - Create dashboard page - Your insurances
+
+```
+Story Goal
+
+We want to have the first page of the MyZone (Dashboard) where customers can see their insurances and can quickly navigate to the actions they want to do. The Dashboard page is created with the new design components.
+
+Required action / Scope
+Create the first section "Your insurances" in the Dashboard in the new Angular app (multilingual NL/DE/ES).
+Use the new design components from the Storybook component library
+Connect the components with the Angular functionality that's already in place for the current MyZone
+Content sections:
+
+Create section: "Your insurances"
+
+Title is a H2
+Get the data from WS:
+/en-gb/relation-general/request/relation_data
+/en-gb/relation-general/request/policy
+Show data from WS at the right places in component created in WINS-13604
+Show policynumber from relation_data
+Show ('ACTI', 'TOEK', 'ACEI', 'NEVT', 'OSTP', 'ACWI') insurances as designed
+All possibilities from validity_status_code:
+ACTI (actief): show products with green label "Actief"
+TOEK (toekomstig): show products with orange label "Toekomstig"
+INAC (inactief) don't show
+EIND (beëindigd): don't show
+ACTO (actief of toekomstig) don't show
+ACEI (actief en beëindigd) show products with orange label "?"
+ACWI (actief met wijziging) show products with green label "Actief"
+NEVT (toekomstig product met een einddatum) show products with orange label "?"
+
+(Details coverage in: en-gb/insurance-coverage/calculate/coverage-premium-purchased_product. Used on detail page)
+
+Acceptance Criteria
+The "Your insurances" section in the dashboard is styled like the design (https://www.figma.com/design/7wU69VagekV41zKmMfCvDD/My-InShared-Redesign--Marian-s-version-?node-id=2097-10089&t=jkOb6BGRXmMDWbrF-0)
+Show the name of the customer at the top
+The section "Your insurances" is created and filled with the content from the backend
+All the insurances of the customer are shown (with status ACTI, TOEK)
+The navigation will be implemented in a later state (WINS-13581)
+The chatbot will be implemented in a later state (no ticket yet)
+The message sections (https://www.figma.com/design/7wU69VagekV41zKmMfCvDD/My-InShared-Redesign--Marian-s-version-?node-id=2097-10064&t=jkOb6BGRXmMDWbrF-0) will be implemented in a later state (no ticket yet)
+The implementation works on mobile and desktop (IE, FF, Chrome, iPhone, Samsung etc.)
+Validation / Proof
+
+How do we show that it works?
+
+Unit Tests
+Component renders the title "Your insurances"
+Component loads backend data via the existing Angular services
+Mapping of validity_status_code → label color and text is tested
+Display of the policy number is tested
+E2E Test
+
+Tests the full flow:
+
+Login → Dashboard
+Loading data via relation_data and policy endpoints
+Verifying that all insurances with status 'ACTI', 'TOEK', 'ACEI', 'NEVT', 'OSTP', 'ACWI' are displayed
+Verifying that the labels and styling match the design
+Verifying that other functionality (navigation/chatbot) is not present
+ ```
+
+--- 
+
+https://jira.outshared.com/browse/WINS-13676
+MyZone - Create dashboard page - Other useful insurances
+
+```
+Story Goal
+
+We want to have the first page of the MyZone (Dashboard) where customers can see their insurances and can quickly navigate to the actions they want to do. The Dashboard page is created with the new design components. In this story we will create the section "Other useful insurances".
+
+Required action / Scope
+Create the section "Other useful insurances" in the Dashboard in the new Angular app (multilingual NL/DE/ES).
+Use the new design components from the Storybook component library
+Connect the components with the Angular functionality that's already in place for the current MyZone
+Content sections:
+
+Create section: "Other useful insurances"
+
+Title is a H2
+Call WS: en-gb/relation-general/request/policy
+Browse through the products you have purchased and display them as the purchased design (https://www.figma.com/design/7wU69VagekV41zKmMfCvDD/My-InShared-Redesign--Marian-s-version-?node-id=2097-10089&t=jkOb6BGRXmMDWbrF-0) by using the components from the library
+Show the products that have not yet been purchased in the add product component design
+Link the products that not yet have been purchased to the correct salesfunnels
+/autoverzekering/berekenen-autoverzekering
+/brommerverzekering/berekenen-brommerverzekering
+/motorverzekering/berekenen-motorverzekering
+etc.
+Acceptance Criteria
+The section "Other useful insurances" in the Dashboard is styled like the design (https://www.figma.com/design/7wU69VagekV41zKmMfCvDD/My-InShared-Redesign--Marian-s-version-?node-id=2097-10089&t=jkOb6BGRXmMDWbrF-0)
+The section "Other useful insurances" is created and filled with the content from the backend
+The navigation will be implemented in a later state (WINS-13581)
+The chatbot will be implemented in a later state (no ticket yet)
+The message sections (https://www.figma.com/design/7wU69VagekV41zKmMfCvDD/My-InShared-Redesign--Marian-s-version-?node-id=2097-10064&t=jkOb6BGRXmMDWbrF-0) will be implemented in a later state (no ticket yet)
+The implementation works on mobile and desktop (IE, FF, Chrome, iPhone, Samsung etc.)
+Validation / Proof
+
+How do we show that it works?
+
+There is a unit test written for the components and a e2e test for the whole page
+```
+
+--- 
+
+https://jira.outshared.com/browse/WINS-13581
+MyZone - Implement new navigation desktop & mobile
+
+```
+Navigation items:
+
+Overzicht
+Berichten (fase 2)
+Claims
+Gegevens
+Facturen
+Contact
+
+Requirements:
+
+Navigation items manageable in DatoCMS per country
+To keep the interface clean and focused, the navigation bar hides when the user scrolls down. It reappears on scroll up, ensuring quick access without interrupting the browsing experience
+
+Design:
+Desktop https://www.figma.com/design/8wMIc85vYApSZ61HqZan81/My-InShared-Redesign?node-id=723-17093&t=TcPjMUN9vkZ2jBe5-0
+Mobile: https://www.figma.com/design/8wMIc85vYApSZ61HqZan81/My-InShared-Redesign?node-id=723-16635&t=TcPjMUN9vkZ2jBe5-0
+```
+
+---
+
+determine whether what the best implementationorder is, also based on availability of UI components, some are still being built, like the card for example

@@ -1,0 +1,20 @@
+   Running serve middlewa        Duration  ┃                                                                                      ║
+ │                                             ┃  ck/account-password, POST} route +0ms                                               ║
+>│⠦    middleware:serve:devel             ...  ┃  [Nest] 385289  - 02/10/2026, 12:13:41 PM     LOG [RouterExplorer] Mapped {/api/mo   ║
+ │·    Waiting for task...                     ┃  ck/send-twofactorcode, POST} route +0ms                                             ║
+ │·    Waiting for task...                     ┃  [Nest] 385289  - 02/10/2026, 12:13:41 PM     LOG [RouterExplorer] Mapped {/api/mo   ║
+ └                                             ┃  ck/validate-twofactorcode, POST} route +10ms                                        ║
+  ✔    backend:build                     3.4s  ┃  [Nest] 385289  - 02/10/2026, 12:13:41 PM     LOG [RouterExplorer] Mapped {/api/mo   ║
+  ✔    middleware:build                  8.7s  ┃  ck/validate-elements, POST} route +0ms                                              ║
+                                               ┃  [Nest] 385289  - 02/10/2026, 12:13:41 PM     LOG [RouterExplorer] Mapped {/api/mo   ║
+                                               ┃  ck/en-gb/address-general/request/residential-address-detail, POST} route +0ms       ║
+                                               ┃  [Nest] 385289  - 02/10/2026, 12:13:41 PM     LOG [RouterExplorer] Mapped {/api/mo   ║
+                                               ┃  ck/schema, GET} route +1ms                                                          ║
+                                               ┃  [Nest] 385289  - 02/10/2026, 12:13:41 PM     LOG [RouterExplorer] Mapped {/api/mo   ║
+                                               ┃  ck/definition, GET} route +0ms                                                      ║
+                                               ┃  [Nest] 385289  - 02/10/2026, 12:13:41 PM     LOG [RouterExplorer] Mapped {/api/mo   ║
+                                               ┃  ck/rules, GET} route +0ms                                                           ║
+                                               ┃  [Nest] 385289  - 02/10/2026, 12:13:41 PM     LOG [NestApplication] Nest applicati   █
+                                               ┃  on successfully started +3ms                                                        █
+                                               ┃  [Nest] 385289  - 02/10/2026, 12:13:41 PM     LOG 🚀 Application is running on: ht   █
+                                               ┃  tp://localhost:8080/api    

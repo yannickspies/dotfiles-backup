@@ -1,0 +1,17 @@
+Keycloak stories voor refinement
+Had opzet gebruikt wat in andere stories zitten die Laura had gewijzigd. Hopelijk voldoen deze stories aan DoR.
+Initial setup Angular starter template: https://jira.outshared.com/browse/WINS-13688
+Design login page: https://jira.outshared.com/browse/WINS-13689
+Design select 2FA type page: https://jira.outshared.com/browse/WINS-13690
+Design email auth page: https://jira.outshared.com/browse/WINS-13696
+Design phone number input page: https://jira.outshared.com/browse/WINS-13698
+Design sms auth page: https://jira.outshared.com/browse/WINS-13697
+PO localization: https://jira.outshared.com/browse/WINS-13699
+Integrate keycloak-js in website repo: https://jira.outshared.com/browse/WINS-13700
+(todo) Keycloak middleware setup FE?: https://jira.outshared.com/browse/WINS-13701
+Pipeline build and deploy of theme: https://jira.outshared.com/browse/WINS-13702
+Out of scope
+Forgot password flows are not yet supported and the old flows should be maintained. So redirect from Keycloak login page to website and do there.
+TODO
+Mogelijke App design afstemming
+Check met Kenny => Middleware adjustments needed?
