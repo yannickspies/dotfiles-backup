@@ -18,6 +18,13 @@ plans/
 # Logs (tracked at repo root in dotfiles/logs/)
 logs/
 
+# Build/runtime caches
+cache/
+paste-cache/
+stats-cache.json
+tasks/
+telemetry/
+
 # Machine-specific overrides
 # Note: settings.local.json is tracked as a template,
 # but each machine should customize it locally
