@@ -11,7 +11,7 @@ return {
     require('nvim-treesitter.configs').setup {
       ensure_installed = {
         'bash', 'c', 'diff', 'html', 'lua', 'luadoc',
-        'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc',
+        'markdown', 'markdown_inline', 'python', 'query', 'vim', 'vimdoc',
       },
       highlight = {
         enable = true,
