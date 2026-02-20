@@ -302,5 +302,21 @@
     "permission_mode": "acceptEdits",
     "hook_event_name": "UserPromptSubmit",
     "prompt": "/commit "
+  },
+  {
+    "session_id": "a29ee16c-8569-4ab6-b25e-403e767ea256",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/a29ee16c-8569-4ab6-b25e-403e767ea256.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "can you create a /learn opportunity for diffview (plugin we just added)"
+  },
+  {
+    "session_id": "a29ee16c-8569-4ab6-b25e-403e767ea256",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/a29ee16c-8569-4ab6-b25e-403e767ea256.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "/commit "
   }
 ]

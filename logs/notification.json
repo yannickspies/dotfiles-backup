@@ -306,5 +306,29 @@
     "hook_event_name": "Notification",
     "message": "Claude needs your permission to use Bash",
     "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "a29ee16c-8569-4ab6-b25e-403e767ea256",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/a29ee16c-8569-4ab6-b25e-403e767ea256.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "Notification",
+    "message": "Claude needs your permission to use Read",
+    "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "a29ee16c-8569-4ab6-b25e-403e767ea256",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/a29ee16c-8569-4ab6-b25e-403e767ea256.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "Notification",
+    "message": "Claude needs your permission to use Update",
+    "notification_type": "permission_prompt"
+  },
+  {
+    "session_id": "a29ee16c-8569-4ab6-b25e-403e767ea256",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/a29ee16c-8569-4ab6-b25e-403e767ea256.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input",
+    "notification_type": "idle_prompt"
   }
 ]

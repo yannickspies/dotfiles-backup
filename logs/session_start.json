@@ -102,5 +102,13 @@
     "cwd": "/home/yannickspies/dotfiles",
     "hook_event_name": "SessionStart",
     "source": "clear"
+  },
+  {
+    "session_id": "a29ee16c-8569-4ab6-b25e-403e767ea256",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/a29ee16c-8569-4ab6-b25e-403e767ea256.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "SessionStart",
+    "source": "startup",
+    "model": "claude-opus-4-6"
   }
 ]
