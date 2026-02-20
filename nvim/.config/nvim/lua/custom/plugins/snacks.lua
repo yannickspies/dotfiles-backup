@@ -11,16 +11,8 @@ return {
     notifier = { enabled = true }, -- Pretty notifications (replaces fidget.nvim)
     quickfile = { enabled = true }, -- Faster file loading
     statuscolumn = { enabled = false }, -- We're using default for now
-    words = { enabled = true }, -- Enhanced LSP reference highlighting
-
-    -- Smooth scrolling animations
-    scroll = {
-      enabled = true,
-      animate = {
-        duration = { step = 15, total = 150 },
-        easing = 'linear',
-      },
-    },
+    words = { enabled = false },
+    scroll = { enabled = false },
 
     -- Better buffer deletion
     bufdelete = {

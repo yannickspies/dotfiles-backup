@@ -2,7 +2,6 @@
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
-  "teammateMode": "auto",
   "includeCoAuthoredBy": false,
   "hooks": {
     "UserPromptSubmit": [
@@ -53,6 +52,10 @@
           {
             "type": "command",
             "command": "uv run ~/.claude/hooks/stop.py"
+          },
+          {
+            "type": "command",
+            "command": "uv run ~/.claude/hooks/learning_trigger.py"
           }
         ]
       }
@@ -88,7 +91,12 @@
       }
     ]
   },
+  "enabledPlugins": {
+    "code-review@claude-code-plugins": true,
+    "learning-output-style@claude-code-plugins": true
+  },
   "alwaysThinkingEnabled": true,
+  "teammateMode": "auto",
   "StatusLine": {
     "command": "uv run ~/.claude/status_lines/status_line_v3.py"
   }

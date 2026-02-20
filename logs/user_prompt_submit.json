@@ -254,5 +254,53 @@
     "permission_mode": "acceptEdits",
     "hook_event_name": "UserPromptSubmit",
     "prompt": "/commit "
+  },
+  {
+    "session_id": "c9b21707-5f35-426c-a0cb-94f0bf8eaf46",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/c9b21707-5f35-426c-a0cb-94f0bf8eaf46.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "Given what you now know about agent teams, give me some example of good prompts for my monorepo - ~/projects/personal/yspies-monorepo"
+  },
+  {
+    "session_id": "c9b21707-5f35-426c-a0cb-94f0bf8eaf46",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/c9b21707-5f35-426c-a0cb-94f0bf8eaf46.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "So this is very specific, you are basically writing everything out very explicitly, and you are not using the dense keywords like build a team of agents"
+  },
+  {
+    "session_id": "c9b21707-5f35-426c-a0cb-94f0bf8eaf46",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/c9b21707-5f35-426c-a0cb-94f0bf8eaf46.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "perfect, now give me a agent team prompt to take inventory of all unfinished work for chores, backend (api), ux, error handling you name it. i want to start using this and it needs to work, atleast for a mvp"
+  },
+  {
+    "session_id": "c8e471ec-fdb6-4808-be40-ee02b82dce1f",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/c8e471ec-fdb6-4808-be40-ee02b82dce1f.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "/prime "
+  },
+  {
+    "session_id": "c8e471ec-fdb6-4808-be40-ee02b82dce1f",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/c8e471ec-fdb6-4808-be40-ee02b82dce1f.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "plan",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "- remove neotree, use oil as the default\n- profile neovim and give candidates for plugin removal, keep only most used and critical\n- remove current colorscheme\n- what neovim plugin would allow me to inspect diffs, for PRs, commits etc the best given our current setup \n"
+  },
+  {
+    "session_id": "2681a34c-8bc8-4eb3-90ae-dbbbe83259bc",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/2681a34c-8bc8-4eb3-90ae-dbbbe83259bc.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "acceptEdits",
+    "hook_event_name": "UserPromptSubmit",
+    "prompt": "/commit "
   }
 ]
