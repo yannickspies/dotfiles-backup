@@ -20,7 +20,7 @@ return {
       pattern = 'LazyDone',
       once = true,
       callback = function()
-        local installed = require('nvim-treesitter').installed()
+        local installed = require('nvim-treesitter').get_installed()
         for _, lang in ipairs(parsers) do
           if not vim.tbl_contains(installed, lang) then
             vim.cmd('TSInstall ' .. lang)
