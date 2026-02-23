@@ -7,20 +7,26 @@ return {
   lazy = false,
   build = ':TSUpdate',
   config = function()
-    ---@diagnostic disable-next-line: missing-fields
-    require('nvim-treesitter.configs').setup {
-      ensure_installed = {
-        'bash', 'c', 'diff', 'html', 'lua', 'luadoc',
-        'markdown', 'markdown_inline', 'python', 'query', 'vim', 'vimdoc',
-      },
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = { 'ruby' },
-      },
-      indent = {
-        enable = true,
-        disable = { 'ruby' },
-      },
+    require('nvim-treesitter').setup()
+
+    -- Install parsers
+    local parsers = {
+      'bash', 'c', 'diff', 'html', 'lua', 'luadoc',
+      'markdown', 'markdown_inline', 'python', 'query', 'vim', 'vimdoc',
     }
+
+    -- Ensure parsers are installed
+    vim.api.nvim_create_autocmd('User', {
+      pattern = 'LazyDone',
+      once = true,
+      callback = function()
+        local installed = require('nvim-treesitter').installed()
+        for _, lang in ipairs(parsers) do
+          if not vim.tbl_contains(installed, lang) then
+            vim.cmd('TSInstall ' .. lang)
+          end
+        end
+      end,
+    })
   end,
 }
