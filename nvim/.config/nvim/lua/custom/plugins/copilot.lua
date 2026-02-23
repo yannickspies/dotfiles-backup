@@ -2,6 +2,9 @@ return {
   'github/copilot.vim',
   event = 'InsertEnter',
   cmd = 'Copilot',
+  init = function()
+    vim.g.copilot_enterprise_uri = 'https://inshared.ghe.com'
+  end,
   config = function()
     -- Accept suggestion with Ctrl+J (Tab conflicts with other plugins)
     vim.g.copilot_assume_mapped = true
