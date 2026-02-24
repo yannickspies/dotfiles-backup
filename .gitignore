@@ -1,4 +1,5 @@
 claude/.claude/.credentials.json
+claude/.claude/backups/
 
 # Runtime-generated fish state (contains hardcoded absolute paths)
 fish/.config/fish/fish_variables
