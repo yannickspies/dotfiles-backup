@@ -1,22 +1,21 @@
 ---
-allowed-tools: Bash, Read
+allowed-tools: Bash, Read, Glob
 description: Load context for a new agent session by analyzing codebase structure, documentation and README
 ---
 
 # Prime
 
-Run the commands under the `Execute` section to gather information about the project, and then review the files listed under `Read` to understand the project's purpose and functionality then `Report` your findings.
+Analyze the project structure and report your understanding.
 
 ## Execute
 - `git ls-files`
 
-## Read
+## Read (if they exist)
 - README.md
-- ~/.claude/ai_docs/cc_hooks_docs.md
-- ~/.claude/ai_docs/uv-single-file-scripts.md
-- ~/.claude/ai_docs/anthropic_custom_slash_commands.md
-- ~/.claude/ai_docs/anthropic_docs_subagents.md
+- CLAUDE.md
+- The top-level project config file (e.g. the manifest that defines dependencies, scripts, and metadata)
 
 ## Report
-
-- Provide a summary of your understanding of the project
+- Project purpose and tech stack
+- Key directories and their roles
+- Entry points and build/run commands
