@@ -1814,5 +1814,105 @@
       "replaceAll": false
     },
     "tool_use_id": "toolu_01TtcUv79mDJNjLdwmxtLmm4"
+  },
+  {
+    "session_id": "3800aa6f-39c5-4563-9c6d-c96735ab75c5",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/3800aa6f-39c5-4563-9c6d-c96735ab75c5.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PostToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "git rebase --skip 2>&1",
+      "description": "Skip the TTS removal commit (nothing to remove)"
+    },
+    "tool_response": {
+      "stdout": "\r\u001b[KSuccessfully rebased and updated refs/heads/main.",
+      "stderr": "",
+      "interrupted": false,
+      "isImage": false,
+      "noOutputExpected": false
+    },
+    "tool_use_id": "toolu_01W5AqcMUWKS6hfL7NLwavFj"
+  },
+  {
+    "session_id": "3800aa6f-39c5-4563-9c6d-c96735ab75c5",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/3800aa6f-39c5-4563-9c6d-c96735ab75c5.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PostToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "git log --oneline -8",
+      "description": "Show recent commit history after rebase"
+    },
+    "tool_response": {
+      "stdout": "f92a671 slim down prime command to reduce token usage\n45a73a4 add claude backups dir to gitignore to prevent secret leaks\n3f5a0c0 fix treesitter installed() API call for main branch\ne2509aa configure copilot for enterprise GitHub auth\nf54d05e fix treesitter config for new main branch API\n6f31199 fix treesitter except* query error\n9aaa560 replace neo-tree with oil.nvim as default explorer\n7e8b16a gitignore fish_variables and claude runtime dirs",
+      "stderr": "",
+      "interrupted": false,
+      "isImage": false,
+      "noOutputExpected": false
+    },
+    "tool_use_id": "toolu_015taon7xXejANCTMGNmtuqu"
+  },
+  {
+    "session_id": "3800aa6f-39c5-4563-9c6d-c96735ab75c5",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/3800aa6f-39c5-4563-9c6d-c96735ab75c5.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PostToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "git stash list",
+      "description": "Check for stashed changes"
+    },
+    "tool_response": {
+      "stdout": "stash@{0}: WIP on main: 1360f0f remove TTS/voice mode and TARS persona",
+      "stderr": "",
+      "interrupted": false,
+      "isImage": false,
+      "noOutputExpected": false
+    },
+    "tool_use_id": "toolu_01VEuuPqqvo3b59kSaB22Ngn"
+  },
+  {
+    "session_id": "3800aa6f-39c5-4563-9c6d-c96735ab75c5",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/3800aa6f-39c5-4563-9c6d-c96735ab75c5.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PostToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "git stash drop",
+      "description": "Drop the stashed session log changes"
+    },
+    "tool_response": {
+      "stdout": "Dropped refs/stash@{0} (04b21c2728602a425a90184ff1189e9125d5eeb4)",
+      "stderr": "",
+      "interrupted": false,
+      "isImage": false,
+      "noOutputExpected": false
+    },
+    "tool_use_id": "toolu_01WDBtMZqugiX7BYZWPvHqi2"
+  },
+  {
+    "session_id": "f32f1a76-0c85-4e4e-8973-60fe8ef2201a",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/f32f1a76-0c85-4e4e-8973-60fe8ef2201a.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PostToolUse",
+    "tool_name": "ToolSearch",
+    "tool_input": {
+      "query": "select:Bash",
+      "max_results": 1
+    },
+    "tool_response": {
+      "matches": [
+        "Bash"
+      ],
+      "query": "select:Bash",
+      "total_deferred_tools": 29
+    },
+    "tool_use_id": "toolu_012h6Gp812woYjvwtRcFbwna"
   }
 ]

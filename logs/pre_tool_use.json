@@ -1017,5 +1017,70 @@
       "description": "Validate JSON, stage, and finish rebase"
     },
     "tool_use_id": "toolu_016A98fELqASJeeGJmFBTv7Q"
+  },
+  {
+    "session_id": "3800aa6f-39c5-4563-9c6d-c96735ab75c5",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/3800aa6f-39c5-4563-9c6d-c96735ab75c5.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "git log --oneline -8",
+      "description": "Show recent commit history after rebase"
+    },
+    "tool_use_id": "toolu_015taon7xXejANCTMGNmtuqu"
+  },
+  {
+    "session_id": "3800aa6f-39c5-4563-9c6d-c96735ab75c5",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/3800aa6f-39c5-4563-9c6d-c96735ab75c5.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "git stash list",
+      "description": "Check for stashed changes"
+    },
+    "tool_use_id": "toolu_01VEuuPqqvo3b59kSaB22Ngn"
+  },
+  {
+    "session_id": "3800aa6f-39c5-4563-9c6d-c96735ab75c5",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/3800aa6f-39c5-4563-9c6d-c96735ab75c5.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "git stash drop",
+      "description": "Drop the stashed session log changes"
+    },
+    "tool_use_id": "toolu_01WDBtMZqugiX7BYZWPvHqi2"
+  },
+  {
+    "session_id": "f32f1a76-0c85-4e4e-8973-60fe8ef2201a",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/f32f1a76-0c85-4e4e-8973-60fe8ef2201a.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "ToolSearch",
+    "tool_input": {
+      "query": "select:Bash",
+      "max_results": 1
+    },
+    "tool_use_id": "toolu_012h6Gp812woYjvwtRcFbwna"
+  },
+  {
+    "session_id": "f32f1a76-0c85-4e4e-8973-60fe8ef2201a",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/f32f1a76-0c85-4e4e-8973-60fe8ef2201a.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "permission_mode": "default",
+    "hook_event_name": "PreToolUse",
+    "tool_name": "Bash",
+    "tool_input": {
+      "command": "git add logs/post_tool_use.json logs/pre_tool_use.json logs/session_start.json logs/stop.json logs/user_prompt_submit.json logs/chat.json && git commit -m \"$(cat <<'EOF'\nupdate hook session logs\nEOF\n)\"",
+      "description": "Stage and commit hook log file updates"
+    },
+    "tool_use_id": "toolu_01Ng2HSffGrVhJ9129VVh5xJ"
   }
 ]

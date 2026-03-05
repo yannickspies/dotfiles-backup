@@ -151,5 +151,13 @@
     "hook_event_name": "SessionStart",
     "source": "startup",
     "model": "claude-opus-4-6"
+  },
+  {
+    "session_id": "f32f1a76-0c85-4e4e-8973-60fe8ef2201a",
+    "transcript_path": "/home/yannickspies/.claude/projects/-home-yannickspies-dotfiles/f32f1a76-0c85-4e4e-8973-60fe8ef2201a.jsonl",
+    "cwd": "/home/yannickspies/dotfiles",
+    "hook_event_name": "SessionStart",
+    "source": "startup",
+    "model": "claude-opus-4-6"
   }
 ]
