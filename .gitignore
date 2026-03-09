@@ -1,5 +1,15 @@
 claude/.claude/.credentials.json
 claude/.claude/backups/
+claude/.claude/hooks/utils/tts/__pycache__/
+
+# Hook session logs (runtime-generated)
+logs/
+
+# Project-level .claude (not the stow-managed one)
+/.claude/
+
+# Editor lock files
+nvim/.config/nvim/lazy-lock.json
 
 # Runtime-generated fish state (contains hardcoded absolute paths)
 fish/.config/fish/fish_variables

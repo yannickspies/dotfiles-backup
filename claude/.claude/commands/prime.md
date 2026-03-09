@@ -8,7 +8,7 @@ description: Load context for a new agent session by analyzing codebase structur
 Analyze the project structure and report your understanding.
 
 ## Execute
-- `git ls-files`
+- `find . -maxdepth 3 -not -path '*/node_modules/*' -not -path '*/.git/*' -not -path '*/.nx/*' -not -path '*/dist/*' | sort | head -120`
 
 ## Read (if they exist)
 - README.md
