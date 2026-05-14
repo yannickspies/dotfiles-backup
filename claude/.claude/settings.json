@@ -52,10 +52,6 @@
           {
             "type": "command",
             "command": "uv run ~/.claude/hooks/stop.py"
-          },
-          {
-            "type": "command",
-            "command": "uv run ~/.claude/hooks/learning_trigger.py"
           }
         ]
       }
