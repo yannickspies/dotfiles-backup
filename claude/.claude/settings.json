@@ -92,13 +92,8 @@
     "learning-output-style@claude-code-plugins": true
   },
   "alwaysThinkingEnabled": true,
-  "voice": {
-    "enabled": true,
-    "mode": "hold"
-  },
   "skipDangerousModePermissionPrompt": true,
   "teammateMode": "auto",
-  "voiceEnabled": true,
   "StatusLine": {
     "command": "uv run ~/.claude/status_lines/status_line_v3.py"
   },
