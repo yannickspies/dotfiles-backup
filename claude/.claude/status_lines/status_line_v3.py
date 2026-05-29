@@ -113,9 +113,11 @@ def generate_status_line(input_data):
     session_data, error = get_session_data(session_id)
 
     if error:
-        # Log the error but show a default message
-        log_status_line(input_data, f"[{model_name}] 💭 No session data", error)
-        return f"\033[36m[{model_name}]\033[0m \033[90m💭 No session data\033[0m"
+        # No session file → contribute nothing. ccusage already renders the
+        # model, costs, and context window, so a "No session data" placeholder
+        # (plus a duplicate model name) would just be noise.
+        log_status_line(input_data, "", error)
+        return ""
 
     # Extract agent name and prompts
     agent_name = session_data.get("agent_name", "Agent")
@@ -124,11 +126,9 @@ def generate_status_line(input_data):
     # Build status line components
     parts = []
 
-    # Agent name - Bright Green
+    # Agent name - Bright Green. Model name is intentionally omitted here —
+    # ccusage renders it, so duplicating it in the base line is redundant.
     parts.append(f"\033[91m[{agent_name}]\033[0m")
-
-    # Model name - Blue
-    parts.append(f"\033[34m[{model_name}]\033[0m")
 
     # Last 3 prompts (most recent first)
     if prompts:

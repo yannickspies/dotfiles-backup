@@ -30,7 +30,7 @@ DEFAULTS: dict = {
     ],
 }
 
-USD_RE = re.compile(r"\$(\d+(?:\.\d+)?)")
+USD_RE = re.compile(r"\$(-?\d+(?:\.\d+)?)")
 
 
 def load_config() -> dict:
@@ -65,6 +65,27 @@ def usd_to_eur(text: str, rate: float) -> str:
     return USD_RE.sub(repl, text)
 
 
+# Strips ` / <amount> block (<time> left)` from the 💰 cost segment.
+BLOCK_RE = re.compile(r"\s*/\s*[€$][\d.\-]+\s*block\s*\([^)]*\)")
+
+
+def clean_cost_line(text: str) -> str:
+    """Trim ccusage output to the segments we care about.
+
+    Keeps model (🤖), session/today costs (💰), and context window (🧠).
+    Drops the per-block cost (redundant with the daily total) and the
+    hourly burn rate (🔥), which aren't actionable.
+    """
+    kept: list[str] = []
+    for segment in (s.strip() for s in text.split("|")):
+        if segment.startswith("🔥"):
+            continue  # burn rate — not useful
+        if segment.startswith("💰"):
+            segment = BLOCK_RE.sub("", segment)  # drop redundant block total
+        kept.append(segment)
+    return " | ".join(kept)
+
+
 def main() -> None:
     cfg = load_config()
     stdin_data = sys.stdin.read()
@@ -74,6 +95,7 @@ def main() -> None:
 
     if cost_line:
         cost_line = usd_to_eur(cost_line, float(cfg["eur_per_usd"]))
+        cost_line = clean_cost_line(cost_line)
 
     parts = [p for p in (base_line, cost_line) if p]
     print(" | ".join(parts) if parts else "💭 status line unavailable")
