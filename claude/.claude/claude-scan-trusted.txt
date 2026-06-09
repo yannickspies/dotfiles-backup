@@ -1,0 +1,16 @@
+# claude-scan allowlist — vetted MCP servers / hook commands.
+# One substring pattern per line; `#` starts a comment.
+# A finding whose command CONTAINS any line below is shown as `·` (safe)
+# instead of `⚑` (review). Pin versions so a later bump re-trips the flag.
+#
+# Reviewed 2026-06-09 (yspies-monorepo .mcp.json):
+
+# Nx MCP — first-party: `nx` is a local devDependency (@nx/* 22.3.3),
+# so `npx nx` runs the workspace binary, not a remote fetch. Left unpinned.
+npx nx mcp
+
+# Lighthouse MCP — community package, single maintainer, pinned.
+npx -y lighthouse-mcp@0.1.15
+
+# Trello MCP — third-party (handles TRELLO_API_KEY/TRELLO_TOKEN), pinned.
+npx -y @delorenj/mcp-server-trello@1.7.1

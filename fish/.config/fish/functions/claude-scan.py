@@ -5,9 +5,14 @@ Called by the `claude-scan` fish function. Scans a repo for `.claude/settings*.j
 and `.mcp.json` — the files an untrusted repo can ship to auto-execute hooks or
 launch MCP server processes the moment you start Claude Code in that folder.
 
+Vetted MCP servers / hook commands can be allowlisted in
+`~/.claude/claude-scan-trusted.txt` (one substring pattern per line, `#` comments)
+so they show `·` instead of `⚑`. Pin versions in the allowlist entry
+(e.g. `foo-mcp@1.2.3`) so a later version bump re-trips the flag for review.
+
 Exit codes:
-  0  no project-level hooks / MCP servers found (safe to launch)
-  1  hooks or MCP servers exist (review before launching; pauses `claude-scan && claude`)
+  0  no risky findings (no config at all, or every command is trusted/user-owned)
+  1  at least one risky finding (review before launching; pauses `claude-scan && claude`)
   2  bad usage
 """
 import json
@@ -31,6 +36,24 @@ GREEN, RED, YELLOW, RESET, BOLD = (
 )
 
 
+TRUSTED_FILE = os.path.expanduser("~/.claude/claude-scan-trusted.txt")
+
+
+def load_trusted() -> list[str]:
+    """Read user-vetted command substrings from ~/.claude/claude-scan-trusted.txt."""
+    try:
+        with open(TRUSTED_FILE) as f:
+            lines = (ln.split("#", 1)[0].strip() for ln in f)
+            return [ln for ln in lines if ln]
+    except FileNotFoundError:
+        return []
+
+
+def is_trusted(cmd: str, trusted: list[str]) -> bool:
+    """True if the command matches a user-vetted allowlist entry (substring)."""
+    return any(t in cmd for t in trusted)
+
+
 def is_user_owned(cmd: str) -> bool:
     """A hook command is trusted only if it runs a script under the user's own ~/.claude."""
     if "~/.claude" in cmd or "$HOME/.claude" in cmd:
@@ -52,6 +75,7 @@ def collect_targets(root: str) -> list[str]:
 
 def scan(root: str) -> int:
     findings: list[tuple[str, str | None, str, bool]] = []
+    trusted = load_trusted()
 
     for path in collect_targets(root):
         rel = os.path.relpath(path, root)
@@ -68,12 +92,16 @@ def scan(root: str) -> int:
                     cmd = hook.get("command", "")
                     if not cmd:
                         continue
-                    risky = bool(RISKY.search(cmd)) or not is_user_owned(cmd)
+                    risky = not is_trusted(cmd, trusted) and (
+                        bool(RISKY.search(cmd)) or not is_user_owned(cmd)
+                    )
                     findings.append((rel, event, cmd, risky))
 
         for name, srv in (data.get("mcpServers") or {}).items():
             cmd = " ".join([srv.get("command", "")] + srv.get("args", []))
-            findings.append((rel, f"mcpServer:{name}", cmd, True))
+            # Every MCP server launches a process on session start; only ones the
+            # user has explicitly vetted in the allowlist are treated as safe.
+            findings.append((rel, f"mcpServer:{name}", cmd, not is_trusted(cmd, trusted)))
 
     label = os.path.basename(os.path.normpath(root)) or root
 
@@ -82,13 +110,15 @@ def scan(root: str) -> int:
         print("  (safe to launch Claude Code here)")
         return 0
 
-    print(f"{BOLD}claude-scan: {root}{RESET}")
-    print(f"{YELLOW}⚠ this repo ships config that runs code on session start — review first:{RESET}\n")
+    risky_count = sum(1 for *_, risky in findings if risky)
 
-    risky_count = 0
+    print(f"{BOLD}claude-scan: {root}{RESET}")
+    if risky_count:
+        print(f"{YELLOW}⚠ this repo ships config that runs code on session start — review first:{RESET}\n")
+    else:
+        print(f"{GREEN}✓ config present, but every command is vetted (allowlist or ~/.claude):{RESET}\n")
+
     for rel, event, cmd, risky in findings:
-        if risky:
-            risky_count += 1
         mark = f"{RED}⚑{RESET}" if risky else f"{GREEN}·{RESET}"
         tag = f"[{event}]" if event else "[parse]"
         print(f"  {mark} {rel} {tag}")
@@ -96,11 +126,11 @@ def scan(root: str) -> int:
 
     print()
     if risky_count:
-        print(f"{RED}{risky_count} command(s) flagged: not user-owned (~/.claude) or matched a risky pattern.{RESET}")
+        print(f"{RED}{risky_count} command(s) flagged: not user-owned (~/.claude), not allowlisted, or matched a risky pattern.{RESET}")
         print(f"{RED}Do NOT run `claude` here until you've read each ⚑ line above.{RESET}")
-    else:
-        print(f"{GREEN}All hook commands point to your own ~/.claude scripts.{RESET}")
-    return 1  # nonzero whenever config exists, so the chained launch pauses for a look
+        return 1  # nonzero so a chained `claude-scan && claude` pauses for a look
+    print(f"{GREEN}All commands are vetted (user-owned or allowlisted) — safe to launch.{RESET}")
+    return 0  # everything reviewed; let the chained launch proceed
 
 
 def main() -> int:
