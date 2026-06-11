@@ -1,0 +1,100 @@
+local wezterm = require 'wezterm'
+local config = {}
+
+-- Font configuration
+config.font = wezterm.font_with_fallback({
+  { family = 'CommitMono', weight = 'Regular' },
+  { family = 'JetBrainsMono NFM', weight = 'Regular' }, -- fallback for icons / Nerd Font glyphs
+})
+config.font_size = 14.0
+
+-- Bold, italic font variants
+config.font_rules = {
+  {
+    italic = true,
+    font = wezterm.font_with_fallback({
+      { family = 'CommitMono', weight = 'Regular', italic = true },
+      { family = 'JetBrainsMono NFM', weight = 'Regular', italic = true },
+    }),
+  },
+  {
+    intensity = 'Bold',
+    font = wezterm.font_with_fallback({
+      { family = 'CommitMono', weight = 'Bold' },
+      { family = 'JetBrainsMono NFM', weight = 'Bold' },
+    }),
+  },
+  {
+    italic = true,
+    intensity = 'Bold',
+    font = wezterm.font_with_fallback({
+      { family = 'CommitMono', weight = 'Bold', italic = true },
+      { family = 'JetBrainsMono NFM', weight = 'Bold', italic = true },
+    }),
+  },
+}
+
+-- Window configuration
+config.window_decorations = "TITLE | RESIZE"
+config.enable_tab_bar = true
+config.use_fancy_tab_bar = true
+config.tab_bar_at_bottom = false
+config.show_tab_index_in_tab_bar = false
+config.window_background_opacity = 1
+
+-- Shell configuration
+config.default_prog = { 'wsl.exe', '-d', 'Ubuntu-24.04', '--cd', '~' }
+
+-- Performance: smoother redraws for Claude Code's streaming output + spinners
+config.front_end = "WebGpu"
+config.max_fps = 120        -- set to your monitor's refresh rate
+config.animation_fps = 60
+
+-- Scrollback (mostly used outside tmux; tmux keeps its own history)
+config.scrollback_lines = 10000
+
+-- Quality of life
+config.audible_bell = "Disabled"
+config.adjust_window_size_when_changing_font_size = false
+config.window_padding = { left = 6, right = 6, top = 4, bottom = 4 }
+config.window_close_confirmation = "NeverPrompt"
+
+-- Cursor (taste)
+config.default_cursor_style = "SteadyBar"
+
+-- === Paste fix ===========================================================
+-- Diagnosis: Ctrl+Shift+V was injecting nothing into the WSL pty even though
+-- the Windows clipboard had content and clip.exe copy worked. That isolates
+-- the fault to this layer (WezTerm), not tmux/WSL/Claude Code. These bindings
+-- give explicit, redundant paste triggers so paste no longer depends on a
+-- single key that something on Windows may be intercepting.
+local act = wezterm.action
+
+config.keys = {
+  -- Re-assert the standard binding explicitly (in case a default got shadowed).
+  { key = 'v', mods = 'CTRL|SHIFT', action = act.PasteFrom 'Clipboard' },
+  -- Alternative trigger #1: bypasses anything grabbing Ctrl+Shift+V on Windows.
+  { key = 'Insert', mods = 'SHIFT', action = act.PasteFrom 'Clipboard' },
+  -- Keep copy explicit and symmetric.
+  { key = 'c', mods = 'CTRL|SHIFT', action = act.CopyTo 'Clipboard' },
+}
+
+config.mouse_bindings = {
+  -- Alternative trigger #2: classic right-click-to-paste. Does not use the
+  -- keyboard at all, so it works even if Windows is eating the key combo.
+  --
+  -- mouse_reporting = true is REQUIRED here: tmux runs `set -g mouse on`, which
+  -- enables mouse reporting, so by default WezTerm forwards the click to tmux
+  -- and never runs this action. Setting mouse_reporting = true makes WezTerm
+  -- intercept the right-click and paste even while a mouse-mode app (tmux,
+  -- Claude Code's TUI) is in front. Bind on the button RELEASE (Up) so the
+  -- press isn't also half-forwarded.
+  {
+    event = { Up = { streak = 1, button = 'Right' } },
+    mods = 'NONE',
+    mouse_reporting = true,
+    action = act.PasteFrom 'Clipboard',
+  },
+}
+
+return config
