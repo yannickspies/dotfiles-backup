@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tmux cheatsheet</title>
+<style>
+  /* Catppuccin Mocha — matches Windows Terminal / nvim / tmux theme */
+  :root {
+    --crust:    #11111b;
+    --mantle:   #181825;
+    --base:     #1e1e2e;
+    --surface0: #313244;
+    --surface1: #45475a;
+    --text:     #cdd6f4;
+    --subtext:  #a6adc8;
+    --overlay:  #6c7086;
+    --mauve:    #cba6f7;
+    --blue:     #89b4fa;
+    --green:    #a6e3a1;
+    --peach:    #fab387;
+    --red:      #f38ba8;
+    --yellow:   #f9e2af;
+    --teal:     #94e2d5;
+    --lavender: #b4befe;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--crust);
+    color: var(--text);
+    font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", "Cascadia Code", ui-monospace, monospace;
+    min-height: 100vh;
+    padding: 2vh 2vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+  }
+
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+    padding: 0 0.5rem;
+  }
+
+  h1 {
+    font-size: clamp(1.4rem, 2.2vw, 2rem);
+    color: var(--mauve);
+    font-weight: 700;
+  }
+
+  .prefix-note {
+    font-size: clamp(0.9rem, 1.3vw, 1.15rem);
+    color: var(--subtext);
+  }
+  .prefix-note kbd { font-size: 1em; }
+
+  main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 1.5vh 1vw;
+    align-content: stretch;
+  }
+
+  section {
+    background: var(--base);
+    border: 1px solid var(--surface0);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h2 {
+    font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid var(--surface0);
+  }
+  section.split    h2 { color: var(--green); }
+  section.navigate h2 { color: var(--blue); }
+  section.resize   h2 { color: var(--peach); }
+  section.windows  h2 { color: var(--yellow); }
+  section.copy     h2 { color: var(--teal); }
+  section.misc     h2 { color: var(--lavender); }
+
+  table { width: 100%; border-collapse: collapse; }
+
+  td {
+    padding: 0.32rem 0.2rem;
+    font-size: clamp(0.85rem, 1.15vw, 1.05rem);
+    vertical-align: middle;
+  }
+  tr + tr td { border-top: 1px solid var(--mantle); }
+
+  td.keys { white-space: nowrap; width: 1%; padding-right: 1rem; }
+  td.desc { color: var(--subtext); }
+  td.desc strong { color: var(--text); font-weight: 600; }
+
+  kbd {
+    display: inline-block;
+    background: var(--surface0);
+    border: 1px solid var(--surface1);
+    border-bottom-width: 2px;
+    border-radius: 6px;
+    padding: 0.12em 0.5em;
+    font-family: inherit;
+    font-size: 0.95em;
+    color: var(--text);
+    line-height: 1.4;
+  }
+  kbd.pfx { background: var(--mantle); color: var(--mauve); border-color: var(--surface0); }
+
+  .plus { color: var(--overlay); padding: 0 0.25em; }
+
+  .tag {
+    display: inline-block;
+    font-size: 0.7em;
+    color: var(--crust);
+    background: var(--green);
+    border-radius: 4px;
+    padding: 0.05em 0.45em;
+    margin-left: 0.5em;
+    vertical-align: middle;
+    font-weight: 700;
+  }
+  .tag.default { background: var(--overlay); color: var(--crust); }
+
+  footer {
+    text-align: center;
+    color: var(--overlay);
+    font-size: clamp(0.7rem, 1vw, 0.85rem);
+    padding: 0.3rem;
+  }
+  footer code { color: var(--subtext); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>tmux</h1>
+  <div class="prefix-note">
+    prefix = <kbd class="pfx">Ctrl</kbd><span class="plus">+</span><kbd class="pfx">b</kbd>
+    &nbsp;·&nbsp; <span style="color:var(--green)">●</span> custom &nbsp; <span style="color:var(--overlay)">●</span> default
+  </div>
+</header>
+
+<main>
+
+  <section class="split">
+    <h2>Splitting</h2>
+    <table>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>|</kbd></td>
+          <td class="desc"><strong>Split vertical</strong> — panes side by side<span class="tag">custom</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>-</kbd></td>
+          <td class="desc"><strong>Split horizontal</strong> — panes stacked<span class="tag">custom</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>\</kbd></td>
+          <td class="desc"><strong>Full-width split</strong> — spans entire window<span class="tag">custom</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>_</kbd></td>
+          <td class="desc"><strong>Full-height split</strong> — spans entire window<span class="tag">custom</span></td></tr>
+      <tr><td class="keys"></td>
+          <td class="desc">All splits open in the <strong>current pane's directory</strong></td></tr>
+    </table>
+  </section>
+
+  <section class="navigate">
+    <h2>Pane Navigation</h2>
+    <table>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>h</kbd> <kbd>j</kbd> <kbd>k</kbd> <kbd>l</kbd></td>
+          <td class="desc"><strong>Move</strong> left / down / up / right<span class="tag">custom</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>q</kbd> <kbd>1-9</kbd></td>
+          <td class="desc"><strong>Jump by number</strong> (panes start at 1)<span class="tag default">default</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>;</kbd></td>
+          <td class="desc"><strong>Last pane</strong> — toggle back and forth<span class="tag default">default</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>o</kbd></td>
+          <td class="desc"><strong>Cycle</strong> through panes<span class="tag default">default</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>z</kbd></td>
+          <td class="desc"><strong>Zoom</strong> pane fullscreen (toggle)<span class="tag default">default</span></td></tr>
+    </table>
+  </section>
+
+  <section class="resize">
+    <h2>Resize &amp; Arrange</h2>
+    <table>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>H</kbd> <kbd>J</kbd> <kbd>K</kbd> <kbd>L</kbd></td>
+          <td class="desc"><strong>Resize</strong> 5 cells — repeatable, keep tapping<span class="tag">custom</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>{</kbd> <kbd>}</kbd></td>
+          <td class="desc"><strong>Swap pane</strong> up / down<span class="tag default">default</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>Space</kbd></td>
+          <td class="desc"><strong>Cycle layouts</strong><span class="tag default">default</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>!</kbd></td>
+          <td class="desc"><strong>Break pane</strong> out into its own window<span class="tag default">default</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>x</kbd></td>
+          <td class="desc"><strong>Kill pane</strong> (confirms first)<span class="tag default">default</span></td></tr>
+      <tr><td class="keys">🖱</td>
+          <td class="desc"><strong>Drag borders</strong> to resize, click to focus</td></tr>
+    </table>
+  </section>
+
+  <section class="windows">
+    <h2>Windows</h2>
+    <table>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>c</kbd></td>
+          <td class="desc"><strong>New window</strong> in current directory<span class="tag">custom</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>1-9</kbd></td>
+          <td class="desc"><strong>Jump to window</strong> (numbering starts at 1)<span class="tag default">default</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>n</kbd> <kbd>p</kbd></td>
+          <td class="desc"><strong>Next / previous</strong> window<span class="tag default">default</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>w</kbd></td>
+          <td class="desc"><strong>Tree view</strong> — pick any window or session<span class="tag default">default</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>,</kbd></td>
+          <td class="desc"><strong>Rename</strong> window<span class="tag default">default</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>&amp;</kbd></td>
+          <td class="desc"><strong>Kill window</strong> (confirms first)<span class="tag default">default</span></td></tr>
+    </table>
+  </section>
+
+  <section class="copy">
+    <h2>Copy Mode (vi)</h2>
+    <table>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>[</kbd></td>
+          <td class="desc"><strong>Enter copy mode</strong> / scrollback<span class="tag default">default</span></td></tr>
+      <tr><td class="keys"><kbd>v</kbd></td>
+          <td class="desc"><strong>Begin selection</strong><span class="tag">custom</span></td></tr>
+      <tr><td class="keys"><kbd>y</kbd></td>
+          <td class="desc"><strong>Yank</strong> → Windows clipboard via clip.exe<span class="tag">custom</span></td></tr>
+      <tr><td class="keys"><kbd>q</kbd></td>
+          <td class="desc"><strong>Exit</strong> copy mode<span class="tag default">default</span></td></tr>
+      <tr><td class="keys">🖱</td>
+          <td class="desc"><strong>Drag-select</strong> copies to clipboard on release</td></tr>
+    </table>
+  </section>
+
+  <section class="misc">
+    <h2>Sessions &amp; Misc</h2>
+    <table>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>d</kbd></td>
+          <td class="desc"><strong>Detach</strong> — session keeps running<span class="tag default">default</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>$</kbd></td>
+          <td class="desc"><strong>Rename session</strong><span class="tag default">default</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>R</kbd></td>
+          <td class="desc"><strong>Reload config</strong> (tmux-sensible)<span class="tag default">plugin</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>:</kbd></td>
+          <td class="desc"><strong>Command prompt</strong><span class="tag default">default</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>I</kbd></td>
+          <td class="desc"><strong>Install plugins</strong> (TPM)<span class="tag default">plugin</span></td></tr>
+      <tr><td class="keys"><kbd class="pfx">pfx</kbd><span class="plus">+</span><kbd>?</kbd></td>
+          <td class="desc"><strong>List all key bindings</strong><span class="tag default">default</span></td></tr>
+    </table>
+  </section>
+
+</main>
+
+<footer>
+  source: <code>~/dotfiles/tmux/.tmux.conf</code> · catppuccin mocha · removed defaults: <code>%</code> <code>"</code> (splits) · shadowed: <code>l</code> <code>L</code> <code>-</code>
+</footer>
+
+</body>
+</html>
