@@ -3,6 +3,8 @@
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "includeCoAuthoredBy": false,
+  "theme": "catppuccin-mocha",
+  "outputStyle": "Markdown Focused",
   "permissions": {
     "defaultMode": "auto"
   },
