@@ -108,6 +108,5 @@
   "skipWorkflowUsageWarning": true,
   "teammateMode": "auto",
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true,
-  "model": "claude-fable-5[1m]"
+  "voiceEnabled": true
 }
