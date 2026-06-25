@@ -2,11 +2,10 @@ if status is-interactive
     set -gx CHROME_BIN /usr/bin/chromium-browser
     set -gx EDITOR nvim
     set -gx VISUAL nvim
-    
-    # Set TERM_PROGRAM for WSL (WezTerm on Windows doesn't pass env vars through)
-    if not set -q TERM_PROGRAM; and test -f /proc/sys/fs/binfmt_misc/WSLInterop
-        set -gx TERM_PROGRAM WezTerm
-    end
+
+    # Advertise 24-bit color for apps that gate on COLORTERM rather than terminfo.
+    # Windows Terminal supports truecolor but doesn't export this itself.
+    set -gx COLORTERM truecolor
 
     # Use Node LTS version on startup
     nvm use lts

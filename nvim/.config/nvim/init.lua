@@ -161,6 +161,23 @@ vim.opt.iskeyword:append("-")                      -- Treat dash as part of word
 vim.opt.path:append("**")                          -- Include subdirectories in search
 vim.opt.selection = "exclusive"                    -- Selection behavior
 vim.opt.mouse = "a"                                -- Enable mouse support
+-- WSL clipboard bridge: route the system clipboard through win32yank instead of
+-- letting Neovim auto-pick xsel (which talks to the flaky WSLg X bridge). win32yank
+-- is UTF-8 clean and bidirectional, so yank-out and "+p paste-in both work.
+if vim.fn.has("wsl") == 1 and vim.fn.executable("win32yank.exe") == 1 then
+  vim.g.clipboard = {
+    name = "win32yank",
+    copy = {
+      ["+"] = "win32yank.exe -i --crlf",
+      ["*"] = "win32yank.exe -i --crlf",
+    },
+    paste = {
+      ["+"] = "win32yank.exe -o --lf",
+      ["*"] = "win32yank.exe -o --lf",
+    },
+    cache_enabled = 0,
+  }
+end
 vim.opt.clipboard:append("unnamedplus")            -- Use system clipboard
 vim.opt.modifiable = true                          -- Allow buffer modifications
 vim.opt.encoding = "UTF-8"                         -- Set encoding
