@@ -1,21 +1,38 @@
 # Performance Optimization
 
-## Model Selection Strategy
+## Model Selection Strategy (manager-model pattern)
 
-**Haiku 4.5** (90% of Sonnet capability, 3x cost savings):
-- Lightweight agents with frequent invocation
-- Pair programming and code generation
-- Worker agents in multi-agent systems
+Spend intelligence on the **orchestrator**, keep **workers** cheap and parallel.
+Orchestration decisions compound; worker output does not — a small early error in
+planning/delegation propagates through the whole run, so the frontier model leads
+and cheap workers execute.
 
-**Sonnet 4.6** (Best coding model):
-- Main development work
-- Orchestrating multi-agent workflows
-- Complex coding tasks
+**Fable 5** (frontier orchestrator — draws usage faster than Opus, ~2x):
+- Lead the high-value *compounding* stages: initial planning, decomposition,
+  hard-problem reasoning, final verification
+- Long-horizon autonomous runs that plan across stages
+- Run at `high` / `xhigh` effort
+- **Billing:** included in the Max weekly limit for ≤50% of it through **2026-07-12**;
+  beyond that (or after the 12th) it draws **usage credits** (pay-as-you-go). Invoke
+  deliberately via `/orchestrate --fable`, not for routine turns.
 
-**Opus 4.5** (Deepest reasoning):
-- Complex architectural decisions
-- Maximum reasoning requirements
-- Research and analysis tasks
+**Opus 4.8** (free frontier — 1M context, on the subscription):
+- Default orchestrator when a task doesn't clear the "super high value" bar
+- Deep-reasoning subagents: `architect`, `planner`, the auditors
+- Complex single-context coding
+
+**Sonnet 5** (main worker fleet):
+- Code review, coding, and analysis workers under the orchestrator
+- Fast, near-Opus quality — the default worker tier for fan-out
+
+**Haiku 4.5** (mechanical / high-frequency workers):
+- Deterministic-tool workers (`refactor-cleaner`), docs (`doc-updater`), status updates
+- Anything mechanical enough to run at `low` effort
+
+**Composition shapes** (see `/orchestrate`):
+- **Fan-out** — parallel independent tasks (worktree isolation when they mutate files)
+- **Pipeline** — sequential stages with handoffs (the default)
+- **Verify-loop** — a frontier verifier checks worker output against the original spec
 
 ## Context Window Management
 

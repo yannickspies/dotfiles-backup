@@ -28,6 +28,11 @@ No user prompt needed:
 
 ## Parallel Task Execution
 
+For big/ambiguous/multi-file work, run the **manager-model pattern** via
+`/orchestrate` (frontier model plans + verifies, cheap workers execute in
+parallel; `--fable` escalates the plan/verify tier). See `performance.md` →
+Model Selection Strategy.
+
 ALWAYS use parallel Task execution for independent operations:
 
 ```markdown
