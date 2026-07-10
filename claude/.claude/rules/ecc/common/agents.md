@@ -15,8 +15,6 @@ Located in `~/.claude/agents/`:
 | e2e-runner | E2E testing | Critical user flows |
 | refactor-cleaner | Dead code cleanup | Code maintenance |
 | doc-updater | Documentation | Updating docs |
-| rust-reviewer | Rust code review | Rust projects |
-| harmonyos-app-resolver | HarmonyOS app development | HarmonyOS/ArkTS projects |
 
 ## Immediate Agent Usage
 
@@ -32,6 +30,11 @@ For big/ambiguous/multi-file work, run the **manager-model pattern** via
 `/orchestrate` (frontier model plans + verifies, cheap workers execute in
 parallel; `--fable` escalates the plan/verify tier). See `performance.md` →
 Model Selection Strategy.
+
+Two surfaces, by how much you need to watch (see `agent-fleet.md`):
+- **`/orchestrate`** — *headless* fan-out; you get the result, no mid-flight glance.
+- **`/fleet`** — *visible/steerable* agent-team in tmux panes; watch and redirect
+  long-running or high-blast-radius work as it goes.
 
 ALWAYS use parallel Task execution for independent operations:
 
