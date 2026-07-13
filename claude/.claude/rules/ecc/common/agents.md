@@ -8,13 +8,30 @@ Located in `~/.claude/agents/`:
 |-------|---------|-------------|
 | planner | Implementation planning | Complex features, refactoring |
 | architect | System design | Architectural decisions |
+| code-architect | Feature architecture blueprint from existing patterns | Designing a feature's file/interface layout |
 | tdd-guide | Test-driven development | New features, bug fixes |
-| code-reviewer | Code review | After writing code |
-| security-reviewer | Security analysis | Before commits |
-| build-error-resolver | Fix build errors | When build fails |
-| e2e-runner | E2E testing | Critical user flows |
-| refactor-cleaner | Dead code cleanup | Code maintenance |
-| doc-updater | Documentation | Updating docs |
+| code-reviewer | General / architecture code review (language-agnostic) | After writing code |
+| typescript-reviewer | TS/JS-specific review | TS/JS changes |
+| python-reviewer | Python-specific review | Python changes |
+| security-reviewer | Security analysis (OWASP) | Auth, input, endpoints, secrets |
+| silent-failure-hunter | Swallowed errors / bad fallbacks | Reviewing error handling |
+| comment-analyzer | Comment accuracy / rot | Reviewing in-code comments |
+| type-design-analyzer | Type design & invariants | Reviewing type/model design |
+| pr-test-analyzer | PR test-coverage quality | Assessing tests on a change |
+| code-simplifier | Clarity/consistency refactor | Simplifying recently-changed code |
+| refactor-cleaner | Dead-code cleanup (knip/ts-prune) | Removing unused code |
+| build-error-resolver | Fix build/type errors (minimal diff) | When build fails |
+| e2e-runner | E2E testing (Playwright) | Critical user flows |
+| performance-optimizer | Perf profiling & optimization | Bottlenecks, bundle size |
+| code-explorer | Read-only codebase tracing | Understanding an existing feature |
+| doc-updater | Docs & codemaps | Updating documentation |
+| docs-lookup | Library/API docs via Context7 | "How do I use X" questions |
+| component-harvest-auditor | @yspies/ui + design-token audit | Monorepo UI/token compliance |
+| monorepo-health-auditor | Cross-cutting duplication / boundary audit | Monorepo consolidation checks |
+| harness-optimizer | Improve local agent-harness config | Tuning agents/hooks/settings |
+| meta-agent | Generate a new sub-agent config | Creating a new agent |
+| conversation-analyzer | Find hook-worthy behaviors in transcripts | /hookify |
+| chief-of-staff | Multi-channel comms triage | Gmail wired; Slack/LINE/Messenger aspirational — see note |
 
 ## Immediate Agent Usage
 

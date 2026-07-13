@@ -12,8 +12,9 @@ and cheap workers execute.
   hard-problem reasoning, final verification
 - Long-horizon autonomous runs that plan across stages
 - Run at `high` / `xhigh` effort
-- **Billing:** included in the Max weekly limit for ≤50% of it through **2026-07-12**;
-  beyond that (or after the 12th) it draws **usage credits** (pay-as-you-go). Invoke
+- **Billing:** under the current terms it's included in the Max weekly limit for
+  ≤50% of it; beyond that it draws **usage credits** (pay-as-you-go). Check the
+  current Fable billing terms before relying on inclusion. Invoke
   deliberately via `/orchestrate --fable`, not for routine turns.
 
 **Opus 4.8** (free frontier — 1M context, on the subscription):
