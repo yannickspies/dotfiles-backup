@@ -4,7 +4,6 @@
   },
   "includeCoAuthoredBy": false,
   "theme": "catppuccin-mocha",
-  "outputStyle": "Markdown Focused",
   "permissions": {
     "defaultMode": "auto"
   },
@@ -101,6 +100,7 @@
     "code-review@claude-code-plugins": true,
     "learning-output-style@claude-code-plugins": false
   },
+  "outputStyle": "Markdown Focused",
   "alwaysThinkingEnabled": true,
   "voice": {
     "enabled": true,
