@@ -14,6 +14,11 @@ plugins/
 data/
 file-history/
 plans/
+sessions/
+teams/
+.last-cleanup
+.last-update-result.json
+mcp-needs-auth-cache.json
 
 # Logs (tracked at repo root in dotfiles/logs/)
 logs/
