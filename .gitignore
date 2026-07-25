@@ -13,3 +13,6 @@ nvim/.config/nvim/lazy-lock.json
 
 # Runtime-generated fish state (contains hardcoded absolute paths)
 fish/.config/fish/fish_variables
+
+# Git worktrees created by parallel Claude sessions
+.worktrees/
