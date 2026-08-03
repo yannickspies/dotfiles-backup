@@ -103,28 +103,59 @@
                 "source": "Git"
             },
             {
+                "adjustIndistinguishableColors": "never",
+                "antialiasingMode": "grayscale",
                 "bellStyle": "none",
-                "colorScheme": "Catppuccin Mocha",
+                "colorScheme": "Catppuccin Mocha Deep",
                 "cursorShape": "bar",
-                "font": 
+                "font":
                 {
+                    "cellHeight": "1.25",
                     "face": "CommitMono, JetBrainsMono NFM",
                     "size": 13
                 },
                 "guid": "{4db4f205-9d09-59ca-9358-3c1c868e2700}",
                 "hidden": false,
                 "historySize": 10000,
+                "intenseTextStyle": "all",
                 "name": "yspies-dotfiles-ubuntu",
-                "opacity": 100,
-                "padding": "6, 4",
+                "opacity": 92,
+                "padding": "10, 6",
                 "source": "Microsoft.WSL",
                 "startingDirectory": "~",
-                "useAcrylic": false
+                "unfocusedAppearance":
+                {
+                    "opacity": 86
+                },
+                "useAcrylic": true
             }
         ]
     },
     "schemes":
     [
+        {
+            "background": "#11111B",
+            "black": "#45475A",
+            "blue": "#89B4FA",
+            "brightBlack": "#6C7086",
+            "brightBlue": "#A5C8FB",
+            "brightCyan": "#A6E9DD",
+            "brightGreen": "#B5E8B0",
+            "brightPurple": "#D5B8F8",
+            "brightRed": "#F5A0B8",
+            "brightWhite": "#CDD6F4",
+            "brightYellow": "#FAE8BE",
+            "cursorColor": "#F5E0DC",
+            "cyan": "#94E2D5",
+            "foreground": "#CDD6F4",
+            "green": "#A6E3A1",
+            "name": "Catppuccin Mocha Deep",
+            "purple": "#CBA6F7",
+            "red": "#F38BA8",
+            "selectionBackground": "#45475A",
+            "white": "#BAC2DE",
+            "yellow": "#F9E2AF"
+        },
         {
             "background": "#1E1E2E",
             "black": "#45475A",
@@ -149,9 +180,30 @@
             "yellow": "#F9E2AF"
         }
     ],
-    "theme": "Catppuccin Mocha",
+    "theme": "Catppuccin Mocha Deep",
     "themes":
     [
+        {
+            "name": "Catppuccin Mocha Deep",
+            "tab":
+            {
+                "background": "#11111BFF",
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "tabRow":
+            {
+                "background": "#0B0B11FF",
+                "unfocusedBackground": "#07070BFF"
+            },
+            "window":
+            {
+                "applicationTheme": "dark",
+                "frame": null,
+                "unfocusedFrame": null,
+                "useMica": false
+            }
+        },
         {
             "name": "Catppuccin Mocha",
             "tab":

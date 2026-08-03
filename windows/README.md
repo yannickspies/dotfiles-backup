@@ -28,10 +28,39 @@ via the WT UI, sync back with the copy in the other direction.
 
 **Catppuccin Mocha** everywhere, applied 2026-06-11:
 
-- Windows Terminal: `Catppuccin Mocha` color scheme + window/tab theme
-  (both embedded in settings.json, from catppuccin/windows-terminal)
+- Windows Terminal: `Catppuccin Mocha Deep` color scheme + window/tab theme
+  (both embedded in settings.json; derived from catppuccin/windows-terminal)
 - tmux: `catppuccin/tmux#v2.1.3` via TPM (`prefix + I` to install)
 - Neovim: `catppuccin/nvim` (flavour mocha) in both nvim configs
+
+### Catppuccin Mocha Deep (2026-07-27)
+
+A darker, higher-contrast variant tuned for code + Claude Code. Stock
+`Catppuccin Mocha` is kept in settings.json so it can be re-selected from
+the UI at any time.
+
+| Change | From | To | Why |
+|---|---|---|---|
+| `background` | `#1E1E2E` (Base) | `#11111B` (Crust) | Darker, still on-palette. Text contrast ~15:1 |
+| `brightBlack` | `#585B70` (Surface2) | `#6C7086` (Overlay0) | Dim/secondary text (Claude Code hints, comments, inactive tmux) was too dark to read |
+| `brightWhite` | `#A6ADC8` (Subtext0) | `#CDD6F4` (Text) | Upstream scheme has bright*darker* than normal white — inverted; fixed |
+| bright red/green/blue/yellow/cyan/purple | same as normal | lightened ~8% | Bright variants were literal duplicates, so bold/intense text carried no signal |
+| tab row | `#181825` / `#11111B` | `#0B0B11` / `#07070B` | Chrome recedes below the content |
+
+Readability/rendering settings on the WSL profile:
+
+| Setting | Value | Effect |
+|---|---|---|
+| `opacity` + `useAcrylic` | `92` + `true` | Subtle transparency. Acrylic **blurs** what's behind, so it stays readable — plain transparency at the same value does not |
+| `unfocusedAppearance.opacity` | `86` | Inactive split panes recede |
+| `font.cellHeight` | `1.25` | Extra line spacing for dense code |
+| `intenseTextStyle` | `all` | Bold text renders bold *and* bright |
+| `adjustIndistinguishableColors` | `never` | WT does not "helpfully" recolor and break palette fidelity |
+| `antialiasingMode` | `grayscale` | No ClearType color fringing on a near-black background |
+| `padding` | `10, 6` | Breathing room at the edges |
+
+> **Revert:** restore `LocalState/settings.json.bak-pre-mocha-deep`, or just
+> pick `Catppuccin Mocha` under Appearance in the WT settings UI.
 
 ## Fonts
 
