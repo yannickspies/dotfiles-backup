@@ -29,9 +29,16 @@ paste-cache/
 stats-cache.json
 tasks/
 telemetry/
+backups/
+
+# Background daemon + job queue (machine-local runtime)
+daemon/
+daemon.lock
+daemon.log
+daemon.status.json
+jobs/
 
 # Machine-specific overrides
-# Note: settings.local.json is tracked as a template,
-# but each machine should customize it locally
-# Uncomment below if you don't want to track it:
-# settings.local.json
+# settings.local.json is NOT tracked - it holds per-machine permission
+# grants and absolute paths. Create it by hand on each machine.
+settings.local.json
