@@ -1,5 +1,14 @@
 -- Tweaks for the InShared websites monorepo (~/projects/frontend/websites):
 -- Nunjucks templates, and 32 git worktrees that would pollute picker results.
+--
+-- Gated on the checkout being present so the jinja parser and the .njk prettier
+-- route are not installed on the personal box, which has neither.
+local host = require("config.host")
+
+if not host.is_work then
+  return {}
+end
+
 return {
   {
     "nvim-treesitter/nvim-treesitter",
