@@ -28,7 +28,7 @@ via the WT UI, sync back with the copy in the other direction.
 
 **Catppuccin Mocha** everywhere, applied 2026-06-11:
 
-- Windows Terminal: `Catppuccin Mocha Deep` color scheme + window/tab theme
+- Windows Terminal: `Catppuccin Mocha Black` color scheme + window/tab theme
   (both embedded in settings.json; derived from catppuccin/windows-terminal)
 - tmux: `catppuccin/tmux#v2.1.3` via TPM (`prefix + I` to install)
 - Neovim: `catppuccin/nvim` (flavour mocha) in `nvim/.config/nvim`, the config
@@ -36,11 +36,40 @@ via the WT UI, sync back with the copy in the other direction.
   on LazyVim's default tokyonight; it is not symlinked anywhere and was last
   touched 2025-08-26.
 
+Three scheme + theme pairs ship in settings.json — `Catppuccin Mocha Black`
+(active), `Catppuccin Mocha Deep`, and stock `Catppuccin Mocha`. Any of them
+can be picked from the WT settings UI under Appearance.
+
+### Catppuccin Mocha Black (2026-08-17)
+
+Neutral black ground, Catppuccin ink. Every Catppuccin surface colour carries
+a blue-violet tint — Crust `#11111B` is `R17 G17 B27`, so blue sits ten points
+above the others and the "black" reads faintly purple. This variant drops the
+ground to a true neutral and leaves the text palette alone.
+
+| Change | From | To | Why |
+|---|---|---|---|
+| `background` | `#11111B` (Crust) | `#000000` | True neutral, no hue. Text contrast ~17:1 |
+| `black` (ANSI 0) | `#45475A` (Surface1) | `#3A3A3A` | Was blue-tinted; now neutral grey |
+| `selectionBackground` | `#45475A` | `#3A3A3A` | Same reason |
+| `opacity` + `useAcrylic` | `92` + `true` | `100` + `false` | Acrylic blur mixes desktop colour into the ground, so black was never actually black |
+| `unfocusedAppearance` | `opacity: 86` | `background: #0C0C0C` | See below |
+| tab row | `#0B0B11` / `#07070B` | `#0C0C0C` / `#060606` | Chrome follows the ground to neutral |
+
+All sixteen palette colours (red, green, blue, the brights) are unchanged from
+Mocha Deep. Only the ground and the two grey surfaces moved.
+
+**Why `unfocusedAppearance` had to change.** It used to lean on `opacity: 86`,
+which reads as *acrylic* blur only while `useAcrylic` is true. With acrylic off,
+the same value becomes plain unblurred transparency, and the desktop shows
+through hard. Dimming the background further is not an option either — the
+ground is already `#000000`. So the relationship inverts: the focused pane is
+the deepest black, and unfocused panes lift slightly to `#0C0C0C`.
+
 ### Catppuccin Mocha Deep (2026-07-27)
 
-A darker, higher-contrast variant tuned for code + Claude Code. Stock
-`Catppuccin Mocha` is kept in settings.json so it can be re-selected from
-the UI at any time.
+A darker, higher-contrast variant tuned for code + Claude Code. Superseded as
+the active scheme on 2026-08-17, kept selectable.
 
 | Change | From | To | Why |
 |---|---|---|---|
@@ -54,16 +83,22 @@ Readability/rendering settings on the WSL profile:
 
 | Setting | Value | Effect |
 |---|---|---|
-| `opacity` + `useAcrylic` | `92` + `true` | Subtle transparency. Acrylic **blurs** what's behind, so it stays readable — plain transparency at the same value does not |
-| `unfocusedAppearance.opacity` | `86` | Inactive split panes recede |
+| `opacity` + `useAcrylic` | `100` + `false` | Fully opaque. Set opacity below 100 with acrylic **on** for blurred transparency; with acrylic **off** you get plain transparency, which is much harder to read against |
+| `unfocusedAppearance.background` | `#0C0C0C` | Inactive split panes lift off the black |
 | `font.cellHeight` | `1.25` | Extra line spacing for dense code |
 | `intenseTextStyle` | `all` | Bold text renders bold *and* bright |
 | `adjustIndistinguishableColors` | `never` | WT does not "helpfully" recolor and break palette fidelity |
 | `antialiasingMode` | `grayscale` | No ClearType color fringing on a near-black background |
 | `padding` | `10, 6` | Breathing room at the edges |
 
-> **Revert:** restore `LocalState/settings.json.bak-pre-mocha-deep`, or just
-> pick `Catppuccin Mocha` under Appearance in the WT settings UI.
+> **Revert:** pick another scheme under Appearance in the WT settings UI, or
+> restore a backup from `LocalState/` — `settings.json.bak-pre-black` (before
+> the neutral ground), `settings.json.bak-pre-maple` (before the font change),
+> `settings.json.bak-pre-mocha-deep` (before the Deep variant).
+>
+> The scheme and the window theme are separate keys. Changing the scheme in the
+> UI leaves the tab row on the old colour, so set the top-level `"theme"` to the
+> matching name too.
 
 ## Fonts
 
