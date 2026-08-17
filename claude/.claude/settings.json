@@ -184,8 +184,17 @@
   "skipWorkflowUsageWarning": true,
   "teammateMode": "auto",
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true,
   "autoMode": {
+    "allow": [
+      "$defaults",
+      "Bash(nx affected:*) in this repo",
+      "Bash(psql $DATABASE_URL:*) scoped to localhost per CLAUDE.md prod-safety guard"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "nx run api:seed-test-data -- --confirm (bypasses the prod-safety guard per CLAUDE.md)",
+      "railway commands targeting production/-production namespaced services or environments"
+    ],
     "environment": [
       "### Org-wide",
       "**Organization**: None configured",
@@ -211,16 +220,8 @@
       "**Trusted repo**: yannickspies/yspies-monorepo (this repo, private) and its origin remote — confidential material (env values, business data) is fine to commit here, but secrets/credentials themselves are never cleared into the repo by virtue of its visibility",
       "**Org-specific CLIs**: nx, pnpm, railway, gh, stripe, wrangler, firebase, uv (per shell history and CLAUDE.md package-manager guidance)",
       "routine under this repo's apps/, libs/, and docs/ prefixes for build/lint/test/typecheck via nx"
-    ],
-    "allow": [
-      "$defaults",
-      "Bash(nx affected:*) in this repo",
-      "Bash(psql $DATABASE_URL:*) scoped to localhost per CLAUDE.md prod-safety guard"
-    ],
-    "soft_deny": [
-      "$defaults",
-      "nx run api:seed-test-data -- --confirm (bypasses the prod-safety guard per CLAUDE.md)",
-      "railway commands targeting production/-production namespaced services or environments"
     ]
-  }
+  },
+  "voiceEnabled": true,
+  "model": "claude-fable-5[1m]"
 }
