@@ -173,8 +173,9 @@
     "code-review@claude-code-plugins": false,
     "learning-output-style@claude-code-plugins": false
   },
-  "outputStyle": "Decision First",
+  "outputStyle": "Plain English",
   "alwaysThinkingEnabled": true,
+  "effortLevel": "xhigh",
   "voice": {
     "enabled": true,
     "mode": "hold"
@@ -184,5 +185,42 @@
   "teammateMode": "auto",
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true,
-  "effortLevel": "xhigh"
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: Cloudflare (R2 storage, per .env.sample), Railway (deploy target, per railway CLI usage)",
+      "**Repository visibility**: private (yannickspies/yspies-monorepo, confirmed via gh)",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: env-based (.env, not committed); CI secrets referenced by name only: BACKUP_R2_ACCESS_KEY_ID, BACKUP_R2_SECRET_ACCESS_KEY, CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_API_KEY, CLOUDFLARE_BUCKET_NAME, R2_READ_ACCESS_KEY_ID, R2_READ_SECRET_ACCESS_KEY, RAILWAY_API_TOKEN, RAILWAY_SSH_PRIVATE_KEY, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID",
+      "**Default / protected branches**: default branch unknown (origin/HEAD unset); no protected branches listed and rulesets not queryable here — treat main as protected by convention",
+      "**CI/CD deploy targets**: Railway (railway CLI used 8× in-project, 25× in shell history; hosts hoewashet-frontend-production.up.railway.app, luisterlink-api-production.up.railway.app contacted)",
+      "**Network posture**: None configured",
+      "**Source control**: yannickspies/yspies-monorepo (this repo) and its origin remote (github.com:yannickspies/yspies-monorepo.git) only",
+      "**Trusted internal domains**: luisterlink.nl, api.luisterlink.nl (contacted 11× and 1× respectively in this project's transcripts)",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: Sentry (de.sentry.io, EU region — per .claude/skills/analyze-sentry-errors/SKILL.md, config-derived, not usage-corroborated) (config-derived — not a confirmed upload destination; uploads of local data still require confirmation)",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: .env, .env.production, .env.staging, .env.local, apps/life-assistant/.env, apps/life-assistant/.env.example — any file or store holding personal data, confidential business data, credentials, regulated data, or similarly sensitive material; preserve exact handles when known and share only with audiences cleared at the [named+specifics] bar",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment — includes hoewashet-frontend-production.up.railway.app, luisterlink-api-production.up.railway.app, and CLOUDFLARE_BUCKET_NAME's production values referenced via .env.production/.env.staging",
+      "**Protected deployment namespaces / environments**: Railway production environments (per hoewashet-frontend-production.up.railway.app, luisterlink-api-production.up.railway.app hosts contacted) — production DB guarded by seed script's localhost-only check plus explicit --confirm flag per CLAUDE.md",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (personal/hobby monorepo — Nx full-stack platform per CLAUDE.md)",
+      "**Trusted repo**: yannickspies/yspies-monorepo (this repo, private) and its origin remote — confidential material (env values, business data) is fine to commit here, but secrets/credentials themselves are never cleared into the repo by virtue of its visibility",
+      "**Org-specific CLIs**: nx, pnpm, railway, gh, stripe, wrangler, firebase, uv (per shell history and CLAUDE.md package-manager guidance)",
+      "routine under this repo's apps/, libs/, and docs/ prefixes for build/lint/test/typecheck via nx"
+    ],
+    "allow": [
+      "$defaults",
+      "Bash(nx affected:*) in this repo",
+      "Bash(psql $DATABASE_URL:*) scoped to localhost per CLAUDE.md prod-safety guard"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "nx run api:seed-test-data -- --confirm (bypasses the prod-safety guard per CLAUDE.md)",
+      "railway commands targeting production/-production namespaced services or environments"
+    ]
+  }
 }
