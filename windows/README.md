@@ -31,7 +31,10 @@ via the WT UI, sync back with the copy in the other direction.
 - Windows Terminal: `Catppuccin Mocha Deep` color scheme + window/tab theme
   (both embedded in settings.json; derived from catppuccin/windows-terminal)
 - tmux: `catppuccin/tmux#v2.1.3` via TPM (`prefix + I` to install)
-- Neovim: `catppuccin/nvim` (flavour mocha) in both nvim configs
+- Neovim: `catppuccin/nvim` (flavour mocha) in `nvim/.config/nvim`, the config
+  `~/.config/nvim` symlinks to. The dormant `~/wsl-dotfiles/nvim` copy is still
+  on LazyVim's default tokyonight; it is not symlinked anywhere and was last
+  touched 2025-08-26.
 
 ### Catppuccin Mocha Deep (2026-07-27)
 
@@ -64,11 +67,75 @@ Readability/rendering settings on the WSL profile:
 
 ## Fonts
 
-- Text: **CommitMono** (plain, no glyphs) — installed per-user
-- Icons/Nerd Font glyphs: **JetBrainsMono NFM** — installed per-user
-- Windows Terminal does per-glyph fallback via the comma list
-  `"face": "CommitMono, JetBrainsMono NFM"` (equivalent of wezterm's
-  `font_with_fallback`).
+**Maple Mono NF** v7.9, single face, applied 2026-08-17.
+
+One font draws both text and icons, so no fallback list is needed. It has
+ligatures (`liga` + `calt`) and Nerd Font glyphs built in, and `fc-query`
+reports `spacing=100` (strict monospace) — icons occupy exactly one cell,
+which is what keeps the tmux status bar and the Claude Code TUI aligned.
+
+```json
+"face": "Maple Mono NF",
+"features": { "calt": 1, "liga": 1 }
+```
+
+`features` pins the OpenType ligature tables on rather than relying on the
+renderer's default. Windows Terminal has supported `font.features` since 1.16.
+
+### Picking the release asset
+
+The maple-font release page carries ~60 assets whose names encode variants.
+Decode before downloading:
+
+| Marker | Meaning |
+|---|---|
+| `NL` | **N**o **L**igatures — avoid |
+| `NF` | Nerd Font glyphs included — want |
+| `CN` | Chinese subset, ~150 MB — skip |
+| `Normal` | Tamed letterforms (plainer `@`, `l`, `f`) |
+| `unhinted` | No hinting; hinted renders better on Windows at 13px |
+
+So the wanted asset is `MapleMono-NF.zip` (~20 MB). Checksums are published
+alongside as `MapleMono-NF.sha256` — verify before installing.
+
+### Installing per-user from WSL
+
+Fonts go in `%LOCALAPPDATA%\Microsoft\Windows\Fonts` **and** need a registry
+entry, or Windows will not see them. The value name must be
+`<Family> <Style> (TrueType)` and the data the full Windows path.
+
+```sh
+KEY="HKCU\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Fonts"
+for f in MapleMono-NF-*.ttf; do
+  fam=$(fc-query -f '%{family}' "$f" | cut -d, -f1)
+  sty=$(fc-query -f '%{style}'  "$f" | cut -d, -f1)
+  cp -f "$f" "/mnt/c/Users/yanni/AppData/Local/Microsoft/Windows/Fonts/$f"
+  reg.exe add "$KEY" /v "$fam $sty (TrueType)" /t REG_SZ \
+    /d "C:\\Users\\yanni\\AppData\\Local\\Microsoft\\Windows\\Fonts\\$f" /f </dev/null
+done
+```
+
+Two traps, both hit while doing this:
+
+- `fc-query` returns **two** comma-joined values for any weight outside
+  Regular/Italic/Bold/BoldItalic — the typographic name and the legacy one.
+  Registering the raw string produces junk like
+  `Maple Mono NF,Maple Mono NF Light Light,Regular`. `cut -d, -f1` takes the
+  typographic name, matching how JetBrainsMono NFM is registered.
+- `reg.exe` reads stdin, so inside a loop it swallows the remaining input and
+  the loop runs once. Redirect with `</dev/null`.
+
+### Previously
+
+CommitMono for text with JetBrainsMono NFM as a per-glyph fallback
+(`"face": "CommitMono, JetBrainsMono NFM"`). It worked, but CommitMono has no
+Nerd Font glyphs, so every icon was drawn by a second typeface. Both fonts are
+still installed and can be restored by putting that comma list back, or by
+restoring `LocalState/settings.json.bak-pre-maple`.
+
+Also still installed and ligature-capable: FiraCode NFM (widest ligature set),
+VictorMono NF (cursive italics), IntoneMono NF, Iosevka NF (`calt` only, no
+`liga` table).
 
 ## Paste redundancy (ported from the wezterm fix)
 

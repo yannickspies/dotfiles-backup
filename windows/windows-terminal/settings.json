@@ -111,7 +111,12 @@
                 "font":
                 {
                     "cellHeight": "1.25",
-                    "face": "CommitMono, JetBrainsMono NFM",
+                    "face": "Maple Mono NF",
+                    "features":
+                    {
+                        "calt": 1,
+                        "liga": 1
+                    },
                     "size": 13
                 },
                 "guid": "{4db4f205-9d09-59ca-9358-3c1c868e2700}",
