@@ -222,6 +222,5 @@
       "routine under this repo's apps/, libs/, and docs/ prefixes for build/lint/test/typecheck via nx"
     ]
   },
-  "voiceEnabled": true,
-  "model": "claude-fable-5[1m]"
+  "voiceEnabled": true
 }
