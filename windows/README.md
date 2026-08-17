@@ -28,7 +28,7 @@ via the WT UI, sync back with the copy in the other direction.
 
 **Catppuccin Mocha** everywhere, applied 2026-06-11:
 
-- Windows Terminal: `Catppuccin Mocha Black` color scheme + window/tab theme
+- Windows Terminal: `Catppuccin Mocha Neutral` color scheme + window/tab theme
   (both embedded in settings.json; derived from catppuccin/windows-terminal)
 - tmux: `catppuccin/tmux#v2.1.3` via TPM (`prefix + I` to install)
 - Neovim: `catppuccin/nvim` (flavour mocha) in `nvim/.config/nvim`, the config
@@ -36,35 +36,45 @@ via the WT UI, sync back with the copy in the other direction.
   on LazyVim's default tokyonight; it is not symlinked anywhere and was last
   touched 2025-08-26.
 
-Three scheme + theme pairs ship in settings.json — `Catppuccin Mocha Black`
+Three scheme + theme pairs ship in settings.json — `Catppuccin Mocha Neutral`
 (active), `Catppuccin Mocha Deep`, and stock `Catppuccin Mocha`. Any of them
 can be picked from the WT settings UI under Appearance.
 
-### Catppuccin Mocha Black (2026-08-17)
+### Catppuccin Mocha Neutral (2026-08-17)
 
-Neutral black ground, Catppuccin ink. Every Catppuccin surface colour carries
-a blue-violet tint — Crust `#11111B` is `R17 G17 B27`, so blue sits ten points
-above the others and the "black" reads faintly purple. This variant drops the
-ground to a true neutral and leaves the text palette alone.
+Untinted dark ground, Catppuccin ink, no transparency. Every Catppuccin surface
+colour carries a blue-violet tint — Crust `#11111B` is `R17 G17 B27`, so blue
+sits ten points above the other two and the "black" reads faintly purple. This
+variant takes the ground to a true neutral and leaves the text palette alone.
 
 | Change | From | To | Why |
 |---|---|---|---|
-| `background` | `#11111B` (Crust) | `#000000` | True neutral, no hue. Text contrast ~17:1 |
+| `background` | `#11111B` (Crust) | `#121212` | Neutral, no hue. Text contrast 13.0:1, same as Crust |
 | `black` (ANSI 0) | `#45475A` (Surface1) | `#3A3A3A` | Was blue-tinted; now neutral grey |
 | `selectionBackground` | `#45475A` | `#3A3A3A` | Same reason |
-| `opacity` + `useAcrylic` | `92` + `true` | `100` + `false` | Acrylic blur mixes desktop colour into the ground, so black was never actually black |
+| `opacity` + `useAcrylic` | `92` + `true` | `100` + `false` | Acrylic blur mixes desktop colour into the ground, so the background was never the colour it was set to |
 | `unfocusedAppearance` | `opacity: 86` | `background: #0C0C0C` | See below |
-| tab row | `#0B0B11` / `#07070B` | `#0C0C0C` / `#060606` | Chrome follows the ground to neutral |
+| tab row | `#0B0B11` / `#07070B` | `#0C0C0C` / `#080808` | Chrome follows the ground to neutral |
 
 All sixteen palette colours (red, green, blue, the brights) are unchanged from
 Mocha Deep. Only the ground and the two grey surfaces moved.
 
+**Why `#121212` and not `#000000`.** Pure black buys 14.5:1 against `#CDD6F4`
+text versus 13.0:1 here, and both are far past the 7:1 WCAG AAA bar, so the
+extra contrast is not doing useful work. It costs comfort: on an emissive panel
+maximum contrast drives halation, where light glyphs appear to bleed into an
+absolutely black ground. `#121212` is the value Material Design settled on for
+the same reason.
+
 **Why `unfocusedAppearance` had to change.** It used to lean on `opacity: 86`,
 which reads as *acrylic* blur only while `useAcrylic` is true. With acrylic off,
-the same value becomes plain unblurred transparency, and the desktop shows
-through hard. Dimming the background further is not an option either — the
-ground is already `#000000`. So the relationship inverts: the focused pane is
-the deepest black, and unfocused panes lift slightly to `#0C0C0C`.
+the same value becomes plain unblurred transparency and the desktop shows
+through hard. Because the ground is lifted rather than pure black, an inactive
+pane can now recede the conventional way — down to `#0C0C0C` — instead of
+having to lift above the focused one.
+
+Contrast figures above are computed with the WCAG relative-luminance formula
+against `#CDD6F4` (Catppuccin Text), measured 2026-08-17.
 
 ### Catppuccin Mocha Deep (2026-07-27)
 
@@ -73,18 +83,20 @@ the active scheme on 2026-08-17, kept selectable.
 
 | Change | From | To | Why |
 |---|---|---|---|
-| `background` | `#1E1E2E` (Base) | `#11111B` (Crust) | Darker, still on-palette. Text contrast ~15:1 |
+| `background` | `#1E1E2E` (Base) | `#11111B` (Crust) | Darker, still on-palette. Text contrast 13.0:1 |
 | `brightBlack` | `#585B70` (Surface2) | `#6C7086` (Overlay0) | Dim/secondary text (Claude Code hints, comments, inactive tmux) was too dark to read |
 | `brightWhite` | `#A6ADC8` (Subtext0) | `#CDD6F4` (Text) | Upstream scheme has bright*darker* than normal white — inverted; fixed |
 | bright red/green/blue/yellow/cyan/purple | same as normal | lightened ~8% | Bright variants were literal duplicates, so bold/intense text carried no signal |
 | tab row | `#181825` / `#11111B` | `#0B0B11` / `#07070B` | Chrome recedes below the content |
 
-Readability/rendering settings on the WSL profile:
+### Readability and rendering
+
+These sit on the WSL profile and apply whichever scheme is selected.
 
 | Setting | Value | Effect |
 |---|---|---|
 | `opacity` + `useAcrylic` | `100` + `false` | Fully opaque. Set opacity below 100 with acrylic **on** for blurred transparency; with acrylic **off** you get plain transparency, which is much harder to read against |
-| `unfocusedAppearance.background` | `#0C0C0C` | Inactive split panes lift off the black |
+| `unfocusedAppearance.background` | `#0C0C0C` | Inactive split panes recede below the `#121212` ground |
 | `font.cellHeight` | `1.25` | Extra line spacing for dense code |
 | `intenseTextStyle` | `all` | Bold text renders bold *and* bright |
 | `adjustIndistinguishableColors` | `never` | WT does not "helpfully" recolor and break palette fidelity |
