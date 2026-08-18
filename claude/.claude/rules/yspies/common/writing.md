@@ -26,7 +26,10 @@ whole point buys the same shortness for free.
 
 1. **Answer first.** The first two sentences state a full declarative claim that commits
    to something. Not a topic, not a question, not scope-setting. If the reader stops
-   there, they should have the conclusion.
+   there, they should have the conclusion. This is the one place documents and chat
+   differ on purpose: the `Plain English` output style puts the conclusion **last**,
+   because a terminal is read from the bottom. A document has a title and gets skimmed
+   top-down, so it leads.
 
 2. **Headers state findings, not topics.** `These were never competitors` beats
    `Competitive analysis`. A reader scanning only the headers should get the argument.
@@ -37,7 +40,7 @@ whole point buys the same shortness for free.
    construction.
 
 4. **Tables over prose** for anything enumerable — options, findings, comparisons, costs,
-   shot lists. Prose is for the argument only.
+   shot lists. Prose does the arguing, nothing else.
 
 5. **Decide.** Never present options without naming the winner. Both-sidesing is the
    single biggest length multiplier: a doc that commits is short, a doc that surveys is
@@ -78,6 +81,10 @@ A reader outside this codebase must be able to follow the argument without stopp
 - **Active voice.** "The webhook writes the row", not "the row is written by the webhook".
 - **Mechanism before consequence.** Say how the thing works, then why it matters. A
   reader who does not yet understand the mechanism cannot evaluate the consequence.
+- **No analogies.** Describe the thing itself. A metaphor asks the reader to map two
+  domains, which is more work than the plain description it replaced.
+- **One em dash per paragraph, never two in a sentence.** Dash chaining reads as one
+  long thought and hides where the clauses actually break.
 - **A table cell holds a fact, not a paragraph.** If the reasoning does not fit, it
   belongs in prose.
 
@@ -90,6 +97,10 @@ clauses even more readily; the same limits hold.
 `It is worth noting` · `It's important to remember` · `Importantly,` · `Notably,` ·
 `As we all know` · `At the end of the day` · `The fact of the matter is` ·
 `In today's <anything>` · `Let's dive in` · `Here's a summary of` · `Before we begin`
+
+**Model tics** — Opus reaches for these on its own; delete on sight:
+`load-bearing` · `worth stating plainly` · `here's the honest truth` ·
+`the real tension` · `carries the argument` · `You're absolutely right`
 
 **Weak openers** — no sentence starts with `It is`, `There is`, `There are`.
 (US Army AR 25-50 §1-37b(8); one of the few genuinely mechanical writing rules.)

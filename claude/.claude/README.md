@@ -97,12 +97,12 @@ Specialized agents for specific tasks:
 
 Response formatting options:
 
+- `plain-english.md` - Answer last, reference codes, no Opus tics (active)
 - `bullet-points.md` - Concise bullet format
 - `genui.md` - UI/UX-focused responses
 - `html-structured.md` - HTML-formatted output
 - `markdown-focused.md` - Rich markdown with tables
 - `table-based.md` - Data in tabular format
-- `tts-summary.md` - Audio-friendly summaries
 - `ultra-concise.md` - Minimal word responses
 - `yaml-structured.md` - YAML configuration format
 
