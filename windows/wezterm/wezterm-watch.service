@@ -1,0 +1,11 @@
+[Unit]
+Description=Mirror dotfiles wezterm.lua to the Windows home so WezTerm hot-reloads
+
+[Service]
+Type=simple
+ExecStart=%h/dotfiles/windows/wezterm/wezterm-watch.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

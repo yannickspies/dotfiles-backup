@@ -6,6 +6,7 @@
   "permissions": {
     "defaultMode": "auto"
   },
+  "model": "fable",
   "skillOverrides": {
     "agent-architecture-audit": "off",
     "agent-eval": "off",

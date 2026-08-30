@@ -7,13 +7,22 @@ It lives on NTFS, so GNU Stow can't symlink it — apply by copying.
 
 | Terminal | Role | Live config location (Windows) |
 |----------|------|--------------------------------|
-| **Windows Terminal** | Primary (only maintained terminal) | `%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json` |
-| WezTerm | **Retired** (clipboard paste broke into the WSL pty) | `wezterm/wezterm.lua.retired` kept for reference — its comments document the paste diagnosis |
+| **Windows Terminal** | Primary, fallback during the WezTerm trial | `%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json` |
+| WezTerm (nightly) | **Trial** since 2026-08-29 — see [WezTerm trial](#wezterm-trial) | `%USERPROFILE%\.wezterm.lua`, mirrored from `wezterm/wezterm.lua` |
 | Alacritty | **Dropped** (no double maintenance) | a working WSL config may still sit at `%APPDATA%\alacritty\alacritty.toml`, but it is not tracked here |
 
-Ghostty and kitty were considered but have no Windows builds.
+Ghostty and kitty have no Windows builds (Ghostty: no ETA as of 2026-08). Rio,
+Contour, Alacritty, Warp and the Electron terminals were researched on 2026-08-29
+and lost to WezTerm; Alacritty has no ligatures (alacritty#50), Rio doubles pasted
+newlines into WSL (rio#1669).
 
-## Apply (from WSL)
+No Windows-native terminal can load its config from inside WSL: reads over
+`\\wsl.localhost` work, but change notifications never arrive (microsoft/WSL#7674)
+and the path vanishes when the VM is stopped. So every terminal here is installed by
+copying from this repo. The gain WezTerm brings is that it never rewrites its own
+config, so the copy is one-way.
+
+## Apply Windows Terminal (from WSL)
 
 ```sh
 cp windows/windows-terminal/settings.json \
@@ -23,6 +32,70 @@ cp windows/windows-terminal/settings.json \
 Note: Windows Terminal rewrites/normalizes its settings.json on load
 (reorders keys, renames some to canonical form). After changing settings
 via the WT UI, sync back with the copy in the other direction.
+
+## WezTerm trial
+
+Started 2026-08-29. WezTerm won the 2026-08 research because it is the only
+Windows-native terminal where ligatures, Nerd glyphs, tabs, Claude Code Shift+Enter
+(no setup; `TERM_PROGRAM=WezTerm` is on Claude Code's allow-list) and WSL as a
+first-class domain all work together. Its known cost is paste into WSL, so the trial
+starts with a paste test.
+
+Install WezTerm on Windows (stable is still 20240203; nightly is the real channel):
+
+```powershell
+winget install wez.wezterm.nightly
+```
+
+Then from WSL:
+
+```sh
+~/dotfiles/windows/wezterm/apply.sh
+```
+
+`apply.sh` copies `wezterm/wezterm.lua` to `%USERPROFILE%\.wezterm.lua` and enables
+`wezterm-watch.service`, a systemd user unit that re-copies the file within 2 s of
+every save. WezTerm watches the local copy and hot-reloads. The repo file is the
+only one to edit; WezTerm never writes its config back.
+
+| File | Role |
+|---|---|
+| `wezterm/wezterm.lua` | The config. Mirrors the WT profile (font, palette, padding, chords) |
+| `wezterm/apply.sh` | One-shot install; idempotent |
+| `wezterm/wezterm-watch.sh` + `.service` | Poll-and-copy mirror, runs under `systemctl --user` |
+| `wezterm/wezterm-paths.sh` | Resolves the Windows home via `cmd.exe`; `WEZTERM_WIN_HOME` overrides |
+
+Settings that differ from the obvious, and why:
+
+| Setting | Value | Why |
+|---|---|---|
+| `enable_kitty_keyboard` | `false` | On Win11 it makes every Shift+char emit garbage (wezterm#6900, reconfirmed 2026-08-15). Claude Code does not need it here |
+| `front_end` | `OpenGL` | WebGpu aborts on config reload in long-lived windows (wezterm#7981); the watcher reloads on every save |
+| `default_domain` | `WSL:Ubuntu-24.04` | A WSL domain, not `wsl.exe` as a program, so new tabs open in the WSL home |
+| Ctrl+C | copy if selection, else `^C` | Same behaviour as the WT `copy` action |
+
+### Day-one paste test
+
+Inside tmux, in a Claude Code prompt, via **each** of Ctrl+Shift+V, Shift+Insert and
+right-click:
+
+1. `~/dotfiles` — must not arrive as `^^/dotfiles` (wezterm#7921, open, nightly 20260705)
+2. a three-line block — no doubled blank lines
+3. a Nerd Font glyph or `é` — no mangling
+
+Any failure ends the trial: Rio was the runner-up. Windows Terminal stays installed
+and configured throughout.
+
+### Shift+Enter in Claude Code (both terminals)
+
+Stable Windows Terminal 1.24 has no kitty keyboard protocol (Preview 1.25 only), and
+Claude Code's Shift+Enter is broken there despite the docs (anthropics/claude-code#77311).
+`settings.json` therefore binds `shift+enter` to `sendInput "\u001b[13;2u"`, the CSI-u
+encoding Claude Code understands. Side effect: Shift+Enter in PowerShell/PSReadLine
+now sends that sequence instead of a newline.
+
+Inside tmux, both terminals also need `set -s extended-keys on` and
+`set -as terminal-features 'xterm*:extkeys'`, added to `.tmux.conf` on 2026-08-29.
 
 ## Theme
 
@@ -184,8 +257,8 @@ Also still installed and ligature-capable: FiraCode NFM (widest ligature set),
 VictorMono NF (cursive italics), IntoneMono NF, Iosevka NF (`calt` only, no
 `liga` table).
 
-## Paste redundancy (ported from the wezterm fix)
+## Paste redundancy (both terminals)
 
 Three paste triggers so a single shadowed hotkey can never lock you out
 again: `Ctrl+V` / `Ctrl+Shift+V`, `Shift+Insert`, and right-click
-(WT default mouse behavior).
+(WT default mouse behavior; explicit bindings in `wezterm.lua`).
