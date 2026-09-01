@@ -1,6 +1,5 @@
 claude/.claude/.credentials.json
 claude/.claude/backups/
-claude/.claude/hooks/utils/tts/__pycache__/
 
 # Hook session logs (runtime-generated)
 logs/
@@ -13,3 +12,6 @@ fish/.config/fish/fish_variables
 
 # Git worktrees created by parallel Claude sessions
 .worktrees/
+
+# Python bytecode
+__pycache__/
