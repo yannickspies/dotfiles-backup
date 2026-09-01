@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash, Read, Edit, Write, Glob, Grep, TodoWrite
+allowed-tools: Bash, Read, Edit, Write, Glob, Grep
 description: Build the app and automatically fix any errors that occur
 ---
 
@@ -30,7 +30,7 @@ Detect and run the project's build command, then fix any errors that occur.
    - Continue until the build succeeds or you cannot fix the remaining errors
 
 ## Requirements
-- Use TodoWrite to track all errors and fixes
+- Keep a running list of errors and fixes in your reply
 - Be thorough in analyzing error messages
 - Test the build after making fixes
 - If you cannot fix an error, explain why and ask the user for guidance

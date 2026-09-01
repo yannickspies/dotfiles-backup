@@ -1,7 +1,7 @@
 ---
 name: component-harvest-auditor
 description: UI layer + design-system specialist. Use proactively to find direct primeng/* imports in apps (forbidden), hardcoded CSS values that should use design tokens, wrapper-thickness issues, and UI patterns repeated across apps that should be extracted to @yspies/ui. Auto-applies token swaps and primeng→@yspies/ui import rewrites where unambiguous, flags component-extraction calls.
-tools: Read, Grep, Glob, Edit, MultiEdit, Write, Bash, TaskCreate, TaskUpdate, TaskList
+tools: Read, Grep, Glob, Edit, Write, Bash
 color: pink
 model: opus
 ---
@@ -26,7 +26,7 @@ Your job is to enforce these rules across every Angular app under `apps/*` (disc
 - **`@import '...';` of a missing leading underscore** when the file is named `_foo.less` (LESS quirk: no auto partial resolution).
 - **Trivial size-variant renames** (`size="normal"` → `size="md"`, `size="large"` → `size="lg"`, `size="xlarge"` → `size="lg"`) — but ONLY for `@yspies/ui` wrapper components. Don't touch PrimeNG components directly.
 
-### Flag as JUDGMENT-CALL (TaskCreate, do NOT edit):
+### Flag as JUDGMENT-CALL (report only, do NOT edit):
 - **Hardcoded values with NO matching token** — flag with a suggested token name and where to add it (`libs/ui/tokens/src/lib/tokens.less`).
 - **Patterns repeated in 2+ apps** that should be extracted to `@yspies/ui` (e.g. an auth layout, a feedback dialog). Always a judgment call — new components touch the design system.
 - **Wrapper-thickness issues:** a `@yspies/ui` component that's a near-direct re-export of PrimeNG (too thin — consider removing the wrapper) OR one that has 200 lines of custom logic (too thick — consider splitting).
@@ -68,7 +68,7 @@ You must follow these steps:
 
 ## Output contract
 
-TaskList items include:
+Each judgment-call entry in the report includes:
 - `subject`: e.g. `harvest SAFE-FIX: rewrote 7 primeng imports → @yspies/ui in luisterlink` OR `harvest JUDGMENT-CALL: extract <ll-auth-card> shared between login/register/reset-password`
 - `description`: file:line refs, the rule cited, the recommended action.
 - `metadata.risk`: `"safe-fix"` or `"judgment-call"`.

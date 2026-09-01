@@ -58,12 +58,10 @@ Use **only** the native primitives (do not invent CLI verbs):
 
 - **spawn** — launch each teammate with the `Agent` tool, passing a `name:` so it
   becomes addressable; with `teammateMode: auto` it lands in its own tmux pane.
-  Seed shared work with `TaskCreate` so teammates can claim/complete tasks.
-- **monitor** — glance at each pane; check `TaskList` and the team `inboxes/` for
-  progress and messages.
+- **monitor** — glance at each pane; `ListAgents` shows who is still running.
 - **steer** — redirect or abort a teammate mid-flight with `SendMessage` (by name).
   This is the whole reason to use `/fleet` — use it the moment a pane drifts.
-- **teardown** — when a teammate's unit is done, have it mark its task complete and
+- **teardown** — when a teammate's unit is done, have it report back and
   return; close its pane. End the team when the last unit lands.
 
 ## Step 4 — verify & synthesize

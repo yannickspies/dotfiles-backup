@@ -39,9 +39,10 @@ Parse the task text above:
   expensive to unwind). Only the **plan + verify** stages run on Fable — workers
   never do.
 
-> **Billing:** Fable is included in the Max weekly limit (≤50%) through
-> **2026-07-12**, then draws **usage credits**. It burns ~2x faster than Opus.
-> Escalate deliberately; never route workers to Fable.
+> **Billing:** Fable is included in the Max plan only while Anthropic says so;
+> check the current terms before relying on it. Beyond that it draws usage
+> credits at roughly 2x the Opus burn. Escalate deliberately; never route
+> workers to Fable, and never make it the session default.
 
 Strip the `--fable` token from the task before decomposing. State which tier you
 chose and why in one line before starting.

@@ -1,22 +1,27 @@
 ---
 allowed-tools: Bash(git add:*), Bash(git status:*), Bash(git diff:*), Bash(git log:*), Bash(git commit:*)
-description: Create a concise git commit with staged and unstaged changes
+argument-hint: [files to stage; empty = the files this task touched]
+description: Commit only the files that belong to the current task, with a conventional-commit message
 ---
 
 ## Context
-- Current git status: !`git status --short`
-- Changes to commit: !`git diff HEAD`
-- Recent commits for style reference: !`git log --oneline -5`
+- Working tree: !`git status --short`
+- Tracked changes: !`git diff HEAD --stat`
+- Recent commits for style: !`git log --oneline -5`
+- Files named by the user: $ARGUMENTS
 
 ## Task
-Create a single git commit with ALL changes (both staged and unstaged).
 
-Requirements:
-- Write a concise, descriptive commit message (max 50 chars for subject line)
-- Focus on WHAT changed and WHY, not HOW
-- Use imperative mood ("fix" not "fixed" or "fixes")
-- Stage all modified files and commit them
+Commit ONLY the files that belong to the current task.
 
-Commit message format:
-- Subject line: brief summary (imperative, lowercase, no period)
-- If needed, blank line then 1-2 lines of context
+1. If the user named files above, stage exactly those.
+2. Otherwise stage the files this session changed for the task at hand. List them
+   back in one line before committing.
+3. If the tree holds modified or untracked files you did not touch, leave them alone
+   and say so in one line. Never `git add -A`, `git add .`, or `git commit -a`.
+4. One commit per task. Message format:
+   - Subject: `<type>: <summary>` — imperative, lowercase, no period, at most 72 chars.
+     Types: feat, fix, refactor, docs, test, chore, perf, ci. Add a scope when it
+     helps: `feat(api): …`.
+   - Body (optional): what changed and why, not how. Lines at most 100 chars.
+5. Finish with `git log -1 --stat` so the result is visible.

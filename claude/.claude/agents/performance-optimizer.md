@@ -161,7 +161,7 @@ du -sh node_modules/* | sort -hr | head -20
 |-------|----------|
 | Large vendor bundle | Tree shaking, smaller alternatives |
 | Duplicate code | Extract to shared module |
-| Unused exports | Remove dead code with knip |
+| Unused exports | Remove dead code with `pnpm dlx knip` |
 | Moment.js | Use date-fns or dayjs (smaller) |
 | Lodash | Use lodash-es or native methods |
 | Large icons library | Import only needed icons |
