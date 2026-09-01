@@ -6,160 +6,15 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "fable",
-  "skillOverrides": {
-    "agent-architecture-audit": "off",
-    "agent-eval": "off",
-    "agent-harness-construction": "off",
-    "agent-introspection-debugging": "off",
-    "agentic-engineering": "off",
-    "agentic-os": "off",
-    "ai-first-engineering": "off",
-    "ai-regression-testing": "off",
-    "angular-developer": "off",
-    "api-design": "off",
-    "architecture-decision-records": "off",
-    "article-writing": "off",
-    "autonomous-agent-harness": "off",
-    "autonomous-loops": "off",
-    "backend-patterns": "off",
-    "brand-voice": "off",
-    "browser-qa": "off",
-    "code-tour": "off",
-    "codebase-onboarding": "off",
-    "coding-standards": "off",
-    "configure-ecc": "off",
-    "content-engine": "off",
-    "context-budget": "off",
-    "continuous-agent-loop": "off",
-    "continuous-learning-v2": "off",
-    "cost-aware-llm-pipeline": "off",
-    "cost-tracking": "off",
-    "crosspost": "off",
-    "database-migrations": "off",
-    "deployment-patterns": "off",
-    "design-system": "off",
-    "docker-patterns": "off",
-    "e2e-testing": "off",
-    "ecc-guide": "off",
-    "ecc-tools-cost-audit": "off",
-    "error-handling": "off",
-    "eval-harness": "off",
-    "exa-search": "off",
-    "frontend-design-direction": "off",
-    "frontend-patterns": "off",
-    "frontend-slides": "off",
-    "git-workflow": "off",
-    "github-ops": "off",
-    "hexagonal-architecture": "off",
-    "hookify-rules": "off",
-    "iterative-retrieval": "off",
-    "knowledge-ops": "off",
-    "liquid-glass-design": "off",
-    "make-interfaces-feel-better": "off",
-    "plankton-code-quality": "off",
-    "pr-summary-dutch": "off",
-    "production-audit": "off",
-    "prompt-optimizer": "off",
-    "python-patterns": "off",
-    "python-testing": "off",
-    "repo-scan": "off",
-    "research-ops": "off",
-    "rules-distill": "off",
-    "safety-guard": "off",
-    "search-first": "off",
-    "security-bounty-hunter": "off",
-    "security-review": "off",
-    "security-scan": "off",
-    "skill-comply": "off",
-    "skill-scout": "off",
-    "skill-stocktake": "off",
-    "strategic-compact": "off",
-    "tdd-workflow": "off",
-    "team-builder": "off",
-    "token-budget-advisor": "off",
-    "verification-loop": "off",
-    "workspace-surface-audit": "off"
-  },
   "hooks": {
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "uv run ~/.claude/hooks/user_prompt_submit.py --log-only"
-          }
-        ]
-      }
-    ],
     "PreToolUse": [
       {
-        "matcher": "*",
+        "matcher": "Bash",
         "hooks": [
           {
             "type": "command",
-            "command": "uv run ~/.claude/hooks/pre_tool_use.py"
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "uv run ~/.claude/hooks/post_tool_use.py"
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "uv run ~/.claude/hooks/notification.py"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "uv run ~/.claude/hooks/stop.py"
-          }
-        ]
-      }
-    ],
-    "SubagentStop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "uv run ~/.claude/hooks/subagent_stop.py"
-          }
-        ]
-      }
-    ],
-    "PreCompact": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "uv run ~/.claude/hooks/pre_compact.py"
-          }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "uv run ~/.claude/hooks/session_start.py"
+            "command": "uv run --quiet --script ~/.claude/hooks/pre_tool_use.py",
+            "timeout": 10
           }
         ]
       }
@@ -167,7 +22,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "uv run ~/.claude/hooks/cost_statusline.py",
+    "command": "uv run --quiet --script ~/.claude/hooks/statusline.py",
     "padding": 0
   },
   "enabledPlugins": {
@@ -176,7 +31,6 @@
   },
   "outputStyle": "Plain English",
   "alwaysThinkingEnabled": true,
-  "effortLevel": "xhigh",
   "voice": {
     "enabled": true,
     "mode": "hold"
@@ -199,11 +53,11 @@
     "environment": [
       "### Org-wide",
       "**Organization**: None configured",
-      "**Cloud provider(s)**: Cloudflare (R2 storage, per .env.sample), Railway (deploy target, per railway CLI usage)",
+      "**Cloud provider(s)**: Cloudflare (R2 storage), Railway (deploy target, per railway CLI usage)",
       "**Repository visibility**: private (yannickspies/yspies-monorepo, confirmed via gh)",
       "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
       "**Secrets management**: env-based (.env, not committed); CI secrets referenced by name only: BACKUP_R2_ACCESS_KEY_ID, BACKUP_R2_SECRET_ACCESS_KEY, CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_API_KEY, CLOUDFLARE_BUCKET_NAME, R2_READ_ACCESS_KEY_ID, R2_READ_SECRET_ACCESS_KEY, RAILWAY_API_TOKEN, RAILWAY_SSH_PRIVATE_KEY, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID",
-      "**Default / protected branches**: default branch unknown (origin/HEAD unset); no protected branches listed and rulesets not queryable here — treat main as protected by convention",
+      "**Default / protected branches**: main (origin/HEAD → main); no protected branches listed — treat main as protected by convention",
       "**CI/CD deploy targets**: Railway (railway CLI used 8× in-project, 25× in shell history; hosts hoewashet-frontend-production.up.railway.app, luisterlink-api-production.up.railway.app contacted)",
       "**Network posture**: None configured",
       "**Source control**: yannickspies/yspies-monorepo (this repo) and its origin remote (github.com:yannickspies/yspies-monorepo.git) only",
