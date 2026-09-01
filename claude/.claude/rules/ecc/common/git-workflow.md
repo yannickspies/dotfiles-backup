@@ -9,6 +9,10 @@
 
 Types: feat, fix, refactor, docs, test, chore, perf, ci
 
+Subject: imperative, lowercase, no period, at most 72 chars. Body lines at most
+100 chars (the monorepo's commitlint enforces this). Stage only the files that
+belong to the change; never `git add -A` in a shared tree.
+
 Note: Attribution disabled globally via ~/.claude/settings.json.
 
 ## Pull Request Workflow
@@ -20,5 +24,3 @@ When creating PRs:
 4. Include test plan with TODOs
 5. Push with `-u` flag if new branch
 
-> For the full development process (planning, TDD, code review) before git operations,
-> see [development-workflow.md](./development-workflow.md).

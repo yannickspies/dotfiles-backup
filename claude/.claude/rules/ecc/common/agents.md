@@ -19,27 +19,19 @@ Located in `~/.claude/agents/`:
 | type-design-analyzer | Type design & invariants | Reviewing type/model design |
 | pr-test-analyzer | PR test-coverage quality | Assessing tests on a change |
 | code-simplifier | Clarity/consistency refactor | Simplifying recently-changed code |
-| refactor-cleaner | Dead-code cleanup (knip/ts-prune) | Removing unused code |
+| refactor-cleaner | Dead-code cleanup (`pnpm dlx knip`) | Removing unused code |
 | build-error-resolver | Fix build/type errors (minimal diff) | When build fails |
 | e2e-runner | E2E testing (Playwright) | Critical user flows |
 | performance-optimizer | Perf profiling & optimization | Bottlenecks, bundle size |
 | code-explorer | Read-only codebase tracing | Understanding an existing feature |
 | doc-updater | Docs & codemaps | Updating documentation |
-| docs-lookup | Library/API docs via Context7 | "How do I use X" questions |
 | component-harvest-auditor | @yspies/ui + design-token audit | Monorepo UI/token compliance |
 | monorepo-health-auditor | Cross-cutting duplication / boundary audit | Monorepo consolidation checks |
 | harness-optimizer | Improve local agent-harness config | Tuning agents/hooks/settings |
 | meta-agent | Generate a new sub-agent config | Creating a new agent |
 | conversation-analyzer | Find hook-worthy behaviors in transcripts | /hookify |
+| luisterlink-growth-strategist | Dutch DTC growth & marketing strategy for Luisterlink | Channel research, campaign blueprints (`/plan-campaign`) |
 | chief-of-staff | Multi-channel comms triage | Gmail wired; Slack/LINE/Messenger aspirational — see note |
-
-## Immediate Agent Usage
-
-No user prompt needed:
-1. Complex feature requests - Use **planner** agent
-2. Code just written/modified - Use **code-reviewer** agent
-3. Bug fix or new feature - Use **tdd-guide** agent
-4. Architectural decision - Use **architect** agent
 
 ## Parallel Task Execution
 

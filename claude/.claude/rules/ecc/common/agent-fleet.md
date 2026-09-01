@@ -38,9 +38,9 @@ provides:
 | Verb | Headless (`Workflow`) | Visible (agent-teams) |
 |---|---|---|
 | **spawn** | `agent()` / `pipeline()` / `parallel()` | `Agent` tool with a `name:` → lands in a tmux pane |
-| **monitor** | `/workflows` progress tree; journal | Read the teammate's pane; check `inboxes/` + `TaskList` |
+| **monitor** | `/workflows` progress tree; journal | Read the teammate's pane; `ListAgents` shows who is still running |
 | **steer** | abort/retry; dispatch a follow-up round | `SendMessage` to the teammate (redirect or abort) |
-| **teardown** | run ends; results returned | close the pane / end the team; mark tasks done |
+| **teardown** | run ends; results returned | close the pane / end the team once it has reported back |
 
 ## Read-to-decide (structured verdicts, not prose)
 

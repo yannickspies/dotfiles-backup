@@ -12,10 +12,10 @@ and cheap workers execute.
   hard-problem reasoning, final verification
 - Long-horizon autonomous runs that plan across stages
 - Run at `high` / `xhigh` effort
-- **Billing:** under the current terms it's included in the Max weekly limit for
-  ≤50% of it; beyond that it draws **usage credits** (pay-as-you-go). Check the
-  current Fable billing terms before relying on inclusion. Invoke
-  deliberately via `/orchestrate --fable`, not for routine turns.
+- **Billing:** included in the Max plan only while Anthropic says so; check the
+  current terms before relying on it. Beyond that it draws usage credits at
+  roughly 2x the Opus burn. Reach it with `/orchestrate --fable` or `/model fable`;
+  `settings.json` carries no `model` key on purpose, so it is never the default.
 
 **Opus 4.8** (free frontier — 1M context, on the subscription):
 - Default orchestrator when a task doesn't clear the "super high value" bar
@@ -54,19 +54,9 @@ Lower context sensitivity tasks:
 
 ## Extended Thinking + Plan Mode
 
-Extended thinking is enabled by default, reserving up to 31,999 tokens for internal reasoning.
-
-Control extended thinking via:
-- **Toggle**: Option+T (macOS) / Alt+T (Windows/Linux)
-- **Config**: Set `alwaysThinkingEnabled` in `~/.claude/settings.json`
-- **Budget cap**: `export MAX_THINKING_TOKENS=10000`
-- **Verbose mode**: Ctrl+O to see thinking output
-
-For complex tasks requiring deep reasoning:
-1. Ensure extended thinking is enabled (on by default)
-2. Enable **Plan Mode** for structured approach
-3. Use multiple critique rounds for thorough analysis
-4. Use split role sub-agents for diverse perspectives
+Extended thinking is on by default (`alwaysThinkingEnabled` in `~/.claude/settings.json`).
+For complex tasks: use Plan Mode, run more than one critique round, and use
+split-role sub-agents for diverse perspectives.
 
 ## Build Troubleshooting
 
