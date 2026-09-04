@@ -18,51 +18,6 @@
           }
         ]
       }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "uv run --quiet --script ~/.claude/hooks/notify.py",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "uv run --quiet --script ~/.claude/hooks/notify.py",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "SubagentStop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "uv run --quiet --script ~/.claude/hooks/notify.py",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "matcher": "agent_completed|agent_needs_input|permission_prompt|elicitation_dialog",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "uv run --quiet --script ~/.claude/hooks/notify.py",
-            "timeout": 10
-          }
-        ]
-      }
     ]
   },
   "statusLine": {
