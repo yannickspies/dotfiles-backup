@@ -40,10 +40,24 @@ For big/ambiguous/multi-file work, run the **manager-model pattern** via
 parallel; `--fable` escalates the plan/verify tier). See `performance.md` →
 Model Selection Strategy.
 
-Two surfaces, by how much you need to watch (see `agent-fleet.md`):
-- **`/orchestrate`** — *headless* fan-out; you get the result, no mid-flight glance.
-- **`/fleet`** — *visible/steerable* agent-team in tmux panes; watch and redirect
-  long-running or high-blast-radius work as it goes.
+## Teammates in tmux panes never exit on their own
+
+With `teammateMode: auto`, an `Agent` call that passes `name:` spawns a persistent
+teammate in its own tmux pane. It finishes its turn, sends you its report, and then
+idles at a prompt, holding its process and MCP servers, until it is told to stop.
+Nothing else closes that pane.
+
+- Prefer an unnamed `Agent` call (in-process subagent, exits when done) unless you
+  need to message the worker mid-flight.
+- Once a teammate's report is verified, shut it down:
+  `SendMessage({to: "<name>", message: {type: "shutdown_request", reason: "done"}})`.
+  The teammate approves, its process exits and the pane closes.
+- Never end a multi-agent job with teammates alive. Shut down every remaining one
+  before the final report.
+- Safety net only: the `Stop` hook `hooks/teammate_reaper.py` kills panes of
+  teammates idle for more than 10 minutes. Do not rely on it for the happy path.
+- A teammate executes one scoped unit and reports back. It must not spawn its own
+  team or run `/orchestrate`. Only the lead decomposes and delegates.
 
 ALWAYS use parallel Task execution for independent operations:
 

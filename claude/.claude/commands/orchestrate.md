@@ -22,11 +22,6 @@ Big, ambiguous, or multi-file work that decomposes into independent units —
 audits, migrations, broad refactors, "do X across the whole app", research
 sweeps. **Not** one-liners or single-file edits; for those, just work directly.
 
-> **Headless vs visible:** `/orchestrate` runs *headless* background workers — you
-> get the result, not a mid-flight glance. For long-running or high-blast-radius
-> work you want to *watch and steer*, use **`/fleet`** (visible agent-team in tmux
-> panes) instead. See `rules/ecc/common/agent-fleet.md`.
-
 ## Step 1 — pick the orchestrator tier
 
 Parse the task text above:
@@ -73,8 +68,8 @@ Rules:
 - Use `schema` on any stage whose result you branch on, so you get structured
   output instead of parsing prose.
 - **Worker-role safety:** a worker executes one scoped unit and returns — it must
-  not recursively `/orchestrate` or spawn its own fleet. Only the orchestrator
-  decomposes and delegates (see `rules/ecc/common/agent-fleet.md`).
+  not recursively `/orchestrate` or spawn its own team. Only the orchestrator
+  decomposes and delegates (see `rules/ecc/common/agents.md`).
 
 ### Skeleton
 

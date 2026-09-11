@@ -34,10 +34,8 @@ and cheap workers execute.
 - **Fan-out** — parallel independent tasks (worktree isolation when they mutate files)
 - **Pipeline** — sequential stages with handoffs (the default)
 - **Verify-loop** — a frontier verifier checks worker output against the original spec
-- **Observability tier** — choose *headless* (`/orchestrate`, `Workflow`) when you
-  only need the result, vs *visible/steerable* (`/fleet`, agent-teams in tmux panes)
-  when blast radius is high and you want to catch a wrong turn mid-flight. See
-  `agent-fleet.md`.
+- **Teammates** (named `Agent` calls in tmux panes) only when you must message a
+  worker mid-flight, and always shut them down afterwards. See `agents.md`.
 
 ## Context Window Management
 

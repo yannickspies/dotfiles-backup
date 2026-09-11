@@ -38,12 +38,12 @@ Three different shapes of "run agents in parallel" — they don't compete, they 
 | Tool | Sessions | Visibility | Use when |
 |---|---|---|---|
 | **`Workflow`** (`/orchestrate`) | 1 session, many *background* agents | progress tree, no mid-step glance | decomposable fan-out where you only need the result |
-| **agent-teams** (`/fleet`) | 1 session, visible *teammates* in tmux panes | live pane per teammate, steer via `SendMessage` | ambiguous / high-blast-radius work you want to watch |
+| **agent-teams** (named `Agent` calls) | 1 session, visible *teammates* in tmux panes | live pane per teammate, steer via `SendMessage`, shut down with a `shutdown_request` when done | work where you must redirect a worker mid-flight |
 | **`ccw`** | **many** independent CLI sessions, one per worktree | full terminal each; you drive them | you personally want to hack on 2–3 branches at once, or babysit long autonomous runs side by side |
 
-Rule of thumb: `Workflow`/`/fleet` parallelize *within* one Claude session; `ccw`
-parallelizes *across* sessions that you own. See
-`rules/ecc/common/agent-fleet.md` for the in-session surfaces.
+Rule of thumb: `Workflow` and agent-teams parallelize *within* one Claude session;
+`ccw` parallelizes *across* sessions that you own. See
+`rules/ecc/common/agents.md` for the in-session surfaces.
 
 ## Typical flow
 

@@ -18,6 +18,17 @@
           }
         ]
       }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run --quiet --script ~/.claude/hooks/teammate_reaper.py",
+            "timeout": 15
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
