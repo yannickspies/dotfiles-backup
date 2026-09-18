@@ -13,5 +13,8 @@ fish/.config/fish/fish_variables
 # Git worktrees created by parallel Claude sessions
 .worktrees/
 
+# Machine-synced skill buckets (runtime-generated)
+claude/.claude/skills/synced/
+
 # Python bytecode
 __pycache__/
