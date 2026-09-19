@@ -210,3 +210,95 @@ def test_guard_writes_no_files() -> None:
     _run({"tool_name": "Bash", "tool_input": {"command": "ls"}, "cwd": PROJ})
     _run("not json")
     assert _tree(HOOKS_DIR) == before
+
+
+GIT_ASK = [
+    "git reset --hard origin/main",
+    "git checkout -- src/a.ts",
+    "git checkout .",
+    "git checkout -f main",
+    "git restore src/a.ts",
+    "git restore --worktree --staged a.ts",
+    "git switch --discard-changes main",
+    "git switch -C feat",
+    "git clean -fdx",
+    "git clean --force",
+    "git push --force",
+    "git push -f origin feat",
+    "git push origin +feat",
+    "git push --force-with-lease origin main",
+    "git push --force-with-lease origin HEAD:refs/heads/main",
+    "git branch -D feat",
+    "git branch -d -f feat",
+    "git branch --delete --force feat",
+    "git stash drop",
+    "git stash clear",
+    "git reflog expire --expire=now --all",
+    "git update-ref -d refs/heads/x",
+    "git rm -rf src",
+    "git -C ../wt reset --hard",
+    "cd ../wt && git reset --hard",
+    "sudo git clean -f",
+    'bash -c "git reset --hard"',
+    'eval "git stash clear"',
+]
+
+GIT_OK = [
+    "git status",
+    "git reset HEAD~1",
+    "git reset --soft HEAD~1",
+    "git checkout main",
+    "git checkout -b feat",
+    "git restore --staged a.ts",
+    "git switch -c feat",
+    "git clean -n",
+    "git push",
+    "git push -u origin feat",
+    "git push --force-with-lease origin feat",
+    "git branch -d feat",
+    "git stash",
+    "git stash pop",
+    "git reflog",
+    "git rm -r --cached tasks/",
+    "git worktree remove ../wt",
+    "git worktree prune",
+    "git merge --abort",
+    "git commit --amend --no-edit",
+    'git commit -m "git reset --hard"',
+    'echo "git push --force"',
+]
+
+
+def _git_hits(command: str) -> list[str]:
+    hits: list[str] = []
+    assert guard.evaluate(command, ctx(), git_hits=hits) is None
+    return hits
+
+
+@pytest.mark.parametrize("command", GIT_ASK)
+def test_git_asks(command: str) -> None:
+    assert _git_hits(command), f"expected an ask for {command!r}"
+
+
+@pytest.mark.parametrize("command", GIT_OK)
+def test_git_ok(command: str) -> None:
+    assert _git_hits(command) == []
+
+
+def test_deletion_block_wins_over_git_ask() -> None:
+    hits: list[str] = []
+    assert guard.evaluate("git clean -f && rm -rf /", ctx(), git_hits=hits)
+
+
+def test_subprocess_asks_on_destructive_git() -> None:
+    result = _run({"tool_name": "Bash", "tool_input": {"command": "git reset --hard"}, "cwd": PROJ})
+    assert result.returncode == 0
+    output = json.loads(result.stdout)["hookSpecificOutput"]
+    assert output["permissionDecision"] == "ask"
+    assert "reset --hard" in output["permissionDecisionReason"]
+
+
+def test_subprocess_silent_on_safe_git() -> None:
+    result = _run({"tool_name": "Bash", "tool_input": {"command": "git branch -d feat"}, "cwd": PROJ})
+    assert result.returncode == 0
+    assert result.stdout == ""

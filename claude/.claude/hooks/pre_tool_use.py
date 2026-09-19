@@ -3,15 +3,22 @@
 # requires-python = ">=3.11"
 # dependencies = []
 # ///
-"""PreToolUse guard for the Bash tool: block deletions aimed outside the project.
+"""PreToolUse guard for the Bash tool: block deletions aimed outside the project,
+and ask before git commands that throw away work.
 
-Only three commands are inspected: `rm`, `find` with `-delete` or `-exec rm`,
+Three deletion commands are inspected: `rm`, `find` with `-delete` or `-exec rm`,
 and `rsync` with `--delete`. Every target path is resolved against the
 command's (virtual) working directory, following `cd` inside the command.
 A target is blocked when it is `/`, the home directory, an ancestor of the
 project directory, or any absolute path outside the project directory,
 `/tmp`, or `~/.claude/projects`. Everything else is left to the auto-mode
 classifier.
+
+Destructive git commands (`reset --hard`, `clean -f`, `push --force`,
+`branch -D`, `stash drop` and similar, see `git_risk`) are not blocked. The
+guard prints a PreToolUse `ask` decision so the user confirms them. Plain
+`branch -d`, `--force-with-lease` to a feature branch and `worktree remove`
+stay allowed.
 
 Exit 2 with a one-line `BLOCKED:` reason on stderr blocks the call. Exit 0
 allows it. Any unexpected error allows the call and prints a warning. The
@@ -54,6 +61,8 @@ RSYNC_ARG_OPTS = {
     "--read-batch", "--protocol", "--remote-option", "-M", "--outbuf",
     "--info", "--debug", "--stderr", "-f",
 }
+GIT_VALUE_OPTS = {"-c", "-C", "--git-dir", "--work-tree", "--namespace", "--super-prefix"}
+SHARED_BRANCHES = {"main", "master", "develop", "trunk"}
 FALLBACK_DANGEROUS = {
     "/", "/*", "~", "~/", "~/*", "$HOME", "${HOME}", "$HOME/", "$HOME/*",
     "${HOME}/", "${HOME}/*",
@@ -317,6 +326,67 @@ def rsync_targets(argv: list[str]) -> list[tuple[str, str]]:
     ]
 
 
+def _short_flags(args: list[str]) -> str:
+    return "".join(a[1:] for a in args if a.startswith("-") and not a.startswith("--"))
+
+
+def _git_subcommand(argv: list[str]) -> tuple[str, list[str]] | None:
+    index = 1
+    while index < len(argv):
+        arg = argv[index]
+        if arg in GIT_VALUE_OPTS:
+            index += 2
+        elif arg.startswith("-"):
+            index += 1
+        else:
+            return arg, argv[index + 1 :]
+    return None
+
+
+def _push_is_destructive(rest: list[str]) -> bool:
+    lease = any(a == "--force-with-lease" or a.startswith("--force-with-lease=") for a in rest)
+    if any(a == "--force" or a.startswith("--force=") for a in rest) or "f" in _short_flags(rest):
+        return True
+    refspecs = [a for a in rest if not a.startswith("-")][1:]
+    if any(re.match(r"^\+[A-Za-z_/.:]", a) for a in refspecs) and not lease:
+        return True
+    shared = any(a.lstrip("+").split(":")[-1].removeprefix("refs/heads/") in SHARED_BRANCHES for a in refspecs)
+    return lease and shared
+
+
+def git_risk(argv: list[str]) -> str | None:
+    """Return why a git command discards work, or None when it is recoverable."""
+    found = _git_subcommand(argv)
+    if not found:
+        return None
+    sub, rest = found
+    short = _short_flags(rest)
+    first = rest[0] if rest else ""
+    if sub == "reset" and "--hard" in rest:
+        return "reset --hard discards uncommitted changes"
+    if sub == "checkout" and ("--" in rest or "." in rest or "--force" in rest or "f" in short):
+        return "checkout overwrites working-tree changes"
+    if sub == "restore" and ("--worktree" in rest or "W" in short or not ("--staged" in rest or "S" in short)):
+        return "restore overwrites working-tree changes"
+    if sub == "switch" and ("--discard-changes" in rest or "--force" in rest or re.search("[fC]", short)):
+        return "switch discards changes or overwrites a branch"
+    if sub == "clean" and ("--force" in rest or "f" in short):
+        return "clean -f deletes untracked files"
+    if sub == "push" and _push_is_destructive(rest):
+        return "force push rewrites remote history"
+    if sub == "branch" and ("D" in short or (("d" in short or "--delete" in rest) and ("f" in short or "--force" in rest))):
+        return "branch -D deletes an unmerged branch"
+    if sub == "stash" and first in ("drop", "clear"):
+        return f"stash {first} deletes stashed work"
+    if sub == "reflog" and first in ("expire", "delete"):
+        return f"reflog {first} removes the recovery log"
+    if sub == "update-ref" and ("-d" in rest or "--delete" in rest):
+        return "update-ref -d deletes a ref"
+    if sub == "rm" and ("--force" in rest or "f" in short):
+        return "rm -f deletes files with uncommitted changes"
+    return None
+
+
 def track_cd(argv: list[str], vcwd: str | None, ctx: Ctx) -> str | None:
     if argv[0] == "popd":
         return None
@@ -343,8 +413,18 @@ def fallback_regex(command: str) -> str | None:
     return None
 
 
-def evaluate(command: str, ctx: Ctx, depth: int = 0, start_cwd: str | None = None) -> str | None:
-    """Return the first block reason found in `command`, or None."""
+def evaluate(
+    command: str,
+    ctx: Ctx,
+    depth: int = 0,
+    start_cwd: str | None = None,
+    git_hits: list[str] | None = None,
+) -> str | None:
+    """Return the first block reason found in `command`, or None.
+
+    Destructive git commands are not block reasons. Their descriptions are
+    appended to `git_hits` when the caller passes a list.
+    """
     if depth > MAX_DEPTH:
         return None
     try:
@@ -370,15 +450,20 @@ def evaluate(command: str, ctx: Ctx, depth: int = 0, start_cwd: str | None = Non
         if name in SHELLS:
             for index, arg in enumerate(argv[1:], 1):
                 if arg == "-c" and index + 1 < len(argv):
-                    reason = evaluate(argv[index + 1], ctx, depth + 1, start_cwd=vcwd or "")
+                    reason = evaluate(argv[index + 1], ctx, depth + 1, vcwd or "", git_hits)
                     if reason:
                         return reason
                     break
             continue
         if name == "eval":
-            reason = evaluate(" ".join(argv[1:]), ctx, depth + 1, start_cwd=vcwd or "")
+            reason = evaluate(" ".join(argv[1:]), ctx, depth + 1, vcwd or "", git_hits)
             if reason:
                 return reason
+            continue
+        if name == "git":
+            risk = git_risk(argv)
+            if risk and git_hits is not None:
+                git_hits.append(f"git {risk}")
             continue
         if name not in INSPECTED:
             continue
@@ -397,16 +482,29 @@ def evaluate(command: str, ctx: Ctx, depth: int = 0, start_cwd: str | None = Non
     return None
 
 
+def ask_decision(git_hits: list[str]) -> dict:
+    return {
+        "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "ask",
+            "permissionDecisionReason": "; ".join(git_hits),
+        }
+    }
+
+
 def main() -> None:
     try:
         data = json.load(sys.stdin)
         if data.get("tool_name") != "Bash":
             sys.exit(0)
         command = (data.get("tool_input") or {}).get("command") or ""
-        reason = evaluate(command, build_ctx(data))
+        git_hits: list[str] = []
+        reason = evaluate(command, build_ctx(data), git_hits=git_hits)
         if reason:
             print(f"BLOCKED: {reason}", file=sys.stderr)
             sys.exit(2)
+        if git_hits:
+            print(json.dumps(ask_decision(git_hits)))
         sys.exit(0)
     except SystemExit:
         raise
