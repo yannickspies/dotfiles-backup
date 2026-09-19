@@ -59,7 +59,8 @@ ALWAYS validate at system boundaries:
 ## Naming Conventions
 
 - Variables and functions: `camelCase` with descriptive names
-- Booleans: prefer `is`, `has`, `should`, or `can` prefixes
+- Booleans: prefer `is`, `has`, `should`, or `can` prefixes — except busy flags,
+  which name the state: `loading`, `saving`, `deleting` (a repo lint rule may ban `isLoading`)
 - Interfaces, types, and components: `PascalCase`
 - Constants: `UPPER_SNAKE_CASE`
 - Custom hooks: `camelCase` with a `use` prefix
