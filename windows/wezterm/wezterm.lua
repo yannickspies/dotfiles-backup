@@ -111,9 +111,11 @@ local function split_auto(window, pane)
 end
 
 config.keys = {
-	-- Paste: three triggers so one shadowed hotkey can never lock paste out again.
-	{ key = "v", mods = "CTRL", action = act.PasteFrom("Clipboard") },
-	{ key = "v", mods = "CTRL|SHIFT", action = act.PasteFrom("Clipboard") },
+	-- Paste: Ctrl+V and Ctrl+Shift+V go to tmux, which pastes via win32yank
+	-- (tmux/win-paste.sh). WezTerm's own PasteFrom delivered empty pastes into WSL.
+	-- Shift+Insert keeps the native path as a fallback.
+	{ key = "v", mods = "CTRL", action = act.SendKey({ key = "v", mods = "CTRL" }) },
+	{ key = "v", mods = "CTRL|SHIFT", action = act.SendKey({ key = "v", mods = "CTRL" }) },
 	{ key = "Insert", mods = "SHIFT", action = act.PasteFrom("Clipboard") },
 	-- Copy
 	{ key = "c", mods = "CTRL", action = wezterm.action_callback(copy_or_interrupt) },
@@ -130,7 +132,7 @@ config.mouse_bindings = {
 		event = { Up = { streak = 1, button = "Right" } },
 		mods = "NONE",
 		mouse_reporting = true,
-		action = act.PasteFrom("Clipboard"),
+		action = act.SendKey({ key = "v", mods = "CTRL" }),
 	},
 }
 
